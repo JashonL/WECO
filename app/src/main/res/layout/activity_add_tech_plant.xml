@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.olp.lib.view.StatusBarWhiteHeightView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_app_main" />
+
+    <com.olp.weco.view.TitleBarLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="@string/m44_add_plant" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--电站图片-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/m105_pv_station_pic"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_14"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_10"
+                        android:text="@string/m106_load_pic"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_14" />
+
+
+                    <Space
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_plant_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_placeholder" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--电站类型-->
+            <LinearLayout
+                android:id="@+id/ll_station_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/m107_station_type"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_14"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_station_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_10"
+                        android:text="@string/m108_select_station_type"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_14" />
+
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_5"
+                        android:src="@drawable/icon_next" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--电站名称-->
+            <LinearLayout
+                android:id="@+id/ll_station_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/m109_station_name"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_14"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_station_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:hint="@string/m70_please_input_plant_name"
+                        android:padding="@dimen/dp_10"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--安装日期-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/m71_install_date"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_14"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_installtion_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:hint="@string/m110_installtion_date"
+                        android:padding="@dimen/dp_10"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_14" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_5"
+                        android:src="@drawable/ic_install_date" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--电站地址-->
+            <LinearLayout
+                android:id="@+id/ll_installtion_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/m111_station_address"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_14"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_country"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="@string/m79_country"
+                        android:padding="@dimen/dp_10"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_14"
+                        app:drawableEndCompat="@drawable/drop" />
+
+
+                    <TextView
+                        android:id="@+id/tv_city"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="@string/m78_city"
+                        android:padding="@dimen/dp_10"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_14"
+                        app:drawableEndCompat="@drawable/drop" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:id="@+id/et_detail_addr"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:hint="@string/m115_enter_the_plant_addr"
+                        android:padding="@dimen/dp_10"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_14" />
+
+                    <ImageView
+                        android:id="@+id/iv_clear_addr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_10"
+                        android:src="@drawable/close" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--电站名称-->
+            <LinearLayout
+                android:id="@+id/ll_found_revenge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/m112_found_revenge"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_14"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_10"
+                        android:text="@string/m112_found_revenge"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/size_content_sp_14" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_5"
+                        android:src="@drawable/icon_next" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:background="@drawable/shape_login"
+                android:gravity="center"
+                android:text="@string/m44_add_plant"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

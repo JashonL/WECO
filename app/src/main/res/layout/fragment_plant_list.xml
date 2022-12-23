@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smart.refresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/srf_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white"
+        tools:context=".ui.plant.fragment.PlantListFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_plant"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/plant_view_holder" />
+
+        <LinearLayout
+            android:id="@+id/ll_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_add_plant"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_circle_add" />
+
+            <TextView
+                android:id="@+id/tv_empty_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m44_add_plant"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_medium" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>
+

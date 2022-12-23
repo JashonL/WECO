@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="@string/m16_home"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/navigation_eneger"
+        android:icon="@drawable/energy_unselect"
+        app:showAsAction="always"
+        android:title="@string/m17_energy" />
+
+    <item
+        android:id="@+id/navigation_array"
+        app:showAsAction="always"
+        android:icon="@drawable/array_gray"
+        android:title="@string/m18_array" />
+
+
+    <item
+        android:id="@+id/navigation_station"
+        app:showAsAction="always"
+        android:icon="@drawable/station_unselect"
+        android:title="@string/m19_station" />
+
+    <item
+        android:id="@+id/navigation_menu"
+        app:showAsAction="always"
+        android:icon="@drawable/manager_gray"
+        android:title="@string/m20_manu" />
+
+</menu>

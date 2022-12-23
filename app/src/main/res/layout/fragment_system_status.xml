@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/srl_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_20"
+                app:cardCornerRadius="@dimen/dp_20"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_400"
+                    android:background="@color/white"
+                    android:paddingTop="@dimen/dp_20">
+
+
+                    <TextView
+                        android:id="@+id/tv_ol_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_20"
+                        android:layout_marginBottom="@dimen/dp_20"
+                        android:background="@drawable/shape_corner"
+                        android:gravity="center"
+                        android:minWidth="@dimen/dp_100"
+                        android:padding="@dimen/dp_5"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:drawableStartCompat="@drawable/wifi_normal"
+                        app:layout_constraintBottom_toTopOf="@+id/iv_sys_ppv"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+
+                    <View
+                        android:id="@+id/v_circle"
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="@dimen/dp_100"
+                        android:layout_marginTop="@dimen/dp_40"
+                        android:background="@drawable/gray_circle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <View
+                        android:id="@+id/v_top"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintLeft_toLeftOf="@+id/v_circle"
+                        app:layout_constraintRight_toRightOf="@+id/v_circle"
+                        app:layout_constraintTop_toTopOf="@+id/v_circle" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ems"
+                        app:layout_constraintBottom_toBottomOf="@+id/v_circle"
+                        app:layout_constraintLeft_toLeftOf="@+id/v_circle"
+                        app:layout_constraintRight_toRightOf="@+id/v_circle"
+                        app:layout_constraintTop_toTopOf="@+id/v_circle" />
+
+
+                    <View
+                        android:id="@+id/iv_left"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/v_circle"
+                        app:layout_constraintLeft_toLeftOf="@+id/v_circle"
+                        app:layout_constraintTop_toTopOf="@+id/v_circle" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_planet_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/planet_green"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_left"
+                        app:layout_constraintLeft_toLeftOf="@+id/iv_left"
+                        app:layout_constraintRight_toRightOf="@+id/iv_left"
+                        app:layout_constraintTop_toTopOf="@+id/iv_left" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_planet_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/planet_blue"
+                        app:layout_constraintBottom_toBottomOf="@+id/v_top"
+                        app:layout_constraintLeft_toLeftOf="@+id/v_top"
+                        app:layout_constraintRight_toRightOf="@+id/v_top"
+                        app:layout_constraintTop_toTopOf="@+id/v_top" />
+
+
+                    <View
+                        android:id="@+id/iv_right"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/v_circle"
+                        app:layout_constraintRight_toRightOf="@+id/v_circle"
+                        app:layout_constraintTop_toTopOf="@+id/v_circle" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_planet_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/planet_yellow"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_right"
+                        app:layout_constraintLeft_toLeftOf="@+id/iv_right"
+                        app:layout_constraintRight_toRightOf="@+id/iv_right"
+                        app:layout_constraintTop_toTopOf="@+id/iv_right" />
+
+
+                    <View
+                        android:id="@+id/iv_bottom"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/v_circle"
+                        app:layout_constraintLeft_toLeftOf="@+id/v_circle"
+                        app:layout_constraintRight_toRightOf="@+id/v_circle" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_planet_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/planet_blue"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_bottom"
+                        app:layout_constraintLeft_toLeftOf="@+id/iv_bottom"
+                        app:layout_constraintRight_toRightOf="@+id/iv_bottom"
+                        app:layout_constraintTop_toTopOf="@+id/iv_bottom" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_sys_bat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:src="@drawable/system_bat"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_planet_bottom" />
+
+
+                    <TextView
+                        android:id="@+id/tv_bat_power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingStart="@dimen/dp_10"
+                        android:text="66W"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_bat"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_sys_bat"
+                        app:layout_constraintTop_toTopOf="@+id/iv_sys_bat" />
+
+
+                    <TextView
+                        android:id="@+id/tv_bat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingStart="@dimen/dp_10"
+                        android:text="@string/m33_bat"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_sys_bat"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_sys_bat"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_bat_power" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_sys_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_20"
+                        android:src="@drawable/system_home"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_planet_bottom" />
+
+
+                    <TextView
+                        android:id="@+id/tv_home_power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:text="55W"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_home"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_sys_home"
+                        app:layout_constraintTop_toTopOf="@+id/iv_sys_home" />
+
+
+                    <TextView
+                        android:id="@+id/tv_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:text="@string/m16_home"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_sys_home"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_sys_home"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_home_power" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_sys_load"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_20"
+                        android:src="@drawable/system_load"
+                        app:layout_constraintBottom_toTopOf="@+id/iv_planet_top"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_load_power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:text="888W"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_load"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_sys_load"
+                        app:layout_constraintTop_toTopOf="@+id/iv_sys_load" />
+
+
+                    <TextView
+                        android:id="@+id/tv_load"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:text="@string/m32_load"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_sys_load"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_sys_load"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_load_power" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_sys_grid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:src="@drawable/system_grid"
+                        app:layout_constraintBottom_toTopOf="@+id/iv_planet_top"
+                        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_grid_power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingStart="@dimen/dp_10"
+                        android:text="900W"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_grid"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_sys_grid"
+                        app:layout_constraintTop_toTopOf="@+id/iv_sys_grid" />
+
+
+                    <TextView
+                        android:id="@+id/tv_grid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingStart="@dimen/dp_10"
+                        android:text="@string/m12_grid"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_sys_grid"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_sys_grid"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_grid_power" />
+
+
+                    <TextView
+                        android:id="@+id/tv_solar_power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingStart="@dimen/dp_10"
+                        android:text="666W"
+                        android:textColor="@color/black_333333"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_solar"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                        app:layout_constraintTop_toTopOf="@+id/iv_sys_ppv" />
+
+
+                    <TextView
+                        android:id="@+id/tv_solar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/dp_100"
+                        android:paddingStart="@dimen/dp_10"
+                        android:text="@string/m9_solar"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/size_content_sp_16"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_sys_ppv"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_solar_power" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_sys_ppv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_10"
+                        android:src="@drawable/system_ppv"
+                        app:layout_constraintBottom_toTopOf="@+id/iv_sys_grid"
+                        app:layout_constraintLeft_toLeftOf="@+id/v_circle"
+                        app:layout_constraintRight_toRightOf="@+id/v_circle" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <ImageView
+                android:id="@+id/iv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/dp_20"
+                app:layout_constraintBottom_toTopOf="@+id/tv_last_update"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_status" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_status"
+                app:layout_constraintLeft_toRightOf="@+id/iv_status"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_status" />
+
+
+            <TextView
+                android:id="@+id/tv_last_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:text="Last update 23 min"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+</RelativeLayout>
+

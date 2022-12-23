@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.station.activity.AddPlantActivity">
+
+    <com.olp.lib.view.StatusBarHeightView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white" />
+
+    <com.olp.weco.view.TitleBarLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="@string/m44_add_plant" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_add_plant_1"
+                android:layout_width="match_parent"
+                android:name="com.olp.weco.ui.station.fragment.AddPlant1Fragment"
+                android:layout_height="wrap_content" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_add_plant_2"
+                android:layout_width="match_parent"
+                android:name="com.olp.weco.ui.station.fragment.AddPlant2Fragment"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <Button
+                android:id="@+id/bt_next_step"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="50dp"
+                android:text="@string/m67_next_step"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.manu.activity.SettingActivity">
+
+    <com.olp.lib.view.StatusBarWhiteHeightView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_app_main" />
+
+    <com.olp.weco.view.TitleBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:showLeftBackIcon="false"
+        app:titleText="@string/m38_setting" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_white"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/iv_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_default_avatar"
+            app:roundPercent="1" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/m24_personal_avatar"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_subtitle"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_white"
+        android:divider="@drawable/line_divider"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <com.olp.weco.view.SettingItemView
+            android:id="@+id/item_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:itemName="@string/m153_email"
+            app:showRightIcon="true"
+            app:showSubName="true"
+            app:textSubNameColor="@color/text_gray_bb" />
+
+        <com.olp.weco.view.SettingItemView
+            android:id="@+id/item_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:itemName="@string/m77_password"
+            app:showSubName="true" />
+
+        <com.olp.weco.view.SettingItemView
+            android:id="@+id/item_country"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:showSubName="true"
+            app:itemName="@string/m79_country" />
+
+        <com.olp.weco.view.SettingItemView
+            android:id="@+id/item_installation_code"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:itemName="@string/m186_installer_code"
+            app:showSubName="true" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

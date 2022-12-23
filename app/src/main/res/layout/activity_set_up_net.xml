@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.dataloger.AddDataLoggerActivity">
+
+    <com.olp.lib.view.StatusBarWhiteHeightView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_app_main" />
+
+    <com.olp.weco.view.TitleBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="@string/m92_add_data_logger" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/m99_configure_the_device"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/m100_please_select_wifi"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_medium" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:src="@drawable/icon_wifi" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:background="@color/color_white"
+        android:divider="@drawable/line_divider"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:id="@+id/ll_ssid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/m123_wifi_account"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_ssid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_weight="1"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:hint="@string/m100_please_select_wifi"
+                android:inputType="text"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium" />
+
+            <ImageView
+                android:id="@+id/iv_wifi_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/icon_next" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/m124_wifi_password"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_weight="1"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:hint="@string/m77_password"
+                android:inputType="text"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_finish"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/shape_login"
+        android:text="@string/m67_next_step"
+        android:textSize="@dimen/text_medium" />
+
+    <Button
+        android:id="@+id/bt_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="36dp"
+        android:textColor="@color/color_app_main"
+        android:background="@drawable/shape_cancel"
+        android:text="@string/m6_cancel"
+        android:textSize="@dimen/text_medium" />
+
+
+</LinearLayout>

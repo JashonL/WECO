@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="136dp"
+    tools:background="@color/color_white">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/iv_plant_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:round="2dp"
+        tools:background="@color/colorAccent" />
+
+    <LinearLayout
+        android:id="@+id/ll_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_plant_image"
+        app:layout_constraintEnd_toEndOf="@id/iv_plant_image"
+        app:layout_constraintStart_toStartOf="@id/iv_plant_image">
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:src="@drawable/ic_plant_locate" />
+
+        <TextView
+            android:id="@+id/tv_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_10"
+            tools:text="深圳" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_plant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:maxWidth="150dp"
+        android:singleLine="true"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_plant_image"
+        app:layout_constraintTop_toTopOf="@id/iv_plant_image"
+        tools:text="电站名称" />
+
+    <TextView
+        android:id="@+id/tv_plant_status"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="4dp"
+        android:gravity="center"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textColor="@color/text_white"
+        android:textSize="@dimen/text_10"
+        app:layout_constraintBottom_toBottomOf="@id/tv_plant_name"
+        app:layout_constraintStart_toEndOf="@id/tv_plant_name"
+        app:layout_constraintTop_toTopOf="@id/tv_plant_name"
+        tools:text="在线" />
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/ic_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_plant_image" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_plant_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_plant_name">
+
+        <LinearLayout
+            android:id="@+id/ll_current_power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_current_power" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@string/m45_current_power"
+                android:textColor="@color/color_990087FD"
+                android:textSize="@dimen/text_tab" />
+
+            <TextView
+                android:id="@+id/tv_current_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textColor="@color/color_990087FD"
+                android:textSize="@dimen/text_tab"
+                tools:text="21.76W" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_install_date" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@string/m46_please_select_install_date"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_tab" />
+
+            <TextView
+                android:id="@+id/tv_install_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_tab"
+                tools:text="2020-02-03" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_total_component_power" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@string/m47_please_input_total_component_power"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_tab" />
+
+            <TextView
+                android:id="@+id/tv_total_component_power"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_tab"
+                tools:text="69kWp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_generate_electricity" />
+
+            <TextView
+                android:id="@+id/tv_today_text"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_tab"
+                android:text="今日发电/累计发电" />
+
+            <TextView
+                android:id="@+id/tv_power"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/color_0087FD"
+                android:textSize="@dimen/text_tab"
+                tools:text="69/207kWh" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

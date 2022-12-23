@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.chart.LineChartFragment">
+
+    <TextView
+        android:id="@+id/tv_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/text_gray_66"
+        android:textSize="@dimen/text_small"
+        tools:text="kWh" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="10dp" />
+
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexbox_chart_lenged"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:alignContent="stretch"
+        app:alignItems="stretch"
+        app:dividerDrawableHorizontal="@drawable/divider_search_vertical"
+        app:dividerDrawableVertical="@drawable/divider_search_horizontal"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        app:justifyContent="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bar_chart"
+        app:showDividerHorizontal="middle"
+        app:showDividerVertical="middle" />
+
+</LinearLayout>

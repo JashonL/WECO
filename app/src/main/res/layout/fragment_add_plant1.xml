@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.station.fragment.AddPlant1Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        android:divider="@drawable/line_divider"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/m68_plant_name"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_plant_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:hint="@string/m70_please_input_plant_name"
+                android:inputType="text"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/m71_install_date"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_install_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:hint="@string/m46_please_select_install_date"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                app:drawableEndCompat="@drawable/ic_calendar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_white"
+        android:divider="@drawable/line_divider"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m72_plant_address"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:id="@+id/tv_select_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/m69_please_select_country_or_area_2"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                app:drawableEndCompat="@drawable/ic_right" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="19dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tv_map_for_choosing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gray_background_corner_20_stroke_1"
+                android:drawablePadding="1dp"
+                android:paddingStart="18dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                android:id="@+id/tv_auto_fetch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:background="@drawable/gray_background_corner_20_stroke_1"
+                android:drawablePadding="1dp"
+                android:paddingStart="18dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/text_gray_99"
+                android:textSize="@dimen/text_small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:id="@+id/tv_select_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium"
+                app:drawableEndCompat="@drawable/ic_right" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="*"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/text_medium"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/et_detail_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_medium" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

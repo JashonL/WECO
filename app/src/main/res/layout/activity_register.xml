@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.olp.lib.view.StatusBarWhiteHeightView
+        android:id="@+id/status_bar"
+        android:background="@color/color_app_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <com.olp.weco.view.TitleBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="@string/m2_register" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.olp.weco.view.EditTextComposeView
+                android:id="@+id/et_country"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:compose_hide="@string/m79_country"
+                app:compose_content_type="content_text"
+                app:compose_right_type="right_type_icon"
+                app:compose_rigth_icon="@drawable/icon_next"
+                app:compose_left_icon="@drawable/country"
+                app:compose_right_show="true" />
+
+            <com.olp.weco.view.EditTextComposeView
+                android:id="@+id/et_zone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:compose_hide="@string/m80_time_zone"
+                app:compose_left_icon="@drawable/zone"
+                app:compose_right_show="true"
+                app:compose_content_type="content_input"
+                app:compose_right_type="right_type_text"
+                app:compose_rigth_text="@string/m4_auto" />
+
+            <com.olp.weco.view.EditTextComposeView
+                android:id="@+id/et_email_number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:compose_hide="@string/m5_email_address"
+                app:compose_content_type="content_input"
+                app:compose_left_icon="@drawable/login_user"
+                app:compose_right_show="false" />
+
+            <com.olp.weco.view.EditTextComposeView
+                android:id="@+id/et_vertification_code"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:compose_hide="@string/m158_send_verify_code"
+                app:compose_left_icon="@drawable/code"
+                app:compose_right_show="true"
+                app:compose_content_type="content_input"
+                app:compose_right_type="right_type_text"
+                app:compose_rigth_text="@string/m158_send_verify_code" />
+
+            <com.olp.weco.view.EditTextComposeView
+                android:id="@+id/et_new_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:compose_hide="@string/m77_password"
+                app:compose_left_icon="@drawable/lock"
+                app:compose_right_show="true"
+                app:compose_content_type="content_input"
+                app:compose_item_ispassword="true"
+                app:compose_right_type="right_type_icon"
+                app:compose_rigth_icon="@drawable/eye_open" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:text="@string/m13_password_characters"
+                android:textColor="@color/black_999999" />
+
+
+            <com.olp.weco.view.EditTextComposeView
+                android:id="@+id/et_comfir_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:compose_item_ispassword="true"
+                app:compose_content_type="content_input"
+                app:compose_hide="@string/m152_new_password_again"
+                app:compose_left_icon="@drawable/lock_comfir"
+                app:compose_right_show="false" />
+
+
+            <com.olp.weco.view.EditTextComposeView
+                android:id="@+id/et_installer_code"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:compose_item_ispassword="true"
+                app:compose_hide="@string/m186_installer_code"
+                app:compose_content_type="content_input"
+                app:compose_left_icon="@drawable/login_user"
+                app:compose_right_show="false" />
+
+
+            <LinearLayout
+                android:id="@+id/terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_20"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_5"
+                app:layout_constraintBottom_toTopOf="@+id/btn_login"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <CheckBox
+                    android:id="@+id/iv_select"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:padding="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_user_agreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/m10_accept_policy"
+                    android:textColor="@color/color_text_99"
+                    android:textSize="@dimen/size_content_sp_12" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/bt_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:background="@drawable/shape_login"
+                android:gravity="center"
+                android:text="@string/m2_register"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

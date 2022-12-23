@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/srl_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+
+            <ImageView
+                android:id="@+id/iv_sys_ppv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/system_ppv"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_dc_ac"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_dc_ac"
+                app:layout_constraintTop_toTopOf="@+id/tv_dc_ac" />
+
+
+            <TextView
+                android:id="@+id/tv_solar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/dp_100"
+                android:text="@string/m9_solar"
+                android:textColor="@color/black_999999"
+                android:textSize="@dimen/size_content_sp_16"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_sys_ppv"
+                app:layout_constraintRight_toRightOf="@+id/iv_sys_ppv"
+                app:layout_constraintTop_toBottomOf="@+id/iv_sys_ppv" />
+
+
+            <TextView
+                android:id="@+id/tv_solar_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/dp_100"
+                android:text="666kWh"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/size_content_sp_16"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_sys_ppv"
+                app:layout_constraintRight_toRightOf="@+id/iv_sys_ppv"
+                app:layout_constraintTop_toBottomOf="@+id/tv_solar" />
+
+
+            <TextView
+                android:id="@+id/tv_dc_ac"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:layout_marginTop="@dimen/dp_80"
+                android:background="@drawable/circle_blue"
+                android:gravity="center"
+                android:text="AC/DC"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_sys_grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/system_grid"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_dc_ac"
+                app:layout_constraintLeft_toRightOf="@+id/tv_dc_ac"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_dc_ac" />
+
+
+            <TextView
+                android:id="@+id/tv_grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/dp_100"
+                android:text="@string/m12_grid"
+                android:textColor="@color/black_999999"
+                android:textSize="@dimen/size_content_sp_16"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_sys_grid"
+                app:layout_constraintRight_toRightOf="@+id/iv_sys_grid"
+                app:layout_constraintTop_toBottomOf="@+id/iv_sys_grid" />
+
+
+            <TextView
+                android:id="@+id/tv_grid_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/dp_100"
+                android:text="999kWh"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/size_content_sp_16"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_sys_grid"
+                app:layout_constraintRight_toRightOf="@+id/iv_sys_grid"
+                app:layout_constraintTop_toBottomOf="@+id/tv_grid" />
+
+
+            <ImageView
+                android:id="@+id/iv_sys_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_50"
+                android:src="@drawable/system_home"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_dc_ac"
+                app:layout_constraintRight_toRightOf="@+id/tv_dc_ac"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dc_ac" />
+
+
+            <TextView
+                android:id="@+id/tv_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/dp_100"
+                android:text="@string/m16_home"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/size_content_sp_16"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_sys_load"
+                app:layout_constraintRight_toRightOf="@+id/iv_sys_load"
+                app:layout_constraintTop_toBottomOf="@+id/iv_sys_load" />
+
+
+            <TextView
+                android:id="@+id/tv_home_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/dp_100"
+                android:text="2kW"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/size_content_sp_16"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_sys_load"
+                app:layout_constraintRight_toRightOf="@+id/iv_sys_load"
+                app:layout_constraintTop_toBottomOf="@+id/tv_home" />
+
+
+            <View
+                android:id="@+id/v_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@color/gray_eeeeeee"
+                app:layout_constraintTop_toBottomOf="@+id/tv_home_power" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_power"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/ll_energy_today"
+                app:layout_constraintTop_toBottomOf="@+id/v_line">
+
+                <TextView
+                    android:id="@+id/tv_power"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="120kWh"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_16"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ppv"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                    app:layout_constraintTop_toTopOf="@+id/iv_sys_ppv" />
+
+                <TextView
+                    android:id="@+id/tv_power_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/m128_power"
+                    android:textColor="@color/black_999999"
+                    android:textSize="@dimen/size_content_sp_14"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ppv"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                    app:layout_constraintTop_toTopOf="@+id/iv_sys_ppv" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_energy_today"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10"
+                app:layout_constraintLeft_toRightOf="@+id/ll_power"
+                app:layout_constraintRight_toLeftOf="@+id/ll_energy_total"
+                app:layout_constraintTop_toTopOf="@+id/ll_power">
+
+
+                <TextView
+                    android:id="@+id/tv_energy_today"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="1520kWh"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_16"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ppv"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                    app:layout_constraintTop_toTopOf="@+id/iv_sys_ppv" />
+
+                <TextView
+                    android:id="@+id/tv_today_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/m10_energy_today"
+                    android:textColor="@color/black_999999"
+                    android:textSize="@dimen/size_content_sp_14"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ppv"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                    app:layout_constraintTop_toTopOf="@+id/iv_sys_ppv" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_energy_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10"
+                app:layout_constraintBottom_toBottomOf="@+id/ll_power"
+                app:layout_constraintLeft_toRightOf="@+id/ll_energy_today"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ll_power">
+
+                <TextView
+                    android:id="@+id/tv_energy_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="86520kWh"
+                    android:textColor="@color/black_333333"
+                    android:textSize="@dimen/size_content_sp_16"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ppv"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                    app:layout_constraintTop_toTopOf="@+id/iv_sys_ppv" />
+
+                <TextView
+                    android:id="@+id/tv_total_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/m11_energy_total"
+                    android:textColor="@color/black_999999"
+                    android:textSize="@dimen/size_content_sp_14"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ppv"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_sys_ppv"
+                    app:layout_constraintTop_toTopOf="@+id/iv_sys_ppv" />
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/v_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"
+                android:background="@color/gray_eeeeeee"
+                app:layout_constraintTop_toBottomOf="@+id/ll_energy_total" />
+
+
+            <ImageView
+                android:id="@+id/iv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/dp_20"
+                app:layout_constraintBottom_toTopOf="@+id/tv_last_update"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_status" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_status"
+                app:layout_constraintLeft_toRightOf="@+id/iv_status"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_status" />
+
+            <TextView
+                android:id="@+id/tv_last_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:text="Last update 23 min"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+</LinearLayout>
