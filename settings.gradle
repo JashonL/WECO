@@ -13,7 +13,7 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "Ttech"
+rootProject.name = "weco"
 include ':app'
 include ':scan'
 include ':mpchart'

@@ -33,7 +33,7 @@ import com.olp.weco.view.dialog.AlertDialog
 import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
 import com.ttech.bluetooth.util.receiver.BlueToothReceiver
-import com.ttech.bluetooth.util.util.LocalUtils
+import com.olp.bluetooth.util.util.LocalUtils
 import com.olp.lib.util.LogUtil
 import java.util.*
 

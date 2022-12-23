@@ -22,7 +22,7 @@ ext {
             //高德地图key
             amapKey                  : "3e94f84cb3993b597dd1916935b5f4a1",
             //正式服务器域名
-            apiServerUrl             : "http://8.212.44.120:8081/",
+            apiServerUrl             : "http://47.57.12.171:8080/",
             //服务邮箱
             serviceEmail             : "support@timxon.com",
             //服务时间

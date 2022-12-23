@@ -1,4 +1,4 @@
-package com.ttech.bluetooth.util.util
+package com.olp.bluetooth.util.util
 
 import android.app.Activity
 import android.content.Context

@@ -161,6 +161,16 @@
             android:exported="false"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="stateAlwaysHidden" />
+
+
+
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
+
+
+
     </application>
 
 </manifest>

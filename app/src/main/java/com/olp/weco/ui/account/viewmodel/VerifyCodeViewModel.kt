@@ -26,10 +26,11 @@ class VerifyCodeViewModel : BaseViewModel() {
      * 获取验证码
      * @param phoneOrEmailStr 手机号或者邮箱
      */
-    fun fetchVerifyCode(email: String) {
+    fun fetchVerifyCode(email: String,type:String) {
         viewModelScope.launch {
             val params = hashMapOf<String, String>().apply {
                 put("email", email)
+                put("type", type)
             }
             apiService().postForm(ApiPath.Mine.SENDEMAILCODE, params, object :
                 HttpCallback<HttpResult<String>>() {

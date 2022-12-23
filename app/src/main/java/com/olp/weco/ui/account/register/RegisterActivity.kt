@@ -233,7 +233,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     private fun requestSendVerifyCode() {
         val phoneOrEmail = getPhoneOrEmailText()
         phoneOrEmail?.let {
-            verifyCodeViewModel.fetchVerifyCode(phoneOrEmail)
+            verifyCodeViewModel.fetchVerifyCode(phoneOrEmail,"1")
         }
     }
 

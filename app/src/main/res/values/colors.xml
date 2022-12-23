@@ -43,8 +43,8 @@
 
 
     <!--主色-->
-    <color name="color_app_main">#113E68</color>
-    <color name="color_app_main_pressed">#003E68</color>
+    <color name="color_app_main">#7E7E7E</color>
+    <color name="color_app_main_pressed">#999999</color>
     <!--分割线颜色-->
     <color name="color_item_divider_66">#666666</color>
     <color name="color_item_divider_99">#999999</color>

@@ -21,7 +21,8 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Build;
 
-import com.ttech.scan.util.LogUtils;
+
+import com.olp.scan.util.LogUtils;
 
 import java.util.Arrays;
 import java.util.Collection;

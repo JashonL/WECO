@@ -32,9 +32,9 @@ class LoginViewModel : BaseViewModel() {
         val params = hashMapOf<String, String>().apply {
             put("email", email)
             put("password", password)
-            put("phoneOs", phoneOs.toString())
-            put("phoneModel", phoneModel)
-            put("appVersion", appVersion)
+            put("phoneOSType", phoneOs.toString())
+            put("phoneMode", phoneModel)
+            put("appVer", appVersion)
 
         }
         viewModelScope.launch {
