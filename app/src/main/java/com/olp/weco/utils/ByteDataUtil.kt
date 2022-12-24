@@ -6,10 +6,10 @@ import com.olp.weco.model.ble.DatalogAPSetParam
 import com.olp.weco.model.ble.DatalogBlueMsgBean
 import com.olp.weco.model.ble.DatalogResponBean
 import com.olp.weco.model.ble.DatalogResponBean.ParamBean
-import com.ttech.bluetooth.util.util.ByteDataUtils.byteToString
-import com.ttech.bluetooth.util.util.ByteDataUtils.bytes2Int
-import com.ttech.bluetooth.util.util.ByteDataUtils.getMsgByAes
-import com.ttech.bluetooth.util.util.ByteDataUtils.int2Byte
+import com.olp.bluetooth.util.util.ByteDataUtils.byteToString
+import com.olp.bluetooth.util.util.ByteDataUtils.bytes2Int
+import com.olp.bluetooth.util.util.ByteDataUtils.getMsgByAes
+import com.olp.bluetooth.util.util.ByteDataUtils.int2Byte
 import com.olp.lib.util.LogUtil
 
 

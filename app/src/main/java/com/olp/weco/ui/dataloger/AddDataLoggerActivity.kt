@@ -13,9 +13,9 @@ import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityAddDataLoggerBinding
 import com.olp.weco.service.ble.BleManager
 import com.olp.weco.ui.station.viewmodel.AddDataLoggerViewModel
-import com.ttech.bluetooth.util.`interface`.IBleConnetLisener
-import com.ttech.bluetooth.util.`interface`.IScanResult
-import com.ttech.bluetooth.util.bean.BleModel
+import com.olp.bluetooth.util.`interface`.IBleConnetLisener
+import com.olp.bluetooth.util.`interface`.IScanResult
+import com.olp.bluetooth.util.bean.BleModel
 import com.olp.lib.util.ActivityBridge
 import com.olp.lib.util.ToastUtil
 import com.olp.lib.util.Util
@@ -189,7 +189,8 @@ class AddDataLoggerActivity : BaseActivity(), View.OnClickListener {
                                             val address = it.address
 
                                             //去连接蓝牙
-                                            viewModel.bleManager?.connect(address?:"",object :IBleConnetLisener{
+                                            viewModel.bleManager?.connect(address?:"",object :
+                                                IBleConnetLisener {
                                                 override fun connectError() {
                                                     //连接失败了
                                                 }

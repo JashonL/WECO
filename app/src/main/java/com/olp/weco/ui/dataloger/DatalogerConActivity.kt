@@ -13,7 +13,7 @@ import com.olp.weco.service.ble.BleCommand.LINK_STATUS
 import com.olp.weco.service.ble.BleManager
 import com.olp.weco.ui.dataloger.viewmodel.ConnetViewModel
 import com.olp.weco.utils.ByteDataUtil
-import com.ttech.bluetooth.util.receiver.BlueToothReceiver
+import com.olp.bluetooth.util.receiver.BlueToothReceiver
 import com.olp.lib.util.LogUtil
 
 

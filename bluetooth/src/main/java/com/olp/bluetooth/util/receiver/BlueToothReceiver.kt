@@ -1,4 +1,4 @@
-package com.ttech.bluetooth.util.receiver
+package com.olp.bluetooth.util.receiver
 
 import android.app.Application
 import android.content.BroadcastReceiver

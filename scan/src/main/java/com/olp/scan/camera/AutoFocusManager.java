@@ -21,8 +21,9 @@ import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
-import com.ttech.scan.Preferences;
-import com.ttech.scan.util.LogUtils;
+
+import com.olp.scan.Preferences;
+import com.olp.scan.util.LogUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

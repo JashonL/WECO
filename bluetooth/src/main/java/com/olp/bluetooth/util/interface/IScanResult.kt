@@ -1,9 +1,9 @@
-package com.ttech.bluetooth.util.`interface`
+package com.olp.bluetooth.util.`interface`
 
-import com.ttech.bluetooth.util.bean.BleModel
+import com.olp.bluetooth.util.bean.BleModel
 
 interface IScanResult {
-    fun scanning(model:BleModel)
+    fun scanning(model: BleModel)
 
     fun scanResult(results:List<BleModel>)
 

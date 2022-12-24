@@ -22,7 +22,7 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.os.Message;
 
-import com.ttech.scan.util.LogUtils;
+import com.olp.scan.util.LogUtils;
 
 
 @SuppressWarnings("deprecation") // camera APIs

@@ -139,7 +139,7 @@
 
 
 
-        <service android:name="com.ttech.bluetooth.util.service.BleConnectService" />
+        <service android:name="com.olp.bluetooth.util.service.BleConnectService" />
 
 
 

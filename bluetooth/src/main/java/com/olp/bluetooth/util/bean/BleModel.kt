@@ -1,4 +1,4 @@
-package com.ttech.bluetooth.util.bean
+package com.olp.bluetooth.util.bean
 
 data class BleModel(
     val name: String?,

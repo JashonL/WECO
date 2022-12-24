@@ -1,10 +1,9 @@
-package com.ttech.bluetooth.util.util
+package com.olp.bluetooth.util.util
 
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.text.TextUtils

@@ -25,7 +25,8 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.BatteryManager;
 
-import com.ttech.scan.util.LogUtils;
+
+import com.olp.scan.util.LogUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.concurrent.RejectedExecutionException;
