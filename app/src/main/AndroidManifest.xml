@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -138,9 +138,7 @@
             android:screenOrientation="nosensor" />
 
 
-
         <service android:name="com.olp.bluetooth.util.service.BleConnectService" />
-
 
 
         <provider
@@ -154,13 +152,20 @@
         </provider>
 
 
-
         <activity
             android:name=".crop.CropImageActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="false"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="stateAlwaysHidden" />
+
+
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
+
+
     </application>
 
 </manifest>

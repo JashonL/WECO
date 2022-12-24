@@ -10,6 +10,7 @@ import com.olp.weco.databinding.ActivityLaunchBinding
 import com.olp.weco.ui.LoginAndRegisterActivity
 import com.olp.weco.ui.MainActivity
 import com.olp.lib.view.statusbar.StatusBarCompat
+import com.olp.weco.ui.account.login.activity.LoginActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -60,7 +61,7 @@ class LaunchActivity : BaseActivity() {
         if (accountService().isLogin()) {
             MainActivity.start(this)
         } else {
-            LoginAndRegisterActivity.start(this)
+            LoginActivity.start(this)
         }
         finish()
     }

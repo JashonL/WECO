@@ -43,8 +43,8 @@
 
 
     <!--主色-->
-    <color name="color_app_main">#113E68</color>
-    <color name="color_app_main_pressed">#003E68</color>
+    <color name="color_app_main">#7E7E7E</color>
+    <color name="color_app_main_pressed">#999999</color>
     <!--分割线颜色-->
     <color name="color_item_divider_66">#666666</color>
     <color name="color_item_divider_99">#999999</color>
@@ -129,6 +129,12 @@
     <color name="color_999999">#999999</color>
     <color name="color_80DA8A">#80DA8A</color>
     <color name="color_5E72E4">#5E72E4</color>
+
+
+
+    <color name="color_ring_circle">#4B83FD</color>
+    <color name="color_ring_1">#91B3FD</color>
+    <color name="color_ring_2">#EDF3FF</color>
 
 
 
