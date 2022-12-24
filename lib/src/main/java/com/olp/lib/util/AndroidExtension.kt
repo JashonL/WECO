@@ -1,6 +1,7 @@
 package com.olp.lib.util
 
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.TextView
 
@@ -47,3 +48,6 @@ fun TextView.setDrawableEnd(drawable: Drawable) {
 fun TextView.setDrawableNull() {
     setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
 }
+
+
+

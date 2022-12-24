@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_corner"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_energy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m71_install_date"
+                android:textColor="@color/color_text_33"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+            <TextView
+                android:id="@+id/tv_energy_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m71_install_date"
+                android:textColor="@color/color_text_33"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_next" />
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_impact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m71_install_date"
+                android:textColor="@color/color_text_33"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+            <TextView
+                android:id="@+id/tv_impact_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m71_install_date"
+                android:textColor="@color/color_text_33"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_next" />
+
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_device"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m71_install_date"
+                android:textColor="@color/color_text_33"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+            <TextView
+                android:id="@+id/tv_device_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/m71_install_date"
+                android:textColor="@color/color_text_33"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_next" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

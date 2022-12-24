@@ -1,6 +1,5 @@
-package com.ttech.bluetooth.util.`interface`
+package com.olp.bluetooth.util.`interface`
 
-import com.ttech.bluetooth.util.bean.BleModel
 
 interface IBleConnetLisener {
 

@@ -19,6 +19,7 @@ import com.olp.lib.service.account.User
 import com.olp.lib.util.MD5Util
 import com.olp.lib.util.ToastUtil
 import com.olp.lib.util.Util
+import com.olp.weco.ui.account.register.RegisterActivity
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
 
@@ -105,7 +106,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     private fun setListener() {
         binding.btnLogin.setOnClickListener(this)
         binding.tvForgetPassword.setOnClickListener(this)
-
+        binding.btRegister.setOnClickListener(this)
     }
 
 
@@ -120,6 +121,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         when {
             v === binding.btnLogin -> {
                 checkInfo()
+            }
+
+            v===binding.btRegister->{
+                RegisterActivity.start(this)
             }
 
             v===binding.tvForgetPassword->{

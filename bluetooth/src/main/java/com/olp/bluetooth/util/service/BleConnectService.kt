@@ -1,4 +1,4 @@
-package com.ttech.bluetooth.util.service
+package com.olp.bluetooth.util.service
 
 import android.Manifest
 import android.app.Service
@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.os.Binder
 import android.os.Build
 import android.os.IBinder
+import android.text.TextUtils
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import com.clj.fastble.BleManager
@@ -17,16 +18,17 @@ import com.clj.fastble.exception.BleException
 import com.clj.fastble.scan.BleScanRuleConfig
 import com.olp.bluetooth.util.CRC16
 import com.olp.bluetooth.util.util.AESCBCUtils
-import com.ttech.bluetooth.util.`interface`.IBleConnect
-import com.ttech.bluetooth.util.`interface`.IBleConnetLisener
-import com.ttech.bluetooth.util.`interface`.IScanResult
-import com.ttech.bluetooth.util.bean.BleModel
-import com.ttech.bluetooth.util.receiver.BlueToothReceiver
-import com.ttech.bluetooth.util.receiver.BlueToothReceiver.Companion.BLUETOOTH_RECEIVER_DATA
-import com.ttech.bluetooth.util.receiver.BlueToothReceiver.Companion.BLUETOOTH_RECEIVER_VALUE
-import com.olp.bluetooth.util.util.ByteDataUtils.byte2Int
+import com.olp.bluetooth.util.`interface`.IBleConnect
+import com.olp.bluetooth.util.`interface`.IScanResult
 import com.olp.bluetooth.util.util.ByteDataUtils.bytesToHexString
+import com.olp.bluetooth.util.`interface`.IBleConnetLisener
+import com.olp.bluetooth.util.bean.BleModel
+import com.olp.bluetooth.util.receiver.BlueToothReceiver
+import com.olp.bluetooth.util.receiver.BlueToothReceiver.Companion.BLUETOOTH_RECEIVER_DATA
+import com.olp.bluetooth.util.receiver.BlueToothReceiver.Companion.BLUETOOTH_RECEIVER_VALUE
+import com.olp.bluetooth.util.util.ByteDataUtils.byte2Int
 import com.olp.bluetooth.util.util.ByteDataUtils.int2Byte
+
 import java.util.*
 
 /**

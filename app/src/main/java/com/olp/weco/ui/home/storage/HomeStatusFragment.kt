@@ -63,19 +63,14 @@ class HomeStatusFragment : BaseFragment() {
                 _binding.tvBatPower.text = String.format("%s%s", first, second)
             }
             ValueUtil.valueFromW(it?.load?.toDouble()).apply {
-                _binding.tvLoadPower.text = String.format("%s%s", first, second)
             }
 
             val onlineStatus = it?.onlineStatus
             if ("1" == onlineStatus) {
-                _binding.ivStatus.setImageResource(R.drawable.check_normal)
-                _binding.tvStatus.text = getString(R.string.m82_system_nomal)
 
                 _binding.tvOlStatus.text = getString(R.string.m124_on_line)
 
             } else {
-                _binding.ivStatus.setImageResource(R.drawable.exception)
-                _binding.tvStatus.text = getString(R.string.m83_system_exception)
                 _binding.tvOlStatus.text = getString(R.string.m125_off_line)
 
             }

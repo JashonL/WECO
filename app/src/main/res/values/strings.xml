@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TENTEK</string>
+    <string name="app_name">WECO</string>
 
     <string name="m2_parse_error_msg">Failed to parse data</string>
     <string name="m3_bad_network_msg">Internet problem</string>

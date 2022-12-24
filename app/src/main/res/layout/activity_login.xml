@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
 
-    <com.olp.lib.view.StatusBarWhiteHeightView
+    <com.olp.lib.view.StatusBarHeightView
         android:id="@+id/status_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/dp_45"
         android:layout_marginStart="@dimen/dp_30"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_30"
@@ -65,6 +65,22 @@
         android:gravity="center"
         android:text="@string/m1_login"
         android:textColor="@color/white"
+        android:textSize="@dimen/size_content_sp_14" />
+
+
+
+    <Button
+        android:id="@+id/bt_register"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@drawable/shape_register"
+        android:gravity="center"
+        android:text="@string/m2_register"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_30"
+        android:textAllCaps="false"
+        android:textColor="@color/color_app_main"
         android:textSize="@dimen/size_content_sp_14" />
 
 

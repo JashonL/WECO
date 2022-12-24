@@ -132,4 +132,10 @@
 
 
 
+    <color name="color_ring_circle">#4B83FD</color>
+    <color name="color_ring_1">#91B3FD</color>
+    <color name="color_ring_2">#EDF3FF</color>
+
+
+
 </resources>

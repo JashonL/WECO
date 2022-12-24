@@ -6,10 +6,10 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.IBinder
 import androidx.appcompat.app.AppCompatActivity
-import com.ttech.bluetooth.util.`interface`.IBleConnect
-import com.ttech.bluetooth.util.`interface`.IBleConnetLisener
-import com.ttech.bluetooth.util.`interface`.IScanResult
-import com.ttech.bluetooth.util.service.BleConnectService
+import com.olp.bluetooth.util.`interface`.IBleConnect
+import com.olp.bluetooth.util.`interface`.IBleConnetLisener
+import com.olp.bluetooth.util.`interface`.IScanResult
+import com.olp.bluetooth.util.service.BleConnectService
 
 class BleManager(context: Context, bindServiceListeners: bindServiceListeners) : IBleConnect {
 

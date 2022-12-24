@@ -1,4 +1,7 @@
-package com.ttech.bluetooth.util.`interface`
+package com.olp.bluetooth.util.`interface`
+
+import com.olp.bluetooth.util.`interface`.IBleConnetLisener
+import com.olp.bluetooth.util.`interface`.IScanResult
 
 interface IBleConnect {
 
@@ -18,7 +21,7 @@ interface IBleConnect {
     /**
      *扫描蓝牙
      */
-    fun scan(callback:IScanResult?)
+    fun scan(callback: IScanResult?)
 
 
     /**
@@ -38,7 +41,7 @@ interface IBleConnect {
      * 设置MTU
      */
 
-    fun setMtu(mtu:Int,callback:IBleConnetLisener?)
+    fun setMtu(mtu:Int,callback: IBleConnetLisener?)
 
 
     /**
@@ -51,7 +54,7 @@ interface IBleConnect {
      * 接收数据
      */
 
-    fun receiveData(data: ByteArray?,callback:IBleConnetLisener?)
+    fun receiveData(data: ByteArray?,callback: IBleConnetLisener?)
 
     /**
      * .断开蓝牙
