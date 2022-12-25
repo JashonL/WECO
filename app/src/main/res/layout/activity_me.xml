@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.olp.lib.view.StatusBarWhiteHeightView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_app_main" />
+
+    <com.olp.weco.view.TitleBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:showLeftBackIcon="false"
+        app:titleText="@string/m38_setting" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:background="@color/color_white"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/iv_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_default_avatar"
+            app:roundPercent="1" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_toEndOf="@+id/iv_avatar"
+            android:text="@string/m24_personal_avatar"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_subtitle"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:background="@color/color_999999" />
+
+    <com.olp.weco.view.SettingItemView
+        android:id="@+id/item_local_debug"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:itemName="@string/m132_local_debugging"
+        app:leftIcon="@drawable/local_debug"
+        app:showLeftIcon="true"
+        app:showRightIcon="true"
+        app:showSubName="true"
+        app:textSubNameColor="@color/text_gray_bb" />
+
+    <com.olp.weco.view.SettingItemView
+        android:id="@+id/item_setting"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:itemName="@string/m38_setting"
+        app:leftIcon="@drawable/setting"
+        app:showLeftIcon="true"
+        app:showRightIcon="true"
+        app:showSubName="true"
+        app:textSubNameColor="@color/text_gray_bb" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/color_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/mesage" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold"
+                tools:text="@string/m133_suggest" />
+
+            <TextView
+                android:id="@+id/tv_sub_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/text_medium"
+                tools:text="@string/m134_notifi_enable" />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/bat_check" />
+
+    </LinearLayout>
+
+
+    <com.olp.weco.view.SettingItemView
+        android:id="@+id/item_manual"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:itemName="@string/m153_email"
+        app:leftIcon="@drawable/manual"
+        app:showLeftIcon="true"
+        app:showRightIcon="true"
+        app:showSubName="true"
+        app:textSubNameColor="@color/text_gray_bb" />
+
+
+</LinearLayout>

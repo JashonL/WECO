@@ -155,7 +155,22 @@ of letters, numbers and symbols.</string>
     <string name="m127_device_list">Device List</string>
     <string name="m128_generated_today">%s  Generated Today</string>
     <string name="m129_self_power_today">%s Self-Power Today</string>
+    <string name="m130_plant_management">Plant Management</string>
+    <string name="m131_logout">Log out of current account?</string>
+    <string name="m132_local_debugging">Local Debugging</string>
 
+    <string name="m133_suggest">Suggest</string>
+    <string name="m134_notifi_enable">Enable or disable information notification</string>
+    <string name="m135_manual">Manual</string>
+
+    <string name="m136_clear">Clear</string>
+    <string name="m137_update">Update</string>
+    <string name="m138_security_notice">Security Notice</string>
+    <string name="m139_language">Language</string>
+    <string name="m140_about">About</string>
+    <string name="m141_security_center">Security Center</string>
+    <string name="m142_logout_account">Logout Account</string>
+    <string name="m143_logout_account_notice">Logout Account Notice</string>
 
 
 

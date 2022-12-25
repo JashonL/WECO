@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.commit
 import com.olp.lib.util.ActivityBridge
 import com.olp.lib.util.gone
@@ -14,6 +15,7 @@ import com.olp.weco.R
 import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityHomeBinding
 import com.olp.weco.model.PlantModel
+import com.olp.weco.ui.account.mine.LeftMenuFragment
 import com.olp.weco.ui.common.activity.ScanActivity
 import com.olp.weco.ui.common.fragment.RequestPermissionHub
 import com.olp.weco.ui.dataloger.AddDataLoggerActivity
@@ -54,6 +56,13 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
         supportFragmentManager.commit(true) {
             replace(R.id.fragment_system, HomeStatusFragment())
         }
+
+        //绑定左滑菜单
+        /*---------------------------自定义侧边栏布局-----------------------------*/
+        supportFragmentManager
+            .beginTransaction().replace(R.id.navigationview, LeftMenuFragment())
+            .commit()
+
     }
 
 
@@ -65,7 +74,6 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
                     _binding.header.tvTitle.gone()
                     //系统图显示为空
                     showSystemEmpty()
-                    showOtherEmpty()
 
                 } else {
                     _binding.header.tvTitle.visible()
@@ -113,11 +121,7 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
 
 
 
-    private fun showOtherEmpty(){
-        val dataFragment =
-            supportFragmentManager.findFragmentById(R.id.fragment_overview) as HomeStatusFragment
-        dataFragment.showEmpty()
-    }
+
 
 
 
@@ -134,6 +138,8 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
     private fun setliseners() {
         _binding.header.tvTitle.setOnClickListener(this)
         _binding.header.ivAdd.setOnClickListener(this)
+        _binding.header.ifvMenu.setOnClickListener(this)
+
 
     }
 
@@ -154,6 +160,11 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
                 }
             }
 
+
+            v=== _binding.header.ifvMenu->{
+                _binding.drawerLayout.openDrawer(GravityCompat.START)
+
+            }
 
         }
 

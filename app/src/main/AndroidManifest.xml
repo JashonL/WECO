@@ -166,6 +166,12 @@
             android:screenOrientation="nosensor" />
 
 
+        <activity
+            android:name=".ui.account.mine.ActivityMe"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
+
+
     </application>
 
 </manifest>

@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:showLeftBackIcon="false"
-        app:titleText="@string/m38_setting" />
+        app:titleText="@string/m141_security_center" />
 
 
     <LinearLayout
@@ -32,9 +32,7 @@
             android:id="@+id/item_clear"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:itemName="@string/m136_clear"
-            app:leftIcon="@drawable/clear"
-            app:showLeftIcon="true"
+            app:itemName="@string/m142_logout_account"
             app:showRightIcon="true"
             app:showSubName="true"
             app:textSubNameColor="@color/text_gray_bb" />
@@ -43,37 +41,7 @@
             android:id="@+id/item_update"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:itemName="@string/m137_update"
-            app:leftIcon="@drawable/update"
-            app:showLeftIcon="true"
-            app:showSubName="true" />
-
-        <com.olp.weco.view.SettingItemView
-            android:id="@+id/item_security_notice"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:itemName="@string/m138_security_notice"
-            app:leftIcon="@drawable/security"
-            app:showLeftIcon="true"
-            app:showSubName="true" />
-
-        <com.olp.weco.view.SettingItemView
-            android:id="@+id/item_language"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:itemName="@string/m139_language"
-            app:leftIcon="@drawable/language"
-            app:showLeftIcon="true"
-            app:showSubName="true" />
-
-
-        <com.olp.weco.view.SettingItemView
-            android:id="@+id/item_about"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:itemName="@string/m140_about"
-            app:leftIcon="@drawable/about"
-            app:showLeftIcon="true"
+            app:itemName="@string/m143_logout_account_notice"
             app:showSubName="true" />
 
 

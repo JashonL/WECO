@@ -61,11 +61,7 @@ class SettingActivity : BaseActivity(), View.OnClickListener,
     }
 
     private fun setListener() {
-        binding.ivAvatar.setOnClickListener(this)
-        binding.itemUserName.setOnClickListener(this)
-        binding.itemPassword.setOnClickListener(this)
-        binding.itemCountry.setOnClickListener(this)
-        binding.itemInstallationCode.setOnClickListener(this)
+
 
 
         accountService().addUserProfileChangeListener(this)
@@ -76,13 +72,7 @@ class SettingActivity : BaseActivity(), View.OnClickListener,
     }
 
     private fun refreshUserProfile() {
-        Glide.with(this).load(accountService().userAvatar())
-            .placeholder(R.drawable.ic_default_avatar)
-            .into(binding.ivAvatar)
 
-        binding.itemUserName.setSubName(accountService().user()?.email)
-        binding.itemCountry.setSubName(accountService().user()?.country)
-        binding.itemInstallationCode.setSubName(accountService().user()?.userType)
     }
 
     private fun initData() {
@@ -115,25 +105,7 @@ class SettingActivity : BaseActivity(), View.OnClickListener,
 
     override fun onClick(v: View?) {
         when {
-            v === binding.itemUserName -> {
 
-            }
-            v === binding.itemPassword -> ModifyPasswordActivity.start(this)
-//            v === binding.itemCountry -> ModifyInstallerNoActivity.start(this)
-//            v === binding.itemInstallationCode -> ModifyInstallerNoActivity.start(this)
-
-            v===binding.itemCountry->selectCountry()
-
-            v===binding.itemInstallationCode->{
-                val installerCode = accountService().user()?.installerCode
-                val title = getString(R.string.m186_installer_code)
-                showInstallationDialog(title,installerCode.toString())
-            }
-
-
-            v===binding.ivAvatar->{
-                selectPictureMode()
-            }
 
 
         }
@@ -272,7 +244,6 @@ class SettingActivity : BaseActivity(), View.OnClickListener,
                 ) {
                     if (resultCode == RESULT_OK && data?.hasExtra(CountryActivity.KEY_AREA) == true) {
                         val country = data.getStringExtra(CountryActivity.KEY_AREA) ?: ""
-                        binding.itemCountry.setSubName(country)
                     }
                 }
             })

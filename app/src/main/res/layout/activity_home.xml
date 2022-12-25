@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/drawer_layout"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,11 +61,7 @@
                         tools:layout="@layout/fragment_system_status" />
 
 
-                    <androidx.fragment.app.FragmentContainerView
-                        android:id="@+id/fragment_overview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:layout="@layout/home_data_fragment" />
+
 
 
                 </LinearLayout>
