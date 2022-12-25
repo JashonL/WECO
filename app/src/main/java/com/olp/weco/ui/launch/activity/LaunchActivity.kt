@@ -7,10 +7,9 @@ import com.olp.weco.ui.launch.monitor.UserAgreementMonitor
 import com.olp.weco.app.WECOApplication
 import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityLaunchBinding
-import com.olp.weco.ui.LoginAndRegisterActivity
-import com.olp.weco.ui.MainActivity
 import com.olp.lib.view.statusbar.StatusBarCompat
 import com.olp.weco.ui.account.login.activity.LoginActivity
+import com.olp.weco.ui.home.HomeActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -59,7 +58,7 @@ class LaunchActivity : BaseActivity() {
     private suspend fun enterApp() {
         delay(2000)
         if (accountService().isLogin()) {
-            MainActivity.start(this)
+            HomeActivity.start(this)
         } else {
             LoginActivity.start(this)
         }

@@ -12,7 +12,6 @@ import com.olp.weco.R
 import com.olp.weco.app.WECOApplication.Companion.APP_OS
 import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityLoginBinding
-import com.olp.weco.ui.MainActivity
 import com.olp.weco.ui.account.forgot.ForgotPasswordActivity
 import com.olp.weco.ui.account.login.viewmodel.LoginViewModel
 import com.olp.lib.service.account.User
@@ -20,6 +19,7 @@ import com.olp.lib.util.MD5Util
 import com.olp.lib.util.ToastUtil
 import com.olp.lib.util.Util
 import com.olp.weco.ui.account.register.RegisterActivity
+import com.olp.weco.ui.home.HomeActivity
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
 
@@ -99,7 +99,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     private fun loginSuccess(user: User?) {
         user?.password = binding.etPassword.getValue().toString()
         accountService().saveUserInfo(user)
-        MainActivity.start(this)
+        HomeActivity.start(this)
         finish()
     }
 

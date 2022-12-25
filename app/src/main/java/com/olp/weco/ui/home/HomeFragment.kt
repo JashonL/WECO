@@ -74,7 +74,7 @@ class HomeFragment : BaseFragment(), OnClickListener {
                     _binding.srlRefresh.gone()
                     _binding.fragmentSystem.visible()
                     //默认选中第一个电站
-                    _binding.header.tvTitle.text = second[0].stationName
+                    _binding.header.tvTitle.text = second[0].plantName
                     //显示系统图
                     showSystemSatus(second[0])
                 }
@@ -88,8 +88,8 @@ class HomeFragment : BaseFragment(), OnClickListener {
 
     fun showSystemSatus(station: PlantModel) {
         viewModel.currentStation = station
-        val stationType = station.stationType
-        _binding.header.tvTitle.text = station.stationName
+        val stationType = station.plantType
+        _binding.header.tvTitle.text = station.plantName
         //根据电站类型显示不同界面
         childFragmentManager.commit(true) {
             val findFragment = _binding.fragmentSystem.findFragment<Fragment>()
@@ -158,7 +158,7 @@ class HomeFragment : BaseFragment(), OnClickListener {
         } else {
             val options = mutableListOf<ListPopModel>()
             for (plant in second) {
-                options.add(ListPopModel(plant.stationName, false))
+                options.add(ListPopModel(plant.plantName.toString(), false))
             }
 
             val curItem: String? = if (viewModel.currentStation != null) {

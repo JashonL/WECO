@@ -55,13 +55,13 @@ object ApiPath {
 
     object Plant {
 
-        const val STATIONLIST = "v1/station/stationList"
+        const val STATIONLIST = "v1/plant/getPlantList"
 
 
         /**
          * 请求储能机状态
          */
-        const val GETDATAOVERVIEW = "v1/manage/getDataOverview"
+        const val GETDATAOVERVIEW = "v1/plant/getPlantOverviewData"
 
 
         /**

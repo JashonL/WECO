@@ -17,7 +17,6 @@ import com.olp.weco.R
 import com.olp.weco.app.WECOApplication
 import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityRegisterBinding
-import com.olp.weco.ui.MainActivity
 import com.olp.weco.ui.account.login.viewmodel.LoginViewModel
 import com.olp.weco.ui.account.viewmodel.VerifyCodeViewModel
 import com.olp.weco.ui.common.activity.CountryActivity
@@ -29,6 +28,7 @@ import com.olp.lib.util.ActivityBridge
 import com.olp.lib.util.MD5Util
 import com.olp.lib.util.ToastUtil
 import com.olp.lib.util.Util
+import com.olp.weco.ui.home.HomeActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -147,7 +147,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
 
     private fun loginSuccess(user: User?) {
         accountService().saveUserInfo(user)
-        MainActivity.start(this)
+        HomeActivity.start(this)
         finish()
     }
 

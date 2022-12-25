@@ -24,7 +24,7 @@ class StorageViewmodel : BaseViewModel() {
      */
     fun getDataOverview() {
         val params = hashMapOf<String, String>().apply {
-            put("stationId", stationId?:"")
+            put("plantId", stationId?:"")
         }
 
         viewModelScope.launch {

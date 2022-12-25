@@ -88,7 +88,7 @@ class EnergyFragment : BaseFragment(), View.OnClickListener {
                     _binding.srlEmptyview.gone()
 
                     //默认选中第一个电站
-                    _binding.header.tvTitle.text = second[0].stationName
+                    _binding.header.tvTitle.text = second[0].plantName
                     energyViewModel.currentStation = second[0]
 
                     //1.开始请求数据
@@ -148,7 +148,7 @@ class EnergyFragment : BaseFragment(), View.OnClickListener {
         } else {
             val options = mutableListOf<ListPopModel>()
             for (plant in second) {
-                options.add(ListPopModel(plant.stationName, false))
+                options.add(ListPopModel(plant.plantName.toString(), false))
             }
 
             val curItem: String? = if (viewModel.currentStation != null) {
@@ -178,7 +178,7 @@ class EnergyFragment : BaseFragment(), View.OnClickListener {
 
 
     private fun showPlantData(station: PlantModel) {
-        _binding.header.tvTitle.text = station.stationName
+        _binding.header.tvTitle.text = station.plantName
 
         //选择电站
         energyViewModel.currentStation = station

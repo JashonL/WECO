@@ -1,13 +1,14 @@
 package com.olp.weco.ui.home.model
 
 data class StorageModel(
-    val overviewType: String,
-    val solar: String?,
-    val grid: String?,
-    val load: String?,
-    val bat: String?,
-    val home: String?,
-    val inverterNums: String?,
-    val onlineStatus: String?
+    val pvPower: String,
+    val elcGridPower: String?,
+    val loadPower: String?,
+    val batteryPower: String?,
+    val pvDayChargeTotal: String?,
+    val selfElc: String?,
+    val batterySoc: String?,
+    val plantStatus: String?,
+    val unReadCount: String?
 )
 

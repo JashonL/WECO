@@ -41,11 +41,11 @@ class LoginViewModel : BaseViewModel() {
             apiService().postForm(
                 ApiPath.Mine.LOGIN,
                 params,
-                object : HttpCallback<HttpResult<LoginModel>>() {
-                    override fun success(result: HttpResult<LoginModel>) {
-                        val loginModel = result.obj
-                        if (result.isBusinessSuccess()&&loginModel!=null){
-                            loginLiveData.value = Pair(loginModel.user, null)
+                object : HttpCallback<HttpResult<User>>() {
+                    override fun success(result: HttpResult<User>) {
+                        val user = result.obj
+                        if (result.isBusinessSuccess()){
+                            loginLiveData.value = Pair(user, null)
                         }else{
                             loginLiveData.value = Pair(null, result.msg ?: "")
                         }

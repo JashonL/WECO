@@ -248,15 +248,15 @@ class PlantListFragment : BaseFragment() {
 
         fun bindData(plantModel: PlantModel, fragment: PlantListFragment) {
 
-            Glide.with(fragment).load(plantModel.pictureAddress)
+            Glide.with(fragment).load(plantModel.plantPicturePath)
                 .placeholder(R.drawable.ic_placeholder)
                 .into(binding.ivPlantImage)
 
             binding.llCity.background =
                 ViewUtil.createShape(getColor(R.color.color_33000000), 0, 0, 2, 2)
             binding.tvCity.text = plantModel.city
-            binding.tvPlantName.text = plantModel.stationName
-            when (plantModel.onlineStatus) {
+            binding.tvPlantName.text = plantModel.plantName
+            when (plantModel.plantStatus) {
                 PlantModel.PLANT_STATUS_ONLINE -> {
                     binding.tvPlantStatus.text = getString(R.string.m37_online)
                     binding.tvPlantStatus.background =
@@ -276,15 +276,15 @@ class PlantListFragment : BaseFragment() {
             binding.llCurrentPower.background =
                 ViewUtil.createShape(getColor(R.color.color_1A0087FD), 2)
             binding.tvCurrentPower.text = plantModel.currencyPower
-            binding.tvInstallDate.text = plantModel.installtionDate
-            binding.tvTotalComponentPower.text =ValueUtil.valueFromWp(plantModel.pvcapacity.toDouble()).first
+            binding.tvInstallDate.text = plantModel.installationData
+            binding.tvTotalComponentPower.text =ValueUtil.valueFromWp(plantModel.pvCapacity?.toDouble()).first
             binding.tvPower.text = getTvSpan(plantModel)
             binding.root.tag = plantModel
         }
 
         private fun getTvSpan(plantModel: PlantModel): SpannableString {
             return SpannableString(
-                "${plantModel.getETodayText()}/${plantModel.getETotalText()}${
+                "${plantModel.todayCharge}/${plantModel.totalCharge}${
                     getString(
                         R.string.m48_kwh
                     )

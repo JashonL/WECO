@@ -152,6 +152,10 @@ of letters, numbers and symbols.</string>
     <string name="m124_on_line">on-line</string>
     <string name="m125_off_line">off-line</string>
     <string name="m126_w">w</string>
+    <string name="m127_device_list">Device List</string>
+    <string name="m128_generated_today">%s  Generated Today</string>
+    <string name="m129_self_power_today">%s Self-Power Today</string>
+
 
 
 
