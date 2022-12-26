@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.viewModels
@@ -13,10 +14,11 @@ import com.olp.lib.util.visible
 import com.olp.weco.R
 import com.olp.weco.base.BaseFragment
 import com.olp.weco.databinding.FragmentSystemStatusBinding
+import com.olp.weco.ui.energy.EnergyActivity
 import com.olp.weco.utils.ValueUtil
 import kotlinx.coroutines.delay
 
-class HomeStatusFragment : BaseFragment() {
+class HomeStatusFragment : BaseFragment() ,OnClickListener {
 
 
     private lateinit var _binding: FragmentSystemStatusBinding
@@ -41,7 +43,12 @@ class HomeStatusFragment : BaseFragment() {
     ): View {
         _binding = FragmentSystemStatusBinding.inflate(inflater, container, false)
         initData()
+        initlisteners()
         return _binding.root
+    }
+
+    private fun initlisteners() {
+        _binding.llOther.llEnergy.setOnClickListener(this)
     }
 
 
@@ -185,6 +192,14 @@ class HomeStatusFragment : BaseFragment() {
     fun showSys() {
         _binding.emptyView.emptyView.gone()
         _binding.clSys.visible()
+    }
+
+    override fun onClick(v: View?) {
+        when{
+            v===_binding.llOther.llEnergy->{
+                EnergyActivity.start(requireActivity())
+            }
+        }
     }
 
 

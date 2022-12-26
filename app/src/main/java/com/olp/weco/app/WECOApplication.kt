@@ -27,7 +27,7 @@ class WECOApplication : LibApplication() , ServiceManager.ServiceInterface{
         private lateinit var instance: WECOApplication
         fun instance()= instance
         const val APP_OS = 0
-        const val APP_NAME="TENTEK"
+        const val APP_NAME="WECO"
 
         init {
             SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->

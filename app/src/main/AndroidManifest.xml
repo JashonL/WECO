@@ -172,6 +172,12 @@
             android:screenOrientation="nosensor" />
 
 
+        <activity
+            android:name=".ui.energy.EnergyActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
+
+
     </application>
 
 </manifest>

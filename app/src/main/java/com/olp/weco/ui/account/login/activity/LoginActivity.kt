@@ -67,6 +67,12 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             val password = it.password
             binding.etPassword.setValue(password)
             binding.etUsername.setValue(email)
+
+            val logout = accountService().isLogout()
+            if (!logout) {
+                login(password, email)
+            }
+
         }
 
 

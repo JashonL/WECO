@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/color_app_main"
+    android:background="@color/white"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
     tools:context=".view.TitleBarLayout">
@@ -20,15 +20,15 @@
         android:gravity="center"
         android:maxWidth="280dp"
         android:singleLine="true"
-        android:textColor="@color/white"
+        android:textColor="@color/color_text_33"
         android:textSize="@dimen/text_title"
         android:textStyle="bold"
         tools:drawableEnd="@drawable/ic_down" />
 
     <ImageView
         android:id="@+id/iv_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/ic_back" />
 
@@ -48,7 +48,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/color_text_33"
         android:textSize="@dimen/text_medium"
         tools:text="@string/m10_sms_retrieval" />
 
