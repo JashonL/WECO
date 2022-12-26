@@ -104,10 +104,10 @@ object ApiPath {
         /**
          * 根据日期类型请求图表
          */
-        const val GET_INVERTER_DATA_DAY = "v1/manage/getInverterDataDay"
-        const val GET_INVERTER_DATA_MONTH = "v1/manage/getInverterDataMonth"
-        const val GET_INVERTER_DATAYEAR = "v1/manage/getInverterDataYear"
-        const val GET_INVERTER_DATATOTAL = "v1/manage/getInverterDataTotal"
+        const val GET_INVERTER_DATA_DAY = "v1/plant/getEnergyHour"
+        const val GET_INVERTER_DATA_MONTH = "v1/plant/getEnergyDay"
+        const val GET_INVERTER_DATAYEAR = "v1/plant/getEnergyMonth"
+        const val GET_INVERTER_DATATOTAL = "v1/plant/getEnergyYear"
 
 
         /**

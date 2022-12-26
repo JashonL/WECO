@@ -99,16 +99,14 @@ class TabLayout @JvmOverloads constructor(
     }
 
     fun setTabText(tabText: String, position: Int) {
-        (getChildAt(position) as Tab).setTabText(tabText)
+
     }
 
     fun getSelectTabPosition(): Int {
         return selectTabPosition
     }
 
-    fun getTabText(position: Int): String {
-        return (getChildAt(position) as Tab).getTabText()
-    }
+
 
 }
 

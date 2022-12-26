@@ -18,7 +18,7 @@ import com.olp.weco.ui.energy.EnergyActivity
 import com.olp.weco.utils.ValueUtil
 import kotlinx.coroutines.delay
 
-class HomeStatusFragment : BaseFragment() ,OnClickListener {
+class HomeStatusFragment : BaseFragment(), OnClickListener {
 
 
     private lateinit var _binding: FragmentSystemStatusBinding
@@ -144,10 +144,9 @@ class HomeStatusFragment : BaseFragment() ,OnClickListener {
             val pvDayChargeTotal = it?.pvDayChargeTotal
             val selfElc = it?.selfElc
 
-            _binding.llOther.tvImpactData.text=getString(R.string.m128_generated_today,selfElc)
-            _binding.llOther.tvEnergyData.text=getString(R.string.m129_self_power_today,pvDayChargeTotal)
-
-
+            _binding.llOther.tvImpactData.text = getString(R.string.m128_generated_today, selfElc)
+            _binding.llOther.tvEnergyData.text =
+                getString(R.string.m129_self_power_today, pvDayChargeTotal)
 
 
         }
@@ -195,9 +194,9 @@ class HomeStatusFragment : BaseFragment() ,OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when{
-            v===_binding.llOther.llEnergy->{
-                EnergyActivity.start(requireActivity())
+        when {
+            v === _binding.llOther.llEnergy -> {
+                viewModel.stationId?.let { EnergyActivity.start(requireActivity(), it) }
             }
         }
     }

@@ -88,6 +88,8 @@
 
     <declare-styleable name="Tab">
         <attr name="tabText" format="string" />
+        <attr name="tab_icon" format="reference"/>
+
     </declare-styleable>
 
     <declare-styleable name="CropImageView">
