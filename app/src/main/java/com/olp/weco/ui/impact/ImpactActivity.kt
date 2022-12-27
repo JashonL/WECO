@@ -3,11 +3,17 @@ package com.olp.weco.ui.impact
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import android.text.TextUtils
 import android.text.TextUtils.replace
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.databinding.adapters.CalendarViewBindingAdapter.setDate
 import androidx.fragment.app.commit
 import com.olp.lib.util.GsonManager
@@ -21,10 +27,12 @@ import com.olp.weco.ui.common.model.DataType
 import com.olp.weco.ui.energy.chart.EnergyChartFragment
 import com.olp.weco.ui.energy.viewmodel.EnergyViewModel
 import com.olp.weco.ui.impact.viewmodel.ImpactViewModel
+import com.olp.weco.utils.ValueUtil
 import com.olp.weco.view.DateSelectView
 import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
 import java.util.*
+import kotlin.math.roundToInt
 
 class ImpactActivity : BaseActivity(), View.OnClickListener {
 
@@ -131,6 +139,44 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
             _binding.llOffset.tvPercenter.text = it?.pvLoadPerce + "%"
 
 
+            val solarEle = it?.pvEnergy ?: "0.0"
+            val loadEle = it?.loadEnergy ?: "0.0"
+
+
+
+            ValueUtil.valueFromKWh(solarEle.toDouble()).apply {
+                val s = first + second
+                val sb = SpannableStringBuilder(s).append(getString(R.string.m9_solar)).apply {
+                    setSpan(
+                        StyleSpan(Typeface.BOLD),
+                        this.indexOf(s), this.indexOf(s) + s.length,
+                        Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                    )
+                }
+                _binding.llOffset.tvSolar.text = sb.toString()
+            }
+
+            ValueUtil.valueFromKWh(loadEle.toDouble()).apply {
+                val s = first + second
+                val sb = SpannableStringBuilder(s).append(getString(R.string.m32_load)).apply {
+                    setSpan(
+                        StyleSpan(Typeface.BOLD),
+                        this.indexOf(s), this.indexOf(s) + s.length,
+                        Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                    )
+                }
+                _binding.llOffset.tvLoad.text = sb.toString()
+            }
+
+            //动态设置vSolar的高度
+            val loadHigh = resources.getDimensionPixelOffset(R.dimen.dp_200)
+
+            if (loadEle.toDouble() != 0.0) {
+                val layoutParams = _binding.llOffset.vSolar.layoutParams
+                layoutParams.height =
+                    (loadHigh * (solarEle.toDouble() / loadEle.toDouble())).roundToInt()
+                _binding.llOffset.vSolar.layoutParams = layoutParams
+            }
 
 
         }

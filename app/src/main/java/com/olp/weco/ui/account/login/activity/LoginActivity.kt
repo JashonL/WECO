@@ -59,7 +59,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     }
 
 
-
     private fun initViews() {
         val user = accountService().user()
         user?.let {
@@ -77,7 +76,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
 
     }
-
 
 
     private fun initData() {
@@ -101,10 +99,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     }
 
 
-
     private fun loginSuccess(user: User?) {
         user?.password = binding.etPassword.getValue().toString()
-        accountService().saveUserInfo(user)
+        if (binding.cbRemember.isChecked) {
+            accountService().saveUserInfo(user)
+        }
         HomeActivity.start(this)
         finish()
     }
@@ -113,14 +112,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         binding.btnLogin.setOnClickListener(this)
         binding.tvForgetPassword.setOnClickListener(this)
         binding.btRegister.setOnClickListener(this)
+        binding.etPassword.setOnRightClickListener {
+            binding.etPassword.setEye()
+        }
+
     }
-
-
-
-
-
-
-
 
 
     override fun onClick(v: View?) {
@@ -129,11 +125,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 checkInfo()
             }
 
-            v===binding.btRegister->{
+            v === binding.btRegister -> {
                 RegisterActivity.start(this)
             }
 
-            v===binding.tvForgetPassword->{
+            v === binding.tvForgetPassword -> {
                 ForgotPasswordActivity.start(this)
             }
 
@@ -154,7 +150,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             else -> {
                 //校验成功
                 showDialog()
-                login(password!!,userName!!)
+                login(password!!, userName!!)
             }
         }
     }
@@ -173,7 +169,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         }
 
     }
-
 
 
 }

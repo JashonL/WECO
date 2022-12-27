@@ -35,8 +35,8 @@
         android:layout_marginStart="@dimen/dp_30"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_30"
-        app:compose_hide="@string/m5_email_address"
         app:compose_content_type="content_input"
+        app:compose_hide="@string/m5_email_address"
         app:compose_left_icon="@drawable/login_user"
         app:compose_right_show="false" />
 
@@ -48,10 +48,13 @@
         android:layout_marginStart="@dimen/dp_30"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_30"
-        app:compose_hide="@string/m5_email_address"
         app:compose_content_type="content_input"
+        app:compose_hide="@string/m77_password"
+        app:compose_item_ispassword="true"
         app:compose_left_icon="@drawable/lock"
-        app:compose_right_show="false" />
+        app:compose_right_show="true"
+        app:compose_right_type="right_type_icon"
+        app:compose_rigth_icon="@drawable/eye_close" />
 
 
     <Button
@@ -68,17 +71,16 @@
         android:textSize="@dimen/size_content_sp_14" />
 
 
-
     <Button
         android:id="@+id/bt_register"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_45"
-        android:background="@drawable/shape_register"
-        android:gravity="center"
-        android:text="@string/m2_register"
         android:layout_marginStart="@dimen/dp_30"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_30"
+        android:background="@drawable/shape_register"
+        android:gravity="center"
+        android:text="@string/m2_register"
         android:textAllCaps="false"
         android:textColor="@color/color_app_main"
         android:textSize="@dimen/size_content_sp_14" />
@@ -94,9 +96,11 @@
         android:orientation="horizontal">
 
         <CheckBox
+            android:id="@+id/cb_remember"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:checked="true"
             android:text="@string/m6_remember_me"
             tools:ignore="TouchTargetSizeCheck" />
 

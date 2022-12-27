@@ -28,11 +28,23 @@
 
     </FrameLayout>
 
+
+    <ImageView
+        android:id="@+id/ivFlash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_160"
+        android:src="@drawable/zxl_torch_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.olp.lib.view.StatusBarHeightView
         android:id="@+id/status_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/color_app_main"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,5 +57,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/status_bar"
         app:titleText="@string/m40_scan" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/qr_code" />
+
+        <TextView
+            android:id="@+id/tv_scan_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="@string/m152_scan_pictrue"
+            android:textColor="@color/color_text_33"
+            android:textSize="@dimen/size_content_sp_14" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_scan_manual"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_cancel"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/scan_manual" />
+
+
+            <TextView
+                android:id="@+id/tv_manual_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_10"
+                android:text="@string/m153_manual_input"
+                android:textColor="@color/color_text_33"
+                android:textSize="@dimen/size_content_sp_14" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

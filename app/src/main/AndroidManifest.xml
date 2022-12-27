@@ -183,6 +183,10 @@
             android:screenOrientation="nosensor" />
 
 
+        <activity
+            android:name=".ui.station.activity.PlantListActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
 
 
     </application>

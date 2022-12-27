@@ -12,7 +12,6 @@ import com.olp.weco.databinding.FragmentEnergyBinding
 import com.olp.weco.model.PlantModel
 import com.olp.weco.ui.common.model.DataType
 import com.olp.weco.ui.energy.chart.EnergyChartFragment
-import com.olp.weco.ui.energy.impact.ImpactFragment
 import com.olp.weco.ui.station.viewmodel.StationViewModel
 import com.olp.weco.view.DateSelectView
 import com.olp.weco.view.pop.ListPopuwindow
@@ -65,7 +64,6 @@ class EnergyFragment : BaseFragment(), View.OnClickListener {
 
         //绑定收益视图
         childFragmentManager.commit {
-            add(R.id.consumption_container, ImpactFragment())
         }
 
     }

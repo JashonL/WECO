@@ -85,7 +85,7 @@
         <View
             android:id="@+id/v_load"
             android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_100"
+            android:layout_height="@dimen/dp_200"
             android:layout_marginStart="@dimen/dp_30"
             android:background="@drawable/load"
             app:layout_constraintBottom_toBottomOf="@+id/bottom"

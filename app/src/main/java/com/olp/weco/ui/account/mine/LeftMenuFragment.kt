@@ -17,6 +17,7 @@ import com.olp.weco.databinding.LeftContentBinding
 import com.olp.weco.ui.account.viewmodel.AccountViewModel
 import com.olp.weco.ui.account.viewmodel.VerifyCodeViewModel
 import com.olp.weco.ui.manu.activity.SettingActivity
+import com.olp.weco.ui.station.activity.PlantListActivity
 import com.olp.weco.view.dialog.AlertDialog
 
 class LeftMenuFragment : BaseFragment(), OnClickListener {
@@ -44,7 +45,7 @@ class LeftMenuFragment : BaseFragment(), OnClickListener {
                 accountService().logout()
                 accountService().login(requireActivity())
             } else {
-                showResultDialog(it,null,null)
+                showResultDialog(it, null, null)
             }
         }
     }
@@ -52,7 +53,7 @@ class LeftMenuFragment : BaseFragment(), OnClickListener {
     private fun setOnClickLiseners() {
         binding.ivAvatar.setOnClickListener(this)
         binding.ivExit.setOnClickListener(this)
-
+        binding.llPlantManager.setOnClickListener(this)
 
     }
 
@@ -76,12 +77,16 @@ class LeftMenuFragment : BaseFragment(), OnClickListener {
             v === binding.ivExit -> {
                 logout()
             }
+
+            v === binding.llPlantManager -> {
+                PlantListActivity.start(requireActivity())
+            }
+
         }
     }
 
 
-
-    fun logout(){
+    fun logout() {
         AlertDialog.showDialog(
             childFragmentManager,
             getString(R.string.m131_logout),
@@ -96,8 +101,6 @@ class LeftMenuFragment : BaseFragment(), OnClickListener {
 
 
     }
-
-
 
 
 }

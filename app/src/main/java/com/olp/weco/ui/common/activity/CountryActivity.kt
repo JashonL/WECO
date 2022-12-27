@@ -74,14 +74,12 @@ class CountryActivity : BaseActivity() {
 
             if (countryList!=null) {
                 for (s in countryList) {
-                    if (s.contains(it.toString())) {
+                    if (s.contains(it.toString(),true)) {
                         newList.add(s)
                     }
                 }
 
             }
-
-
             adapter.refresh(newList)
 
         }

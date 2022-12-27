@@ -182,7 +182,7 @@ class HomeFragment : BaseFragment(), OnClickListener {
     private fun scan() {
         ActivityBridge.startActivity(
             requireActivity(),
-            ScanActivity.getIntent(context),
+            ScanActivity.getIntent(context,viewModel.currentStation?.id.toString()),
             object : ActivityBridge.OnActivityForResult {
                 override fun onActivityForResult(
                     context: Context?,

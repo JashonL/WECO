@@ -122,7 +122,7 @@ class AddDataLoggerActivity : BaseActivity(), View.OnClickListener {
     private fun scan() {
         ActivityBridge.startActivity(
             this,
-            ScanActivity.getIntent(this),
+            ScanActivity.getIntent(this,viewModel.plantId.toString()),
             object : ActivityBridge.OnActivityForResult {
                 override fun onActivityForResult(
                     context: Context?,

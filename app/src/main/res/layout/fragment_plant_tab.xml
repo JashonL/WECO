@@ -14,28 +14,28 @@
         android:background="@color/color_white"
         android:orientation="horizontal">
 
-        <com.olp.weco.view.Tab
+        <com.olp.weco.view.TextTab
             android:id="@+id/tab_all"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:tabText="@string/m36_all" />
 
-        <com.olp.weco.view.Tab
+        <com.olp.weco.view.TextTab
             android:id="@+id/tab_online"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:tabText="@string/m37_online" />
 
-        <com.olp.weco.view.Tab
+        <com.olp.weco.view.TextTab
             android:id="@+id/tab_offline"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:tabText="@string/m38_offline" />
 
-        <com.olp.weco.view.Tab
+        <com.olp.weco.view.TextTab
             android:id="@+id/tab_trouble"
             android:layout_width="0dp"
             android:layout_height="match_parent"

@@ -68,8 +68,7 @@
         </LinearLayout>
 
 
-        <include layout="@layout/energy_consumption"
-            bind:total="@{total}" />
+
 
 
     </LinearLayout>

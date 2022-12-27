@@ -8,6 +8,7 @@ import com.olp.scan.CaptureHelper
 import com.olp.scan.OnCaptureCallback
 import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityScanBinding
+import com.olp.weco.ui.dataloger.AddDataLoggerActivity
 
 
 /**
@@ -18,20 +19,23 @@ class ScanActivity : BaseActivity(), OnCaptureCallback {
     companion object {
 
         const val KEY_CODE_TEXT = "key_code_text"
+        const val KEY_PLANT_ID = "key_plantid"
 
-        fun start(context: Context?) {
-            context?.startActivity(getIntent(context))
+        fun start(context: Context?, plantId: String) {
+            context?.startActivity(getIntent(context, plantId))
         }
 
-        fun getIntent(context: Context?): Intent {
-            return Intent(context, ScanActivity::class.java)
+        fun getIntent(context: Context?, plantId: String): Intent {
+            return Intent(context, ScanActivity::class.java).apply {
+                putExtra(KEY_PLANT_ID, plantId)
+            }
         }
 
     }
 
     private lateinit var binding: ActivityScanBinding
     private val helper by lazy {
-        CaptureHelper(this, binding.surface, binding.viewfinderView, null)
+        CaptureHelper(this, binding.surface, binding.viewfinderView, binding.ivFlash)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +43,14 @@ class ScanActivity : BaseActivity(), OnCaptureCallback {
         binding = ActivityScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initView()
+        initLiseners()
+    }
+
+    private fun initLiseners() {
+        binding.llScanManual.setOnClickListener {
+            //跳转到手动输入那里
+            AddDataLoggerActivity.start(this, intent.getStringExtra(KEY_PLANT_ID), "")
+        }
     }
 
     private fun initView() {

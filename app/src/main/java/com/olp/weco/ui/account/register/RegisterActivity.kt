@@ -102,11 +102,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
         verifyCodeViewModel.getVerifyCodeLiveData.observe(this) {
             dismissDialog()
             ToastUtil.show(it.second)
-
-
-            if (it.second == null) {
-                updateCountDown()
-            }
+            updateCountDown()
         }
 
 

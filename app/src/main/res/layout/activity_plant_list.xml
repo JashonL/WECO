@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.station.activity.AddPlantActivity">
+
+
+    <com.olp.lib.view.StatusBarWhiteHeightView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_app_main" />
+
+
+    <com.olp.weco.view.TitleBarLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:showLeftBackIcon="false"
+        app:showRightImage="false"
+        app:titleText="@string/m34_plant" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="5dp">
+
+        <!--        <TextView
+                    android:id="@+id/tv_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:background="@drawable/white_background_corner_2_stroke_1"
+                    android:drawablePadding="2dp"
+                    android:gravity="center"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:text="@string/install_date"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/text_13"
+                    app:drawableEndCompat="@drawable/ic_down" />-->
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/gray_background_corner_2_stroke_1"
+            android:drawablePadding="2dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:hint="@string/m35_please_input_plant_or_sn"
+            android:maxLines="1"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:singleLine="true"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_tab"
+            app:drawableStartCompat="@drawable/ic_search" />
+
+    </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_plant_tab"
+        android:name="com.olp.weco.ui.station.fragment.PlantTabFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_30"
+        android:background="@drawable/shape_login"
+        android:gravity="center"
+        android:text="@string/m114_add"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_content_sp_14" />
+
+
+</LinearLayout>

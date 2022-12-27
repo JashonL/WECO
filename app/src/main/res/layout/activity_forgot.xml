@@ -6,11 +6,11 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <com.olp.lib.view.StatusBarWhiteHeightView
+    <com.olp.lib.view.StatusBarHeightView
         android:id="@+id/status_bar"
-        android:background="@color/color_app_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
 
 
     <com.olp.weco.view.TitleBarLayout
@@ -60,8 +60,11 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginEnd="@dimen/dp_30"
                 app:compose_hide="@string/m77_password"
+                app:compose_item_ispassword="true"
                 app:compose_left_icon="@drawable/lock"
-                app:compose_right_show="false" />
+                app:compose_right_show="true"
+                app:compose_right_type="right_type_icon"
+                app:compose_rigth_icon="@drawable/eye_open" />
 
             <com.olp.weco.view.EditTextComposeView
                 android:id="@+id/et_comfir_password"
@@ -71,8 +74,11 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginEnd="@dimen/dp_30"
                 app:compose_hide="@string/m77_password"
+                app:compose_item_ispassword="true"
                 app:compose_left_icon="@drawable/lock_comfir"
-                app:compose_right_show="false" />
+                app:compose_right_show="true"
+                app:compose_right_type="right_type_icon"
+                app:compose_rigth_icon="@drawable/eye_open" />
 
 
             <TextView

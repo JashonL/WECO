@@ -202,7 +202,7 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
     private fun scan() {
         ActivityBridge.startActivity(
             this,
-            ScanActivity.getIntent(this),
+            ScanActivity.getIntent(this,viewModel.currentStation?.id.toString()),
             object : ActivityBridge.OnActivityForResult {
                 override fun onActivityForResult(
                     context: Context?,

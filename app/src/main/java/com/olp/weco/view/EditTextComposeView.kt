@@ -8,10 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.LinearLayout
-import com.olp.weco.R
-import com.olp.weco.databinding.EditextComposeBinding
 import com.olp.lib.util.gone
 import com.olp.lib.util.visible
+import com.olp.weco.R
+import com.olp.weco.databinding.EditextComposeBinding
 
 class EditTextComposeView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -112,10 +112,24 @@ class EditTextComposeView @JvmOverloads constructor(
 
         //密码
         if (isPasswrod) {
-            bingding.etContent.inputType = InputType.TYPE_NUMBER_VARIATION_PASSWORD
+            bingding.etContent.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
 
         bingding.flRight.setOnClickListener(this)
+    }
+
+
+    fun setEye() {
+        this.isPasswrod = !isPasswrod;
+        if (isPasswrod) {
+            bingding.ivRightIcon.setImageResource(R.drawable.eye_open)
+            bingding.etContent.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        } else {
+            bingding.ivRightIcon.setImageResource(R.drawable.eye_close)
+            bingding.etContent.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
     }
 
 
@@ -137,11 +151,9 @@ class EditTextComposeView @JvmOverloads constructor(
     }
 
 
-
     fun setRightText(value: String) {
         bingding.tvRightText.setText(value)
     }
-
 
 
     fun setOnRightClickListener(rightClick: ((View) -> Unit)?) {
