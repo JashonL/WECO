@@ -177,6 +177,13 @@
             android:exported="true"
             android:screenOrientation="nosensor" />
 
+        <activity
+            android:name=".ui.impact.ImpactActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
+
+
+
 
     </application>
 

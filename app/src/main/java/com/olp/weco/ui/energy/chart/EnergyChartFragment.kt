@@ -15,8 +15,8 @@ import com.olp.weco.model.energy.ChartModel
 import com.olp.weco.ui.chart.BarChartFragment
 import com.olp.weco.ui.chart.LineChartFragment
 import com.olp.weco.ui.common.model.DataType
-import com.olp.weco.ui.energy.EnergyViewModel
 import com.olp.lib.util.GsonManager
+import com.olp.weco.ui.energy.viewmodel.EnergyViewModel
 
 class EnergyChartFragment : BaseFragment() {
 
@@ -69,7 +69,7 @@ class EnergyChartFragment : BaseFragment() {
     }
 
 
-    private fun setTotalData(chartData: ChartModel) {
+    private fun setTotalData(chartData: ChartModel) {/*
         val energyTotal = chartData.energyTotal
         val solarTotal = chartData.solarTotal
         val batTotal = chartData.batTotal
@@ -124,7 +124,7 @@ class EnergyChartFragment : BaseFragment() {
                 }
 
             }
-        }
+        }*/
 
     }
 

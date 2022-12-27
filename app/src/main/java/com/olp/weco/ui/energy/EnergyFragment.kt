@@ -19,6 +19,7 @@ import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
 import com.olp.lib.util.gone
 import com.olp.lib.util.visible
+import com.olp.weco.ui.energy.viewmodel.EnergyViewModel
 import java.util.*
 
 class EnergyFragment : BaseFragment(), View.OnClickListener {
@@ -89,7 +90,6 @@ class EnergyFragment : BaseFragment(), View.OnClickListener {
 
                     //默认选中第一个电站
                     _binding.header.tvTitle.text = second[0].plantName
-                    energyViewModel.currentStation = second[0]
 
                     //1.开始请求数据
                     getPlantData()
@@ -180,8 +180,6 @@ class EnergyFragment : BaseFragment(), View.OnClickListener {
     private fun showPlantData(station: PlantModel) {
         _binding.header.tvTitle.text = station.plantName
 
-        //选择电站
-        energyViewModel.currentStation = station
         //重新请求数据
         getPlantData()
 
@@ -227,8 +225,6 @@ class EnergyFragment : BaseFragment(), View.OnClickListener {
 
         //1.请求图表数据
         energyViewModel.getPlantChartData()
-        //2.请求收益 和二氧化碳
-        energyViewModel.getPlantImpactData()
         //3.设置日期
         _binding.date.dataSelectView.setDateType(energyViewModel.dateType)
 

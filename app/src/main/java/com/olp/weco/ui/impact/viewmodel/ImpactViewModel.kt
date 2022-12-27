@@ -1,4 +1,4 @@
-package com.olp.weco.ui.energy.viewmodel
+package com.olp.weco.ui.impact.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -8,7 +8,6 @@ import com.olp.lib.service.http.HttpResult
 import com.olp.lib.util.DateUtils
 import com.olp.weco.base.BaseViewModel
 import com.olp.weco.model.ImpactModel
-import com.olp.weco.model.PlantModel
 import com.olp.weco.model.energy.ChartModel
 import com.olp.weco.service.http.ApiPath
 import com.olp.weco.ui.chart.ChartListDataModel
@@ -18,29 +17,22 @@ import com.olp.weco.ui.energy.ChartType
 import kotlinx.coroutines.launch
 import java.util.*
 
-class EnergyViewModel : BaseViewModel() {
+class ImpactViewModel : BaseViewModel() {
 
+    val impactChartLiveData = MutableLiveData<ChartListDataModel>()
 
-
-    val stationLiveData = MutableLiveData<Pair<Boolean, ChartModel?>>()
-
-    val chartLiveData = MutableLiveData<ChartListDataModel>()
-
-
+    val impactLiveData = MutableLiveData<ImpactModel?>()
 
     var currentPlantId = ""
 
-    var dateType = DataType.TOTAL
 
-    var energyType = ChartType.HOME
-
-
-    private val chartApi = listOf(
-        ApiPath.Plant.GET_INVERTER_DATATOTAL,
-        ApiPath.Plant.GET_INVERTER_DATAYEAR,
-        ApiPath.Plant.GET_INVERTER_DATA_MONTH,
-        ApiPath.Plant.GET_INVERTER_DATA_DAY
+    private val impactApi = listOf(
+        ApiPath.Plant.GET_IMPACT_YEAR,
+        ApiPath.Plant.GET_IMPACT_MONTH,
+        ApiPath.Plant.GET_IMPACT_DAY
     )
+
+    var dateType = DataType.TOTAL
 
 
     var time: String = ""
@@ -61,48 +53,40 @@ class EnergyViewModel : BaseViewModel() {
     /**
      * 获取电站数据
      */
-    fun getPlantChartData() {
+    fun getPlantImpactData() {
         viewModelScope.launch {
             val params = hashMapOf<String, String>().apply {
-                put("plantId", currentPlantId)
-                put("type", energyType.toString())
-                put("date", time)
             }
             apiService().postForm(
-                chartApi[dateType],
+                impactApi[dateType],
                 params,
-                object : HttpCallback<HttpResult<ChartModel>>() {
-                    override fun success(result: HttpResult<ChartModel>) {
-                        val chartModel = result.obj
+                object : HttpCallback<HttpResult<ImpactModel>>() {
+                    override fun success(result: HttpResult<ImpactModel>) {
+                        val impactModel = result.obj
 
-                        chartModel?.let {
-                            val loadList = it.energy
+                        impactModel?.let {
+                            val loadList = it.saveCosts
                             val timeList = mutableListOf<String>()
                             for (i in loadList.indices) {
                                 timeList.add(i.toString())
                             }
 
                             val dataList = mutableListOf(
-                                ChartYDataList(it.energy, ChartType.getNameByType(energyType)),
+                                ChartYDataList(it.saveCosts, "impact"),
                             )
 
                             val chartListDataModel =
                                 ChartListDataModel(timeList.toTypedArray(), dataList.toTypedArray())
-                            chartLiveData.value = chartListDataModel
-
+                            impactLiveData.value = impactModel
+                            impactChartLiveData.value = chartListDataModel
                         }
-                        stationLiveData.value = Pair(result.isBusinessSuccess(), result.obj)
                     }
 
                     override fun onFailure(errorModel: HttpErrorModel) {
-                        stationLiveData.value = Pair(false, null)
+                        impactLiveData.value = null
                     }
                 })
         }
     }
-
-
-
-
 
 }

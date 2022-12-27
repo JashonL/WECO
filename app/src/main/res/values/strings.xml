@@ -172,8 +172,14 @@ of letters, numbers and symbols.</string>
     <string name="m142_logout_account">Logout Account</string>
     <string name="m143_logout_account_notice">Logout Account Notice</string>
     <string name="m144_down_my_data">Download My Data</string>
+    <string name="m145_energy_value">Energy Value</string>
+    <string name="m146_estimated_value">Estimated Value/Saved</string>
+    <string name="m147_solar_offset">Solar Offset</string>
 
-
+    <string name="m148_this_year">This Year</string>
+    <string name="m149_this_month">This Month</string>
+    <string name="m150_this_day">This Day</string>
+    <string name="m151_energy_offset">Energy Offset</string>
 
 
 

@@ -15,6 +15,7 @@ import com.olp.weco.R
 import com.olp.weco.base.BaseFragment
 import com.olp.weco.databinding.FragmentSystemStatusBinding
 import com.olp.weco.ui.energy.EnergyActivity
+import com.olp.weco.ui.impact.ImpactActivity
 import com.olp.weco.utils.ValueUtil
 import kotlinx.coroutines.delay
 
@@ -198,6 +199,11 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
             v === _binding.llOther.llEnergy -> {
                 viewModel.stationId?.let { EnergyActivity.start(requireActivity(), it) }
             }
+
+            v === _binding.llOther.llImpact -> {
+                viewModel.stationId?.let { ImpactActivity.start(requireActivity(), it) }
+            }
+
         }
     }
 

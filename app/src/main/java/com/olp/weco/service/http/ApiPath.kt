@@ -113,10 +113,9 @@ object ApiPath {
         /**
          * 根据日期类型请求收益
          */
-        const val GET_IMPACT_DAY = "v1/manage/getImpactDay"
-        const val GET_IMPACT_MONTH = "v1/manage/getImpactMonth"
-        const val GET_IMPACT_YEAR = "v1/manage/getImpactYear"
-        const val GET_IMPACT_TOTAL = "v1/manage/getImpactTotal"
+        const val GET_IMPACT_DAY = "v1/plant/getEnergyImpactDay"
+        const val GET_IMPACT_MONTH = "v1/plant/getEnergyImpactMonth"
+        const val GET_IMPACT_YEAR = "v1/plant/getEnergyImpactYear"
 
 
     }
