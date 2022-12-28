@@ -32,7 +32,7 @@ class ImpactViewModel : BaseViewModel() {
         ApiPath.Plant.GET_IMPACT_DAY
     )
 
-    var dateType = DataType.TOTAL
+    var dateType = DataType.YEAR
 
 
     var time: String = ""
@@ -56,6 +56,7 @@ class ImpactViewModel : BaseViewModel() {
     fun getPlantImpactData() {
         viewModelScope.launch {
             val params = hashMapOf<String, String>().apply {
+                put("plantId", currentPlantId)
             }
             apiService().postForm(
                 impactApi[dateType],

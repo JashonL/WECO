@@ -21,11 +21,9 @@ import java.util.*
 class EnergyViewModel : BaseViewModel() {
 
 
-
     val stationLiveData = MutableLiveData<Pair<Boolean, ChartModel?>>()
 
     val chartLiveData = MutableLiveData<ChartListDataModel>()
-
 
 
     var currentPlantId = ""
@@ -47,14 +45,7 @@ class EnergyViewModel : BaseViewModel() {
 
 
     fun setTime(date: Date) {
-        time = when (dateType) {
-            DataType.DAY -> DateUtils.yyyy_MM_dd_format(date)
-            DataType.MONTH -> DateUtils.yyyy_MM_format(date)
-            DataType.YEAR -> DateUtils.yyyy_format(date)
-            else -> {
-                DateUtils.yyyy_format(date)
-            }
-        }
+        time = DateUtils.yyyy_MM_dd_format(date)
     }
 
 
@@ -76,22 +67,30 @@ class EnergyViewModel : BaseViewModel() {
                         val chartModel = result.obj
 
                         chartModel?.let {
-                            val loadList = it.energy
+                            val loadList = if (dateType == DataType.DAY) {
+                                it.power
+                            } else {
+                                it.energy
+                            }
+
+
                             val timeList = mutableListOf<String>()
                             for (i in loadList.indices) {
                                 timeList.add(i.toString())
                             }
 
-                            val dataList = mutableListOf(
-                                ChartYDataList(it.energy, ChartType.getNameByType(energyType)),
-                            )
+                            val dataList = if (dateType == DataType.DAY) {
+                                mutableListOf(ChartYDataList(it.power, ChartType.getNameByType(energyType)))
+                            } else {
+                                mutableListOf(ChartYDataList(it.energy, ChartType.getNameByType(energyType)))
+                            }
 
                             val chartListDataModel =
                                 ChartListDataModel(timeList.toTypedArray(), dataList.toTypedArray())
                             chartLiveData.value = chartListDataModel
 
                         }
-                        stationLiveData.value = Pair(result.isBusinessSuccess(), result.obj)
+                        stationLiveData.value = Pair(result.isBusinessSuccess(), chartModel)
                     }
 
                     override fun onFailure(errorModel: HttpErrorModel) {
@@ -100,9 +99,6 @@ class EnergyViewModel : BaseViewModel() {
                 })
         }
     }
-
-
-
 
 
 }

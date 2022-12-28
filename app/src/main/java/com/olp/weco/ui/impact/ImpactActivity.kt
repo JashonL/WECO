@@ -93,10 +93,10 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
         _binding.title.setTitleText(getString(R.string.m85_impact))
         //初始化时间 年月日
         setDate()
-        //绑定图表视图
+/*        //绑定图表视图
         supportFragmentManager.commit {
             add(R.id.chart_container, EnergyChartFragment())
-        }
+        }*/
         _binding.date.tvDateType.text = DataType.getDateNameByType(energyViewModel.dateType)
 
 
@@ -120,7 +120,7 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
 
 
             //设置收益标题
-            _binding.tvDate.text = when (dateType) {
+            _binding.tvDateTitle.text = when (dateType) {
                 DataType.DAY -> {
                     getString(R.string.m150_this_day)
                 }
@@ -146,26 +146,26 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
 
             ValueUtil.valueFromKWh(solarEle.toDouble()).apply {
                 val s = first + second
-                val sb = SpannableStringBuilder(s).append(getString(R.string.m9_solar)).apply {
+                val sb = SpannableStringBuilder(s).append(" ").append(getString(R.string.m9_solar)).apply {
                     setSpan(
                         StyleSpan(Typeface.BOLD),
                         this.indexOf(s), this.indexOf(s) + s.length,
                         Spannable.SPAN_INCLUSIVE_INCLUSIVE
                     )
                 }
-                _binding.llOffset.tvSolar.text = sb.toString()
+                _binding.llOffset.tvSolar.text = sb
             }
 
             ValueUtil.valueFromKWh(loadEle.toDouble()).apply {
                 val s = first + second
-                val sb = SpannableStringBuilder(s).append(getString(R.string.m32_load)).apply {
+                val sb = SpannableStringBuilder(s).append(" ").append(getString(R.string.m32_load)).apply {
                     setSpan(
                         StyleSpan(Typeface.BOLD),
                         this.indexOf(s), this.indexOf(s) + s.length,
                         Spannable.SPAN_INCLUSIVE_INCLUSIVE
                     )
                 }
-                _binding.llOffset.tvLoad.text = sb.toString()
+                _binding.llOffset.tvLoad.text = sb
             }
 
             //动态设置vSolar的高度
@@ -258,7 +258,6 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
 
     private fun showDateChoose() {
         val date = listOf(
-            getString(R.string.m89_total),
             getString(R.string.m72_year),
             getString(R.string.m71_month),
             getString(R.string.m70_day)

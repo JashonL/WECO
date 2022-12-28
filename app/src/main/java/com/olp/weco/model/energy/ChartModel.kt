@@ -5,7 +5,8 @@ data class ChartModel(
     val avgEnergy: String,
     val highEnergy: String,
     val totalEnergy: String,
-    val energy: Array<Float>
+    val energy: Array<Float>,
+    val power: Array<Float>,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -18,6 +19,7 @@ data class ChartModel(
         if (highEnergy != other.highEnergy) return false
         if (totalEnergy != other.totalEnergy) return false
         if (!energy.contentEquals(other.energy)) return false
+        if (!power.contentEquals(other.power)) return false
 
         return true
     }
@@ -28,6 +30,7 @@ data class ChartModel(
         result = 31 * result + highEnergy.hashCode()
         result = 31 * result + totalEnergy.hashCode()
         result = 31 * result + energy.contentHashCode()
+        result = 31 * result + power.contentHashCode()
         return result
     }
 }

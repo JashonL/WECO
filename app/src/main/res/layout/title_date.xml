@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_20"
-        android:text="@string/m17_energy"
+        android:text="@string/m85_impact"
         android:textColor="@color/color_app_main"
         android:textSize="@dimen/size_content_sp_16"
         app:layout_constraintBottom_toBottomOf="parent"

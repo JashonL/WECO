@@ -31,13 +31,8 @@ import com.olp.lib.util.Util
 class BarChartFragment : BaseFragment() {
 
 
-
-
     private lateinit var _binding: FragmentBarChartBinding
     private var colors = arrayListOf<ChartColor>()
-
-
-
 
 
     override fun onCreateView(
@@ -51,14 +46,15 @@ class BarChartFragment : BaseFragment() {
         arguments.apply {
             val datalist = this?.getString(DATALIST_KEY)
             val unit = this?.getString(UNIT)
-            val chartListDataModel = datalist?.let { GsonManager.fromJson(it, ChartListDataModel::class.java) }
-            colors=this?.getParcelableArrayList(EnergyChartFragment.COLORS)?: arrayListOf(
+            val chartListDataModel =
+                datalist?.let { GsonManager.fromJson(it, ChartListDataModel::class.java) }
+            colors = this?.getParcelableArrayList(EnergyChartFragment.COLORS) ?: arrayListOf(
                 ChartColor(Color.parseColor("#F6F6F8"), Color.parseColor("#33F6F6F8")),
                 ChartColor(Color.parseColor("#999999"), Color.parseColor("#33999999")),
                 ChartColor(Color.parseColor("#80DA8A"), Color.parseColor("#3380DA8A")),
                 ChartColor(Color.parseColor("#5E72E4"), Color.parseColor("#335E72E4"))
             )
-            refresh(chartListDataModel,unit)
+            refresh(chartListDataModel, unit)
         }
 
 
@@ -138,7 +134,7 @@ class BarChartFragment : BaseFragment() {
 
             _binding.barChart.marker = multipleChartMarkView
 
-            multipleChartMarkView.chartView=it
+            multipleChartMarkView.chartView = it
         }
 
         //X轴
@@ -147,7 +143,7 @@ class BarChartFragment : BaseFragment() {
             it.position = XAxis.XAxisPosition.BOTTOM //设置X轴坐标值显示的位置
             it.setDrawGridLines(true) //设置y轴坐标值是否需要画竖线
             it.setDrawLabels(true)//显示X轴坐标值
-            it.setCenterAxisLabels(true)//设置坐标值居中显示，柱状图需要使用到
+//            it.setCenterAxisLabels(true)//设置坐标值居中显示，柱状图需要使用到
             it.textColor = resources.getColor(R.color.text_gray_99) //设置x轴文本颜色
             it.setDrawAxisLine(true) //设置是否绘制轴线
             it.axisLineColor = resources.getColor(R.color.color_line)//设置x轴线的颜色
@@ -187,7 +183,7 @@ class BarChartFragment : BaseFragment() {
 
         //自定义图例图标
         _binding.flexboxChartLenged.removeAllViews()
-        for (i in 0 until  data.getYDataList().size) {
+        for (i in 0 until data.getYDataList().size) {
             val chartLegend = ChartLegend(requireContext())
             chartLegend.setLabel(data.getYDataList()[i].getLegend().first)
             chartLegend.setCbstyle(data.getYDataList()[i].getLegend().second)
@@ -291,7 +287,10 @@ class BarChartFragment : BaseFragment() {
             it.axisMaximum = endX//设置坐标的最大值
         }
 
-        _binding.barChart.groupBars(startX, groupSpace, barSpace)
+        //设置图例，数据种类颜色标识
+        if ((data.dataList?.size ?: 0) > 1) {
+            _binding.barChart.groupBars(startX, groupSpace, barSpace)
+        }
         _binding.barChart.invalidate()
         _binding.barChart.animateXY(1000, 1000)
 
