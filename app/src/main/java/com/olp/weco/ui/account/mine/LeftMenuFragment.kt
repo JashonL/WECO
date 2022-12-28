@@ -90,8 +90,8 @@ class LeftMenuFragment : BaseFragment(), OnClickListener {
         AlertDialog.showDialog(
             childFragmentManager,
             getString(R.string.m131_logout),
-            getString(R.string.m101_cancel),
             getString(R.string.m102_comfir),
+            getString(R.string.m101_cancel),
             getString(R.string.m36_tip),
             null
         ) {

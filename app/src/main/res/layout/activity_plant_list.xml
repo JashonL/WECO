@@ -8,17 +8,17 @@
     tools:context=".ui.station.activity.AddPlantActivity">
 
 
-    <com.olp.lib.view.StatusBarWhiteHeightView
+    <com.olp.lib.view.StatusBarHeightView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_app_main" />
+        android:background="@color/white" />
 
 
     <com.olp.weco.view.TitleBarLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:showLeftBackIcon="false"
+        app:showLeftBackIcon="true"
         app:showRightImage="false"
         app:titleText="@string/m34_plant" />
 

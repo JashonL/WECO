@@ -50,7 +50,7 @@ class TabLayout @JvmOverloads constructor(
     private fun updateView(selectTabPosition: Int) {
         for (index in 0 until childCount) {
             val tab = getChildAt(index)
-            if (tab is Tab) {
+            if (tab is TabSelect) {
                 if (index == selectTabPosition && !tab.isSelect()) {
                     tab.setSelect(true)
                 } else if (index != selectTabPosition && tab.isSelect()) {
@@ -69,7 +69,7 @@ class TabLayout @JvmOverloads constructor(
     }
 
     override fun addView(child: View?) {
-        if (child !is Tab) {
+        if (child !is TabSelect) {
             throw IllegalArgumentException("Only Tab instances can be added to TabLayout")
         }
         super.addView(child)
@@ -77,7 +77,7 @@ class TabLayout @JvmOverloads constructor(
     }
 
     override fun addView(child: View?, params: ViewGroup.LayoutParams?) {
-        if (child !is Tab) {
+        if (child !is TabSelect) {
             throw IllegalArgumentException("Only Tab instances can be added to TabLayout")
         }
         super.addView(child, params)
@@ -107,9 +107,14 @@ class TabLayout @JvmOverloads constructor(
     }
 
 
-
 }
 
 interface OnTabSelectedListener {
     fun onTabSelect(selectTab: Tab, selectPosition: Int)
+}
+
+
+interface TabSelect {
+    fun isSelect(): Boolean
+    fun setSelect(isSelect: Boolean)
 }

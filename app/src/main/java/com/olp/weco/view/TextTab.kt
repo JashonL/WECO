@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
+import androidx.databinding.adapters.TextViewBindingAdapter.setTextSize
 import com.olp.weco.R
 import com.olp.weco.databinding.TabItemBinding
 import com.olp.weco.databinding.TextTabItemBinding
@@ -17,7 +18,7 @@ class TextTab @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : RelativeLayout(context, attrs, defStyleAttr) {
+) : RelativeLayout(context, attrs, defStyleAttr) ,TabSelect{
 
     private val binding: TextTabItemBinding
 
@@ -26,7 +27,7 @@ class TextTab @JvmOverloads constructor(
     private var isSelect = false
 
     init {
-        val view = LayoutInflater.from(context).inflate(R.layout.tab_item, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.text_tab_item, this)
         binding = TextTabItemBinding.bind(view)
         context.theme.obtainStyledAttributes(
             attrs,
@@ -56,14 +57,14 @@ class TextTab @JvmOverloads constructor(
         return tabText ?: ""
     }
 
-    fun setSelect(isSelect: Boolean) {
+    override fun setSelect(isSelect: Boolean) {
         if (this.isSelect == isSelect) {
             return
         }
         updateView(isSelect)
     }
 
-    fun isSelect(): Boolean {
+    override fun isSelect(): Boolean {
         return isSelect
     }
 

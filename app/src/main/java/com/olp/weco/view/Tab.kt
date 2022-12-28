@@ -17,7 +17,7 @@ class Tab @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : RelativeLayout(context, attrs, defStyleAttr) {
+) : RelativeLayout(context, attrs, defStyleAttr),TabSelect {
 
     private val binding: TabItemBinding
 
@@ -55,14 +55,14 @@ class Tab @JvmOverloads constructor(
     }
 
 
-    fun setSelect(isSelect: Boolean) {
+    override fun setSelect(isSelect: Boolean) {
         if (this.isSelect == isSelect) {
             return
         }
         updateView(isSelect)
     }
 
-    fun isSelect(): Boolean {
+    override fun isSelect(): Boolean {
         return isSelect
     }
 
@@ -74,4 +74,9 @@ class Tab @JvmOverloads constructor(
             binding.ivIcon.setBackgroundResource(0)
         }
     }
+
+
+
+
+
 }
