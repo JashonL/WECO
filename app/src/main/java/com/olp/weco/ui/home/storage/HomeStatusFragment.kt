@@ -14,6 +14,7 @@ import com.olp.lib.util.visible
 import com.olp.weco.R
 import com.olp.weco.base.BaseFragment
 import com.olp.weco.databinding.FragmentSystemStatusBinding
+import com.olp.weco.ui.device.activity.DeviceListActivity
 import com.olp.weco.ui.energy.EnergyActivity
 import com.olp.weco.ui.impact.ImpactActivity
 import com.olp.weco.utils.ValueUtil
@@ -51,6 +52,7 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
     private fun initlisteners() {
         _binding.llOther.llEnergy.setOnClickListener(this)
         _binding.llOther.llImpact.setOnClickListener(this)
+        _binding.llOther.llDeviceList.setOnClickListener(this)
     }
 
 
@@ -145,10 +147,15 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
             //设置其他数据
             val pvDayChargeTotal = it?.pvDayChargeTotal
             val selfElc = it?.selfElc
+            val deviceCount = it?.deviceCount
 
             _binding.llOther.tvImpactData.text = getString(R.string.m128_generated_today, selfElc)
             _binding.llOther.tvEnergyData.text =
                 getString(R.string.m129_self_power_today, pvDayChargeTotal)
+            _binding.llOther.tvDeviceData.text = getString(
+                R.string.m160_device_are_run,
+                deviceCount
+            )
 
 
         }
@@ -204,6 +211,11 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
             v === _binding.llOther.llImpact -> {
                 viewModel.stationId?.let { ImpactActivity.start(requireActivity(), it) }
             }
+
+            v === _binding.llOther.llDeviceList -> {
+                viewModel.stationId?.let { DeviceListActivity.start(requireActivity(), it) }
+            }
+
 
         }
     }

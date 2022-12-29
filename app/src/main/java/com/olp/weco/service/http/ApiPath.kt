@@ -129,6 +129,19 @@ object ApiPath {
     }
 
 
+
+    object Device{
+
+        /**
+         * 设备列表
+         */
+        const val GETDEVICELIST = "v1/plant/getDeviceList"
+
+    }
+
+
+
+
     object Service {
         /**
          * 服务-使用手册列表

@@ -1,0 +1,168 @@
+package com.olp.weco.ui.device.activity
+
+import android.content.Context
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
+import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
+import android.view.View
+import android.view.View.OnClickListener
+import androidx.activity.viewModels
+import androidx.fragment.app.commit
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.olp.lib.util.GsonManager
+import com.olp.lib.util.gone
+import com.olp.lib.util.visible
+import com.olp.weco.R
+import com.olp.weco.base.BaseActivity
+import com.olp.weco.databinding.ActivityDevicelistBinding
+import com.olp.weco.databinding.ActivityImpactBinding
+import com.olp.weco.model.ChartColor
+import com.olp.weco.ui.chart.BarChartFragment
+import com.olp.weco.ui.chart.LineChartFragment
+import com.olp.weco.ui.common.model.DataType
+import com.olp.weco.ui.device.adapter.DeviceAdapter
+import com.olp.weco.ui.device.viewmodel.DeviceListViewModel
+import com.olp.weco.ui.impact.ImpactActivity
+import com.olp.weco.ui.impact.viewmodel.ImpactViewModel
+import com.olp.weco.ui.station.viewmodel.StationViewModel
+import com.olp.weco.utils.ValueUtil
+import com.olp.weco.view.DateSelectView
+import com.olp.weco.view.itemdecoration.DividerItemDecoration
+import com.olp.weco.view.pop.ListPopuwindow
+import com.olp.weco.view.popuwindow.ListPopModel
+import java.util.*
+import kotlin.math.roundToInt
+
+class DeviceListActivity : BaseActivity() {
+
+    companion object {
+        fun start(context: Context, plantId: String) {
+            val intent = Intent(context, DeviceListActivity::class.java)
+            intent.putExtra("plantId", plantId)
+            context.startActivity(intent)
+        }
+    }
+
+
+    private lateinit var _binding: ActivityDevicelistBinding
+
+
+    //绑定电站viewmodel
+    private val viewModel: StationViewModel by viewModels()
+
+
+    private val deviceListViewModel: DeviceListViewModel by viewModels()
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _binding = ActivityDevicelistBinding.inflate(layoutInflater)
+        setContentView(_binding.root)
+        setliseners()
+        initViews()
+        initData()
+    }
+
+
+    private fun setliseners() {
+        _binding.title.setOnLeftIconClickListener {
+            finish()
+        }
+        _binding.srlRefresh.setOnRefreshListener {
+            deviceListViewModel.getDevicelist()
+        }
+        _binding.title.setOnTitleClickListener {
+            showPlantList()
+        }
+    }
+
+
+    private fun showPlantList() {
+        val second = viewModel.getPlantListLiveData.value?.second
+        if (second == null || second.isEmpty()) {
+            fetchPlantList()
+        } else {
+            val options = mutableListOf<ListPopModel>()
+            for (plant in second) {
+                options.add(ListPopModel(plant.plantName.toString(), false))
+            }
+
+            val curItem: String? = if (viewModel.currentStation != null) {
+                viewModel.currentStation!!.id
+            } else {
+                ""
+            }
+            ListPopuwindow.showPop(
+                this,
+                options,
+                _binding.title,
+                curItem ?: ""
+            ) {
+                //请求设备列表
+                deviceListViewModel.currentPlantId = second[it].id
+                deviceListViewModel.getDevicelist()
+            }
+        }
+    }
+
+
+    private fun fetchPlantList() {
+        showDialog()
+        viewModel.getPlantList()
+    }
+
+
+    private fun initViews() {
+        //获取从外面传进来的电站id
+        val name = viewModel.currentStation?.plantName
+        deviceListViewModel.currentPlantId = viewModel.currentStation?.id
+
+        _binding.title.setTitleText(name)
+
+
+        _binding.rlvDeviceList.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                LinearLayoutManager.VERTICAL,
+                resources.getColor(android.R.color.transparent),
+                10f
+            )
+        )
+        _binding.rlvDeviceList.adapter = DeviceAdapter()
+
+
+    }
+
+
+    private fun initData() {
+        //请求设备列表
+        deviceListViewModel.deviceListLiveData.observe(this) {
+            dismissDialog()
+            if (it.first) {
+                val second = it.second
+                (_binding.rlvDeviceList.adapter as DeviceAdapter).refresh(second?.toList())
+            }
+        }
+
+
+        viewModel.getPlantListLiveData.observe(this) {
+            dismissDialog()
+            val second = it.second
+            if (!second.isNullOrEmpty()) {//没有电站  显示空
+                showPlantList()
+            }
+        }
+
+
+
+        showDialog()
+        deviceListViewModel.getDevicelist()
+
+    }
+
+
+}

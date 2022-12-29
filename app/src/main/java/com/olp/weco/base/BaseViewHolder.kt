@@ -14,7 +14,7 @@ import com.olp.weco.app.WECOApplication
 
 open class BaseViewHolder(
     itemView: View,
-    private val onItemClickListener: OnItemClickListener? = null
+    private val onItemClickListener: OnItemClickListener? = null,
 ) : RecyclerView.ViewHolder(itemView),
     ServiceManager.ServiceInterface, View.OnClickListener, View.OnLongClickListener {
 
@@ -64,7 +64,6 @@ open class BaseViewHolder(
     }
 
 
-
 }
 
 interface OnItemClickListener {
@@ -73,3 +72,6 @@ interface OnItemClickListener {
 
     fun onItemLongClick(v: View?, position: Int) {}
 }
+
+
+

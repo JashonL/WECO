@@ -190,7 +190,7 @@
 
 
         <activity
-            android:name=".ui.device.DeviceListActivity"
+            android:name=".ui.device.activity.DeviceListActivity"
             android:exported="true"
             android:screenOrientation="nosensor" />
 

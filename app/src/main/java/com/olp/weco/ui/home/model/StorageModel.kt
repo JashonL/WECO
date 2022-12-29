@@ -9,6 +9,7 @@ data class StorageModel(
     val selfElc: String?,
     val batterySoc: String?,
     val plantStatus: String?,
-    val unReadCount: String?
+    val unReadCount: String?,
+    val deviceCount:String
 )
 

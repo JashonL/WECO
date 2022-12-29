@@ -177,4 +177,9 @@ class TitleBarLayout @JvmOverloads constructor(
         binding.tvTitle.text = titleText ?: ""
     }
 
+
+
+
+
+
 }

@@ -25,7 +25,7 @@ import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
 
 
-class HomeActivity : BaseActivity() , View.OnClickListener {
+class HomeActivity : BaseActivity(), View.OnClickListener {
 
     companion object {
         fun start(context: Context) {
@@ -38,7 +38,6 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
     private lateinit var _binding: ActivityHomeBinding
 
     private val viewModel: StationViewModel by viewModels()
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,26 +68,25 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
     private fun initData() {
         viewModel.getPlantListLiveData.observe(this) {
             dismissDialog()
-                val second = it.second
-                if (second == null || second.isEmpty()) {//没有电站  显示空
-                    _binding.header.tvTitle.gone()
-                    //系统图显示为空
-                    showSystemEmpty()
+            val second = it.second
+            if (second == null || second.isEmpty()) {//没有电站  显示空
+                _binding.header.tvTitle.gone()
+                //系统图显示为空
+                showSystemEmpty()
 
-                } else {
-                    _binding.header.tvTitle.visible()
-                    //默认选中第一个电站
-                    _binding.header.tvTitle.text = second[0].plantName
-                    //显示系统图
-                    showSystem()
-                    //请求数据
-                    showSystemSatus(second[0])
-                }
+            } else {
+                _binding.header.tvTitle.visible()
+                //默认选中第一个电站
+                _binding.header.tvTitle.text = second[0].plantName
+                //显示系统图
+                showSystem()
+                //请求数据
+                showSystemSatus(second[0])
+            }
         }
 
         fetchPlantList()
     }
-
 
 
     fun showSystemSatus(station: PlantModel) {
@@ -103,30 +101,18 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
     }
 
 
-
-    fun showSystemEmpty(){
+    fun showSystemEmpty() {
         val homeStatusFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_system) as HomeStatusFragment
         homeStatusFragment.showEmpty()
     }
 
 
-    fun showSystem(){
+    fun showSystem() {
         val homeStatusFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_system) as HomeStatusFragment
         homeStatusFragment.showSys()
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     private fun fetchPlantList() {
@@ -149,9 +135,9 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
                 showPlantList()
             }
 
-            v===_binding.header.ivAdd->{
+            v === _binding.header.ivAdd -> {
                 RequestPermissionHub.requestPermission(
-                    supportFragmentManager ,
+                    supportFragmentManager,
                     arrayOf(Manifest.permission.CAMERA)
                 ) {
                     if (it) {
@@ -161,7 +147,7 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
             }
 
 
-            v=== _binding.header.ifvMenu->{
+            v === _binding.header.ifvMenu -> {
                 _binding.drawerLayout.openDrawer(GravityCompat.START)
 
             }
@@ -190,7 +176,7 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
                 this,
                 options,
                 _binding.header.tvTitle,
-                curItem?:""
+                curItem ?: ""
             ) {
                 showSystemSatus(second[it])
             }
@@ -198,11 +184,10 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
     }
 
 
-
     private fun scan() {
         ActivityBridge.startActivity(
             this,
-            ScanActivity.getIntent(this,viewModel.currentStation?.id.toString()),
+            ScanActivity.getIntent(this, viewModel.currentStation?.id.toString()),
             object : ActivityBridge.OnActivityForResult {
                 override fun onActivityForResult(
                     context: Context?,
@@ -212,7 +197,11 @@ class HomeActivity : BaseActivity() , View.OnClickListener {
                     if (resultCode == RESULT_OK && data?.hasExtra(ScanActivity.KEY_CODE_TEXT) == true) {
                         val dataLoggerSN = data.getStringExtra(ScanActivity.KEY_CODE_TEXT)
                         //跳转到手动输入那里
-                        AddDataLoggerActivity.start(context,viewModel.currentStation?.id,dataLoggerSN)
+                        AddDataLoggerActivity.start(
+                            context,
+                            viewModel.currentStation?.id,
+                            dataLoggerSN
+                        )
                     }
                 }
             })
