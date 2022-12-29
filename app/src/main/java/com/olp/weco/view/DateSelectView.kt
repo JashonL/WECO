@@ -26,8 +26,6 @@ class DateSelectView @JvmOverloads constructor(
 
     lateinit var nowDate: Date
 
-    private var dateFormat = "yyyy-MM-dd"
-
 
     private var selectedListener: OntimeselectedListener? = null
 
@@ -84,13 +82,35 @@ class DateSelectView @JvmOverloads constructor(
     override fun onClick(v: View?) {
         when {
             v === binding.ivNext -> {
-                nowDate = DateUtils.addDateDays(nowDate, 1)
+                when (dateType) {
+                    DataType.YEAR -> {
+                        nowDate = DateUtils.addDateYears(nowDate, 1)
+
+                    }
+                    DataType.MONTH -> {
+                        nowDate = DateUtils.addDateMonths(nowDate, 1)
+                    }
+                    DataType.DAY -> {
+                        nowDate = DateUtils.addDateDays(nowDate, 1)
+                    }
+                }
+
                 parserDate()
             }
 
 
             v === binding.ivPre -> {
-                nowDate = DateUtils.addDateDays(nowDate, -1)
+                when (dateType) {
+                    DataType.YEAR -> {
+                        nowDate = DateUtils.addDateYears(nowDate, -1)
+                    }
+                    DataType.MONTH -> {
+                        nowDate = DateUtils.addDateMonths(nowDate, -1)
+                    }
+                    DataType.DAY -> {
+                        nowDate = DateUtils.addDateDays(nowDate, -1)
+                    }
+                }
                 parserDate()
             }
 

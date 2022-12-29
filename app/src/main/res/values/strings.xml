@@ -182,6 +182,9 @@ of letters, numbers and symbols.</string>
     <string name="m151_energy_offset">Energy Offset</string>
     <string name="m152_scan_pictrue">Scan pictrue</string>
     <string name="m153_manual_input">Manual Input</string>
+    <string name="m154_low">Low</string>
+    <string name="m155_avg">Avg</string>
+    <string name="m156_high">High</string>
 
 
 

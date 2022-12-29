@@ -50,6 +50,7 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
 
     private fun initlisteners() {
         _binding.llOther.llEnergy.setOnClickListener(this)
+        _binding.llOther.llImpact.setOnClickListener(this)
     }
 
 

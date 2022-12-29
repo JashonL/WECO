@@ -36,7 +36,7 @@ class EnergyActivity : BaseActivity(), OnClickListener {
         const val UNIT = "unit"
         const val COLORS = "colors"
         val arrayOf = arrayListOf(
-            ChartColor(Color.parseColor("#F6F6F8"), Color.parseColor("#33F6F6F8")),
+            ChartColor(Color.parseColor("#3321FF"), Color.parseColor("#333321FF")),
             ChartColor(Color.parseColor("#999999"), Color.parseColor("#33999999")),
             ChartColor(Color.parseColor("#80DA8A"), Color.parseColor("#3380DA8A")),
             ChartColor(Color.parseColor("#5E72E4"), Color.parseColor("#335E72E4")),
@@ -74,7 +74,9 @@ class EnergyActivity : BaseActivity(), OnClickListener {
 
         _binding.tabLayout.addTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelect(selectTab: Tab, selectPosition: Int) {
-                energyViewModel.dateType = selectPosition + 1
+                energyViewModel.energyType = selectPosition + 1
+                //2.重新请求数据
+                getPlantData()
             }
 
         })
@@ -82,6 +84,8 @@ class EnergyActivity : BaseActivity(), OnClickListener {
 
 
     private fun initViews() {
+        _binding.tabLayout.setSelectTabPosition(0,false)
+
         _binding.title.setTitleText(getString(R.string.m17_energy))
         //初始化时间 年月日
         setDate()
@@ -93,10 +97,10 @@ class EnergyActivity : BaseActivity(), OnClickListener {
                 getPlantData()
             }
         })
-        //绑定图表视图
+/*        //绑定图表视图
         supportFragmentManager.commit {
             add(R.id.chart_container, EnergyChartFragment())
-        }
+        }*/
         _binding.date.tvDateType.text = DataType.getDateNameByType(energyViewModel.dateType)
 
 
