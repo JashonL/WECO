@@ -189,6 +189,13 @@
             android:screenOrientation="nosensor" />
 
 
+        <activity
+            android:name=".ui.device.DeviceListActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
+
+
+
     </application>
 
 </manifest>
