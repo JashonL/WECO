@@ -35,6 +35,7 @@
         android:layout_marginTop="20dp"
         app:alignContent="stretch"
         app:alignItems="stretch"
+        android:visibility="gone"
         app:dividerDrawableHorizontal="@drawable/divider_search_vertical"
         app:dividerDrawableVertical="@drawable/divider_search_horizontal"
         app:flexDirection="row"

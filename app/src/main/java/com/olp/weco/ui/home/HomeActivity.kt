@@ -146,7 +146,6 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
                 }
             }
 
-
             v === _binding.header.ifvMenu -> {
                 _binding.drawerLayout.openDrawer(GravityCompat.START)
 

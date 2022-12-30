@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.olp.lib.util.LogUtil
 import com.olp.weco.base.BaseViewHolder
 import com.olp.weco.base.OnItemClickListener
 import com.olp.weco.base.viewholder.EmptyViewHolder
+import com.olp.weco.model.AddPlantModel
 import com.olp.weco.model.DeviceModel
 import com.olp.weco.ui.device.activity.IBaseDeviceActivity
 import com.olp.weco.ui.device.viewholder.BaseDeviceViewHolder
@@ -17,16 +19,20 @@ import com.olp.weco.ui.device.viewholder.BaseDeviceViewHolder
 class DeviceAdapter : RecyclerView.Adapter<BaseViewHolder>(), OnItemClickListener {
 
 
+    companion object {
+        const val ADAPTER_DATA_EMPTY = -2
+    }
+
+
     private val deviceList = mutableListOf<DeviceModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        return if (deviceList.isEmpty()) {
+        return if (viewType == ADAPTER_DATA_EMPTY) {
             EmptyViewHolder.create(parent)
         } else {
             BaseDeviceViewHolder.createDeviceViewHolder(viewType, parent, this)
 
         }
-
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
@@ -36,10 +42,16 @@ class DeviceAdapter : RecyclerView.Adapter<BaseViewHolder>(), OnItemClickListene
     }
 
     override fun getItemCount(): Int {
+        if (deviceList.isEmpty()) {
+            return 1
+        }
         return deviceList.size
     }
 
     override fun getItemViewType(position: Int): Int {
+        if (deviceList.isEmpty()) {
+            return ADAPTER_DATA_EMPTY
+        }
         return deviceList[position].getRealDeviceType()
     }
 

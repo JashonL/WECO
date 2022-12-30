@@ -13,6 +13,7 @@ import android.view.View.OnClickListener
 import androidx.activity.viewModels
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.olp.lib.util.GsonManager
 import com.olp.lib.util.gone
 import com.olp.lib.util.visible
@@ -73,7 +74,7 @@ class DeviceListActivity : BaseActivity() {
             finish()
         }
         _binding.srlRefresh.setOnRefreshListener {
-            deviceListViewModel.getDevicelist()
+            showDeviceList()
         }
         _binding.title.setOnTitleClickListener {
             showPlantList()
@@ -99,12 +100,13 @@ class DeviceListActivity : BaseActivity() {
             ListPopuwindow.showPop(
                 this,
                 options,
-                _binding.title,
+                _binding.title.getTitilView(),
                 curItem ?: ""
             ) {
+                _binding.title.setTitleText(second[it].plantName)
                 //请求设备列表
                 deviceListViewModel.currentPlantId = second[it].id
-                deviceListViewModel.getDevicelist()
+                showDeviceList()
             }
         }
     }
@@ -117,13 +119,7 @@ class DeviceListActivity : BaseActivity() {
 
 
     private fun initViews() {
-        //获取从外面传进来的电站id
-        val name = viewModel.currentStation?.plantName
-        deviceListViewModel.currentPlantId = viewModel.currentStation?.id
-
-        _binding.title.setTitleText(name)
-
-
+        _binding.rlvDeviceList.layoutManager = LinearLayoutManager(this)
         _binding.rlvDeviceList.addItemDecoration(
             DividerItemDecoration(
                 this,
@@ -152,16 +148,39 @@ class DeviceListActivity : BaseActivity() {
         viewModel.getPlantListLiveData.observe(this) {
             dismissDialog()
             val second = it.second
-            if (!second.isNullOrEmpty()) {//没有电站  显示空
-                showPlantList()
+            if (!second.isNullOrEmpty()) {
+                //获取从外面传进来的电站id
+                val plantId = intent.getStringExtra("plantId")
+                for (i in second.indices) {
+                    val plantModel = second[i]
+                    if (plantModel.id == plantId) {
+                        viewModel.currentStation = plantModel
+                        break
+                    }
+                }
+
+                //设置当前选中
+                val name = viewModel.currentStation?.plantName
+                deviceListViewModel.currentPlantId = viewModel.currentStation?.id
+                _binding.title.setTitleText(name)
+
+                //请求设备列表
+                showDeviceList()
+
             }
         }
 
 
+        //请求电站列表
+        fetchPlantList()
 
+    }
+
+
+    fun showDeviceList() {
+        _binding.srlRefresh.finishRefresh()
         showDialog()
         deviceListViewModel.getDevicelist()
-
     }
 
 
