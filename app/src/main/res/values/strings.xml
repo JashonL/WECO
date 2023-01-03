@@ -39,32 +39,32 @@ of letters, numbers and symbols.</string>
     <string name="m22_About">About</string>
     <string name="m23_log_out">Log Out</string>
 
-    <string name="m24_personal_avatar">个人头像</string>
+    <string name="m24_personal_avatar">Personal Avatar</string>
     <string name="m25_save">Save</string>
-    <string name="m26_old_password">旧密码</string>
-    <string name="m27_new_password">新密码</string>
-    <string name="m28_password_cant_empty">密码不能为空</string>
-    <string name="m29_passwords_are_inconsistent">两次密码不一致</string>
-    <string name="m30_password_cannot_be_less_than_6_digits">密码不能少于6位数</string>
-    <string name="m31_passwords_are_inconsistent">两次密码不一致</string>
+    <string name="m26_old_password">Old Password</string>
+    <string name="m27_new_password">New password</string>
+    <string name="m28_password_cant_empty">Password can not be blank</string>
+    <string name="m29_passwords_are_inconsistent">The two passwords do not match</string>
+    <string name="m30_password_cannot_be_less_than_6_digits">Password cannot be less than 6 digits</string>
+    <string name="m31_passwords_are_inconsistent">The two passwords do not match</string>
     <string name="m32_load">Load</string>
     <string name="m33_bat">Bat</string>
     <string name="m34_plant">Plant</string>
 
-    <string name="m35_please_input_plant_or_sn">请输入电站名称或电站设备中的序列号</string>
+    <string name="m35_please_input_plant_or_sn">Please enter the power station name or the serial number in the power station equipment</string>
 
-    <string name="m36_all">全部</string>
-    <string name="m37_online">在线</string>
-    <string name="m38_offline">离线</string>
-    <string name="m39_trouble">故障</string>
-    <string name="m40_all_format">全部(%d)</string>
-    <string name="m41_online_format">在线(%d)</string>
-    <string name="m42_offline_format">离线(%d)</string>
-    <string name="m43_trouble_format">故障(%d)</string>
-    <string name="m44_add_plant">添加电站</string>
-    <string name="m45_current_power">实时功率</string>
-    <string name="m46_please_select_install_date">请选择安装日期</string>
-    <string name="m47_please_input_total_component_power">请输入组件总功率</string>
+    <string name="m36_all">All</string>
+    <string name="m37_online">Online</string>
+    <string name="m38_offline">Offline</string>
+    <string name="m39_trouble">Fault</string>
+    <string name="m40_all_format">All(%d)</string>
+    <string name="m41_online_format">Online(%d)</string>
+    <string name="m42_offline_format">Offline(%d)</string>
+    <string name="m43_trouble_format">Fault(%d)</string>
+    <string name="m44_add_plant">Add a power station</string>
+    <string name="m45_current_power">Real time power</string>
+    <string name="m46_please_select_install_date">Please select an install date</string>
+    <string name="m47_please_input_total_component_power">Please enter the total power of the components</string>
 
     <string name="m48_kwh">kWh</string>
     <string name="m49_mwh">MWh</string>
@@ -80,30 +80,30 @@ of letters, numbers and symbols.</string>
     <string name="m59_kg">kg</string>
     <string name="m60_t">t</string>
 
-    <string name="m61_power_output">功率/电量</string>
+    <string name="m61_power_output">power/energy</string>
     <string name="m62_soc">SOC</string>
-    <string name="m63_charge_discharge_output">充放电</string>
+    <string name="m63_charge_discharge_output">Discharge</string>
 
-    <string name="m64_wind_direction_format">风向:%s</string>
-    <string name="m65_wind_speed_format">风速:%s</string>
-    <string name="m66_info_space_not_permission">浏览账号没有权限</string>
-    <string name="m67_next_step">下一步</string>
-    <string name="m68_plant_name">电站名称</string>
-    <string name="m69_please_select_country_or_area_2">请选择国家/地区</string>
-    <string name="m70_please_input_plant_name">请填写电站名称</string>
-    <string name="m71_install_date">安装日期</string>
+    <string name="m64_wind_direction_format">wind direction:%s</string>
+    <string name="m65_wind_speed_format">wind speed:%s</string>
+    <string name="m66_info_space_not_permission">Browsing account does not have permission</string>
+    <string name="m67_next_step">Next step</string>
+    <string name="m68_plant_name">Station name</string>
+    <string name="m69_please_select_country_or_area_2">Please select a country</string>
+    <string name="m70_please_input_plant_name">Please fill in the power station name</string>
+    <string name="m71_install_date">installation date</string>
 
-    <string name="m72_plant_address">电站地址</string>
-    <string name="m73_unselected_country_or_area">未选择国家/地区</string>
-    <string name="m74_take_a_picture">拍照</string>
-    <string name="m75_from_the_album">从相册选取</string>
+    <string name="m72_plant_address">Power station address</string>
+    <string name="m73_unselected_country_or_area">No country selected</string>
+    <string name="m74_take_a_picture">Photograph</string>
+    <string name="m75_from_the_album">choose from photo album</string>
 
-    <string name="m76_device_count">设备数量</string>
-    <string name="m77_total_component_power">组件总功率</string>
-    <string name="m78_today_generate_electricity">今日发电</string>
-    <string name="m79_month_generate_electricity">当月发电</string>
-    <string name="m80_total_generate_electricity">累计发电</string>
-    <string name="m81_nothing_plant_format">无%s电站</string>
+    <string name="m76_device_count">Equipment Quantity</string>
+    <string name="m77_total_component_power">Total power of components</string>
+    <string name="m78_today_generate_electricity">Power Generation Today</string>
+    <string name="m79_month_generate_electricity">Power generation in the current month</string>
+    <string name="m80_total_generate_electricity">Cumulative power generation</string>
+    <string name="m81_nothing_plant_format">No %s station</string>
     <string name="m82_system_nomal">System Nomal</string>
     <string name="m83_system_exception">System Exception</string>
     <string name="m84_net_use">Net Use</string>
@@ -117,7 +117,7 @@ of letters, numbers and symbols.</string>
     <string name="m90_serial_number_not_null">SN cannot be blank</string>
     <string name="m91_check_code_not_null">Verification code cannot be blank</string>
     <string name="m92_add_data_logger">Add data logger</string>
-    <string name="m93_input_data_logger_sn_and_check_code">Enter the logger SN and verification code</string>
+    <string name="m93_input_data_logger_sn_and_check_code">Enter the device serial number and verthcation code</string>
     <string name="m94_serial_number">SN</string>
     <string name="m95_check_code">Verification</string>
     <string name="m96_please_input_data_logger_sn">Please enter SN of data logger</string>
@@ -141,16 +141,16 @@ of letters, numbers and symbols.</string>
     <string name="m114_storage">Storage</string>
     <string name="m115_enter_the_plant_addr">Enter the plant address</string>
 
-    <string name="m116_please_select_city">请选择城市</string>
-    <string name="m117_please_select_symbol">请选择货币符号</string>
-    <string name="m118_please_plant_type">请选择电站类型</string>
-    <string name="m119_please_plant_address">请输入电站地址</string>
-    <string name="m120_crop_image_menu_crop">裁剪</string>
-    <string name="m121_pick_image_intent_chooser_title">選擇圖片</string>
+    <string name="m116_please_select_city">Please select city</string>
+    <string name="m117_please_select_symbol">Please select a currency symbol</string>
+    <string name="m118_please_plant_type">Please select the power station type</string>
+    <string name="m119_please_plant_address">Please enter the address of the power station</string>
+    <string name="m120_crop_image_menu_crop">cut out</string>
+    <string name="m121_pick_image_intent_chooser_title">Select Image</string>
     <string name="m122_today">Today</string>
     <string name="m123_Total">Total</string>
-    <string name="m124_on_line">on-line</string>
-    <string name="m125_off_line">off-line</string>
+    <string name="m124_on_line">On-Line</string>
+    <string name="m125_off_line">Off-Line</string>
     <string name="m126_w">w</string>
     <string name="m127_device_list">Device List</string>
     <string name="m128_generated_today">%s  Generated Today</string>

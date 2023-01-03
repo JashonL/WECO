@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class RegisterViewModel : BaseViewModel() {
 
-    val registerLiveData = MutableLiveData<User?>()
+    val registerLiveData = MutableLiveData<Pair<User?, String?>>()
 
     /**
      * 是否同意隐私政策
@@ -22,8 +22,6 @@ class RegisterViewModel : BaseViewModel() {
 
 
     var selectArea: String = ""
-
-
 
 
     /**
@@ -39,7 +37,7 @@ class RegisterViewModel : BaseViewModel() {
                 put("country", country)
                 put("timeZone", timeZone)
                 put("email", email)
-                put("password", MD5Util.md5(password)?:"")
+                put("password", MD5Util.md5(password) ?: "")
                 put("verificationCode", verificationCode)
                 put("installerCode", installerCode)
 
@@ -52,14 +50,14 @@ class RegisterViewModel : BaseViewModel() {
                         val user = result.obj
                         user?.password = password
 
-                        registerLiveData.value = user
+                        registerLiveData.value = Pair(user, result.msg)
                     } else {
-                        registerLiveData.value = null
+                        registerLiveData.value = Pair(null, result.msg)
                     }
                 }
 
                 override fun onFailure(errorModel: HttpErrorModel) {
-                    registerLiveData.value = null
+                    registerLiveData.value = Pair(null, errorModel.errorMsg)
                 }
 
             })

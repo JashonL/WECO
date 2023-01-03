@@ -63,6 +63,9 @@ class ForgotPasswordActivity : BaseActivity(), OnClickListener {
         }
 
 
+        binding.btReset.setOnClickListener(this)
+
+
     }
 
     private fun getPhoneOrEmailText() = binding.etEmail.getValue()

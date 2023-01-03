@@ -8,75 +8,40 @@
     android:orientation="vertical"
     tools:context=".ui.dataloger.AddDataLoggerActivity">
 
-    <com.olp.lib.view.StatusBarWhiteHeightView
+    <com.olp.lib.view.StatusBarHeightView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_app_main" />
+        android:background="@color/white" />
 
     <com.olp.weco.view.TitleBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleText="@string/m92_add_data_logger" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/m93_input_data_logger_sn_and_check_code"
-        android:textColor="@color/text_gray_99"
-        android:textSize="@dimen/text_13" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="@dimen/dp_30"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:src="@drawable/qr_code" />
 
-            <ImageView
-                android:layout_width="86dp"
-                android:layout_height="45dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/m94_serial_number"
-                android:textColor="@color/text_gray_99"
-                android:textSize="@dimen/text_10" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="45dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="62dp"
-                android:layout_height="34dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/m95_check_code"
-                android:textColor="@color/text_gray_99"
-                android:textSize="@dimen/text_10" />
-
-        </LinearLayout>
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/m93_input_data_logger_sn_and_check_code"
+            android:textColor="@color/text_gray_99"
+            android:textSize="@dimen/text_13" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -144,7 +109,8 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:paddingEnd="16dp"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -191,6 +157,7 @@
         android:layout_marginEnd="36dp"
         android:background="@drawable/shape_login"
         android:text="@string/m114_add"
+        android:textAllCaps="false"
         android:textSize="@dimen/text_medium" />
 
 </LinearLayout>

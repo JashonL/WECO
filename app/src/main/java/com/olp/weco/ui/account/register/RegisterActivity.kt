@@ -85,16 +85,15 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     private fun initData() {
         viewModel.registerLiveData.observe(this) {
             dismissDialog()
-            if (it != null) {
-                ToastUtil.show(getString(R.string.m90_register_success))
+            val first = it.first
+            ToastUtil.show(it.second)
+            if (first != null) {
                 //注册成功，关闭页面返回登录页面
-                finish()
-
+//                finish()
                 //去登录
-                login(it.email, it.password)
+                login(first.email, first.password)
             } else {
-//                ToastUtil.show(it)
-                showResultDialog(it, null, null)
+                showResultDialog(first, null, null)
             }
         }
 
@@ -122,8 +121,6 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     }
 
 
-
-
     private fun login(password: String, userName: String) {
         if (!TextUtils.isEmpty(password)) {
             showDialog()
@@ -139,14 +136,11 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     }
 
 
-
-
     private fun loginSuccess(user: User?) {
         accountService().saveUserInfo(user)
         HomeActivity.start(this)
         finish()
     }
-
 
 
     private fun initView() {
@@ -229,7 +223,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     private fun requestSendVerifyCode() {
         val phoneOrEmail = getPhoneOrEmailText()
         phoneOrEmail?.let {
-            verifyCodeViewModel.fetchVerifyCode(phoneOrEmail,"1")
+            verifyCodeViewModel.fetchVerifyCode(phoneOrEmail, "1")
         }
     }
 
@@ -267,8 +261,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
 
 
     private fun setTimeZone() {
-
-        val timeZone = Util.getTimeZone()
+        val timeZone = "GMT ${Util.getTimeZone()}"
         binding.etZone.setValue(timeZone)
 
     }

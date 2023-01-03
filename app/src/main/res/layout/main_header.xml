@@ -23,8 +23,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
-            android:src="@drawable/menu"
             android:padding="@dimen/dp_10"
+            android:src="@drawable/menu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -44,10 +44,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:drawableEndCompat="@drawable/ic_down" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
+        <ImageView
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_10"
+            android:src="@drawable/ic_down"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+            app:layout_constraintLeft_toRightOf="@+id/tv_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_title" />
 
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -65,8 +72,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_20"
-            android:src="@drawable/home_add"
             android:padding="@dimen/dp_5"
+            android:src="@drawable/home_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
