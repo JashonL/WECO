@@ -37,9 +37,9 @@ class EnergyActivity : BaseActivity(), OnClickListener {
         const val COLORS = "colors"
         val arrayOf = arrayListOf(
             ChartColor(Color.parseColor("#3321FF"), Color.parseColor("#333321FF")),
-            ChartColor(Color.parseColor("#999999"), Color.parseColor("#33999999")),
-            ChartColor(Color.parseColor("#80DA8A"), Color.parseColor("#3380DA8A")),
-            ChartColor(Color.parseColor("#5E72E4"), Color.parseColor("#335E72E4")),
+            ChartColor(Color.parseColor("#FFAA05"), Color.parseColor("#33FFAA05")),
+            ChartColor(Color.parseColor("#333333"), Color.parseColor("#33333333")),
+            ChartColor(Color.parseColor("#06C854"), Color.parseColor("#3306C854")),
         )
 
         fun start(context: Context, plantId: String) {

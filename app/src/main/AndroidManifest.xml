@@ -163,6 +163,7 @@
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true"
+            android:launchMode="singleTop"
             android:screenOrientation="nosensor" />
 
 
@@ -185,8 +186,8 @@
 
         <activity
             android:name=".ui.station.activity.PlantListActivity"
-            android:launchMode="singleTop"
             android:exported="true"
+            android:launchMode="singleTop"
             android:screenOrientation="nosensor" />
 
 
@@ -195,6 +196,11 @@
             android:exported="true"
             android:screenOrientation="nosensor" />
 
+
+        <activity
+            android:name=".ui.device.activity.HvBatBoxActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
 
 
     </application>

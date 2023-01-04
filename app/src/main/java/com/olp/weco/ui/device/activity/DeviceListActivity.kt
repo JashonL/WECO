@@ -2,41 +2,17 @@ package com.olp.weco.ui.device.activity
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.style.StyleSpan
-import android.view.View
-import android.view.View.OnClickListener
 import androidx.activity.viewModels
-import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import com.olp.lib.util.GsonManager
-import com.olp.lib.util.gone
-import com.olp.lib.util.visible
-import com.olp.weco.R
 import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityDevicelistBinding
-import com.olp.weco.databinding.ActivityImpactBinding
-import com.olp.weco.model.ChartColor
-import com.olp.weco.ui.chart.BarChartFragment
-import com.olp.weco.ui.chart.LineChartFragment
-import com.olp.weco.ui.common.model.DataType
 import com.olp.weco.ui.device.adapter.DeviceAdapter
 import com.olp.weco.ui.device.viewmodel.DeviceListViewModel
-import com.olp.weco.ui.impact.ImpactActivity
-import com.olp.weco.ui.impact.viewmodel.ImpactViewModel
 import com.olp.weco.ui.station.viewmodel.StationViewModel
-import com.olp.weco.utils.ValueUtil
-import com.olp.weco.view.DateSelectView
 import com.olp.weco.view.itemdecoration.DividerItemDecoration
 import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
-import java.util.*
-import kotlin.math.roundToInt
 
 class DeviceListActivity : BaseActivity() {
 

@@ -190,10 +190,85 @@ of letters, numbers and symbols.</string>
     <string name="m158_xp">XP</string>
     <string name="m159_hvbox">HVBOX</string>
     <string name="m160_device_are_run">%s  Device are run</string>
-
     <string name="m161_no_data">No data</string>
+    <string name="m162_mgrn_inverter">mgrn inverter</string>
+
+    <string name="m163_battery_model">Battery Model</string>
+    <string name="m164_battery_sn">Battery SN</string>
+    <string name="m165_battery_id">Battery ID</string>
+    <string name="m166_bms_type">BMS Type</string>
+    <string name="m167_fw_version_1">FW Version 1</string>
+    <string name="m168_actual_protocol">Actual Protocol</string>
+    <string name="m169_fw_version_1">Total Voltage</string>
+    <string name="m170_current">Current</string>
 
 
+    <string name="m171_discharge_power">Discharge Power</string>
+    <string name="m172_battery_soc">Battery SOC</string>
+    <string name="m173_max_volt">Max Volt</string>
+    <string name="m174_min_volt">Min Volt</string>
+    <string name="m175_max_tem">Max Tem</string>
+    <string name="m176_min_tem">Min Tem</string>
+    <string name="m177_charge_energy">Charge Energy</string>
+    <string name="m178_discharge_energy">DisCharge Energy</string>
+
+
+    <string name="m179_main_relay_staues">Main Relay Staues</string>
+    <string name="m180_charged_voltage">Charged Voltage</string>
+    <string name="m181_battery_cycles">Battery Cycles</string>
+
+    <string name="m182_max_voltage">Max Voltage</string>
+    <string name="m183_min_voltage">Min Voltage</string>
+    <string name="m184_actual_current">Actual Current</string>
+    <string name="m185_max_temperature">Max temperature</string>
+    <string name="m186_min_temperature">Min temperature</string>
+
+
+    <string name="m187_device_sn">Device SN</string>
+    <string name="m188_rated_power">Rated Power</string>
+    <string name="m189_model">Model</string>
+    <string name="m190_firmware_version">Firmware Version</string>
+
+
+    <string name="m191_ac_dc_data">AC/DC Data</string>
+    <string name="m192_u_phase_voltage">U-Phase Voltage</string>
+    <string name="m193_u_phase_current">U-Phase Current</string>
+    <string name="m194_v_phase_voltage">V Phase Voltage</string>
+    <string name="m195_v_phase_current">V-Phase Current</string>
+    <string name="m196_w_phase_voltage">W-Phase Voltage</string>
+    <string name="m197_w_phase_current">W-Phase Current</string>
+    <string name="m198_active_power">Active Power</string>
+    <string name="m199_reactive_power">Reactive Power</string>
+    <string name="m200_ac_frequency">AC Frequency</string>
+    <string name="m201_operating_mode">Operating Mode</string>
+    <string name="m202_device_status">Device status</string>
+
+
+    <string name="m203_dc_dc_data">DC/DC Data</string>
+    <string name="m204_high_voltage">High voltage</string>
+    <string name="m205_inlet_air_temperature">Inlet Air Temperature</string>
+    <string name="m206_low_side_voltage">Low Side Voltage</string>
+    <string name="m207_low_side_current">Low Side Current</string>
+    <string name="m208_low_side_power">Low Side Power</string>
+    <string name="m209_dc_type">DC Type</string>
+    <string name="m210_dc_operating_state">DC Operating State</string>
+    <string name="m211_dc_alarm_status">DC Alarm Status</string>
+    <string name="m212_dc_fault_status">DC Fault Status</string>
+
+
+
+    <string name="m213_bat_data">Bat. Data</string>
+    <string name="m214_run_status">Run Status</string>
+    <string name="m215_max_charge_current">Max Charge Current</string>
+    <string name="m216_soh">SOH</string>
+    <string name="m217_max_cell_vol">Max Cell Voltage</string>
+    <string name="m218_max_discharge_current">Max Discharge Current</string>
+    <string name="m219_max_cell_temp">Max Cell Temp.</string>
+    <string name="m220_min_cell_temp">Min Cell Temp.</string>
+
+    <string name="m221_forbid_charge">Forbid Charge</string>
+    <string name="m222_min_cell_voltage">Min Cell Voltage</string>
+    <string name="m223_forbid_discharge">Forbid disCharge</string>
 
 
 

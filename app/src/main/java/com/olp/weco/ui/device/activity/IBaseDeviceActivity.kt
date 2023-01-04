@@ -20,7 +20,9 @@ interface IBaseDeviceActivity {
             when (deviceType) {
                 DeviceType.PCS -> {}
                 DeviceType.XP -> {}
-                DeviceType.HVBOX -> {}
+                DeviceType.HVBOX -> {
+                    context?.let { HvBatBoxActivity.start(it, deviceSN.toString()) }
+                }
             }
         }
     }
