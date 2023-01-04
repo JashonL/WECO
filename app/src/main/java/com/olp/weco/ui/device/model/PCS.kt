@@ -97,5 +97,7 @@ data class PCS(
     val workMode3: String?,
     val workMode4: String?,
     val model: String?,
-    val operatingMode: String?
+    val operatingMode: String?,
+
+
 )

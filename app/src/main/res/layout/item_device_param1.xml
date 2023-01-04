@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical">
@@ -13,7 +15,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_5"
         android:textColor="@color/color_999999"
-        android:textSize="@dimen/text_medium"
+        android:textSize="@dimen/size_content_sp_12"
         tools:text="Better model" />
 
     <TextView
@@ -29,7 +31,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_2"
+        android:layout_height="@dimen/dp_1"
         android:background="@color/gray_aaaaaa" />
 
 

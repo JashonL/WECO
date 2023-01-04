@@ -18,7 +18,9 @@ interface IBaseDeviceActivity {
             deviceSN: String?
         ) {
             when (deviceType) {
-                DeviceType.PCS -> {}
+                DeviceType.PCS -> {
+                    context?.let { PcsActivity.start(it, deviceSN.toString()) }
+                }
                 DeviceType.XP -> {}
                 DeviceType.HVBOX -> {
                     context?.let { HvBatBoxActivity.start(it, deviceSN.toString()) }

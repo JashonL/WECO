@@ -230,7 +230,7 @@ of letters, numbers and symbols.</string>
     <string name="m190_firmware_version">Firmware Version</string>
 
 
-    <string name="m191_ac_dc_data">AC/DC Data</string>
+    <string name="m191_pcs_data_1">PCS Data 1</string>
     <string name="m192_u_phase_voltage">U-Phase Voltage</string>
     <string name="m193_u_phase_current">U-Phase Current</string>
     <string name="m194_v_phase_voltage">V Phase Voltage</string>
@@ -244,7 +244,7 @@ of letters, numbers and symbols.</string>
     <string name="m202_device_status">Device status</string>
 
 
-    <string name="m203_dc_dc_data">DC/DC Data</string>
+    <string name="m203_mppt_data_1">MPPT Data 1</string>
     <string name="m204_high_voltage">High voltage</string>
     <string name="m205_inlet_air_temperature">Inlet Air Temperature</string>
     <string name="m206_low_side_voltage">Low Side Voltage</string>
@@ -269,7 +269,21 @@ of letters, numbers and symbols.</string>
     <string name="m221_forbid_charge">Forbid Charge</string>
     <string name="m222_min_cell_voltage">Min Cell Voltage</string>
     <string name="m223_forbid_discharge">Forbid disCharge</string>
+    <string name="m224_device_type">Device Type</string>
+    <string name="m225_soft_ware_version">Software Version</string>
+    <string name="m226_work_mode">Work Mode</string>
 
+
+
+    <string name="m227_input_voltage">Input Voltage</string>
+    <string name="m228_inlet_temp">Inlet Temp.</string>
+    <string name="m227_input_power">Input Power</string>
+    <string name="m228_input_current">Input Current</string>
+    <string name="m227_dc_run_state">DC Run State</string>
+    <string name="m228_dc_access_type">DC Access Type</string>
+    <string name="m229_dc_fault_status">DC Fault Status</string>
+    <string name="m230_high_side_voltage">High Side voltage</string>
+    <string name="m231_electrical_cabinet">Electrical Cabinet</string>
 
 
     <string name="m5_privacy_dialog_content">Enerview旨在保护您的数据隐私与安全的基础上，帮助您高效管理电站。请仔细阅读并充分理解一下条款后再点击同意。</string>
