@@ -44,7 +44,7 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
         const val UNIT = "unit"
         const val COLORS = "colors"
         val arrayOf = arrayListOf(
-            ChartColor(Color.parseColor("#F6F6F8"), Color.parseColor("#33F6F6F8")),
+            ChartColor(Color.parseColor("#FFAA05"), Color.parseColor("#33FFAA05")),
             ChartColor(Color.parseColor("#999999"), Color.parseColor("#33999999")),
             ChartColor(Color.parseColor("#80DA8A"), Color.parseColor("#3380DA8A")),
             ChartColor(Color.parseColor("#5E72E4"), Color.parseColor("#335E72E4")),
