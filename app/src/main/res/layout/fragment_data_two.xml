@@ -28,8 +28,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rlv_data"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content" />
 
             <com.olp.weco.view.TabLayout
                 android:id="@+id/tab_layout"
@@ -72,8 +71,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rlv_data2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content" />
 
 
         </LinearLayout>

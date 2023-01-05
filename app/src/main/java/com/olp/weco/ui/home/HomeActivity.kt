@@ -206,4 +206,9 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
             })
     }
 
+
+    fun closeMenu() {
+        _binding.drawerLayout.close()
+    }
+
 }

@@ -20,7 +20,9 @@ import com.olp.weco.ui.device.model.DeviceSocDataModel
 import com.olp.weco.ui.device.viewmodel.HvBatBoxViewModel
 import com.olp.weco.view.OnTabSelectedListener
 import com.olp.weco.view.Tab
+import com.olp.weco.view.TextTab
 import com.olp.weco.view.itemdecoration.DividerItemDecoration
+import kotlin.math.roundToInt
 
 class DataFragmentTwo : BaseFragment() {
 
@@ -33,11 +35,7 @@ class DataFragmentTwo : BaseFragment() {
 
     private val viewModel: HvBatBoxViewModel by activityViewModels()
 
-    private val dataTitles = listOf(
-        getString(R.string.m179_main_relay_staues), getString(R.string.m180_charged_voltage),
-        getString(R.string.m181_battery_cycles), getString(R.string.m182_max_voltage),
-        getString(R.string.m183_min_voltage), getString(R.string.m184_actual_current)
-    )
+    private lateinit var dataTitles: List<String>
 
 
     override fun onCreateView(
@@ -46,18 +44,25 @@ class DataFragmentTwo : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDataTwoBinding.inflate(layoutInflater)
-        initViews()
+        initTitles()
         initLiseners()
+        initViews()
         initData()
         return binding.root
     }
 
-
+    private fun initTitles() {
+        dataTitles = listOf(
+            getString(R.string.m179_main_relay_staues), getString(R.string.m180_charged_voltage),
+            getString(R.string.m181_battery_cycles), getString(R.string.m182_max_voltage),
+            getString(R.string.m183_min_voltage), getString(R.string.m184_actual_current)
+        )
+    }
 
 
     private fun initViews() {
         //默认选中第一个
-        binding.tabLayout.setSelectTabPosition(0)
+//        binding.tabLayout.setSelectTabPosition(0)
 
         binding.rlvData.layoutManager = GridLayoutManager(context, 2)
         binding.rlvData.addItemDecoration(
@@ -85,13 +90,14 @@ class DataFragmentTwo : BaseFragment() {
     }
 
 
-
-
-
     private fun initLiseners() {
-        binding.tabLayout.addTabSelectedListener(object : OnTabSelectedListener{
+        binding.tabLayout.addTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelect(selectTab: Tab, selectPosition: Int) {
-                if (socDatalist.size>selectPosition){
+
+            }
+
+            override fun onTabSelect(selectTab: TextTab, selectPosition: Int) {
+                if (socDatalist.size > selectPosition) {
                     val deviceSocDataModels = socDatalist[selectPosition]
                     (binding.rlvData2.adapter as SocAdapter).refresh(deviceSocDataModels)
                 }
@@ -99,8 +105,6 @@ class DataFragmentTwo : BaseFragment() {
         })
 
     }
-
-
 
 
     private fun initData() {
@@ -468,8 +472,11 @@ class DataFragmentTwo : BaseFragment() {
                 }
 
                 //刷新数据
-                val selectTabPosition = binding.tabLayout.getSelectTabPosition()
-                binding.tabLayout.setSelectTabPosition(selectTabPosition,true)
+                var selectTabPosition = binding.tabLayout.getSelectTabPosition()
+                if (selectTabPosition == -1) {
+                    selectTabPosition = 0
+                }
+                binding.tabLayout.setSelectTabPosition(selectTabPosition, true)
 
 
             }
@@ -533,8 +540,21 @@ class DataFragmentTwo : BaseFragment() {
         }
 
         fun bindData(dataModel: DeviceSocDataModel?) {
+            binding.tvTitle.text = dataModel?.title
+            binding.tvSoc.text = dataModel?.soc
+
+            binding.tvMaxVol.text = dataModel?.MaxVoltage
+            binding.tvMinVol.text = dataModel?.MinVoltage
+
+            binding.tvMaxTemp.text = dataModel?.Maxtemperature
+            binding.tvMinTemp.text = dataModel?.Mintemperature
 
 
+            val percenter = dataModel?.percent!!.roundToInt()
+
+            binding.tvProgress.text = "$percenter%"
+
+            binding.pbProgress.progress = percenter
         }
 
     }

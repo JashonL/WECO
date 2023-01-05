@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
  */
 class PlantListViewModel : BaseViewModel() {
 
-    val getPlantListLiveData = MutableLiveData<Pair<Array<PlantModel>?, String?>>()
+    val getPlantListLiveData = MutableLiveData<Pair<MutableList<PlantModel>?, String?>>()
 
     val getPlantStatusNumLiveData = MutableLiveData<Pair<PlantStatusNumModel, String?>>()
 
@@ -39,7 +39,7 @@ class PlantListViewModel : BaseViewModel() {
                     put("order", orderType.toString())
                 }
                 if (!TextUtils.isEmpty(searchWord)) {
-                    put("searchWord", searchWord)
+                    put("plantName", searchWord)
                 }
 
                 put("email", email.toString())
@@ -50,8 +50,24 @@ class PlantListViewModel : BaseViewModel() {
                 object : HttpCallback<HttpResult<Array<PlantModel>>>() {
                     override fun success(result: HttpResult<Array<PlantModel>>) {
                         if (result.isBusinessSuccess()) {
+                            val plants = result.obj ?: emptyArray()
+                            var showPlants: MutableList<PlantModel> = mutableListOf()
+                            when (plantStatus) {
+                                PlantModel.PLANT_STATUS_ALL -> {
+                                    showPlants = plants.toMutableList()
+                                }
+                                else -> {
+                                    for (i in plants.indices) {
+                                        val status = plants[i].plantStatus
+                                        if (status == plantStatus) {
+                                            showPlants.add(plants[i])
+                                        }
+
+                                    }
+                                }
+                            }
                             getPlantListLiveData.value =
-                                Pair(result.obj ?: emptyArray(), null)
+                                Pair(showPlants, null)
                         } else {
                             getPlantListLiveData.value = Pair(null, result.msg ?: "")
                         }
@@ -63,10 +79,6 @@ class PlantListViewModel : BaseViewModel() {
                 })
         }
     }
-
-
-
-
 
 
     /**

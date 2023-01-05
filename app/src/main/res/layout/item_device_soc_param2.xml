@@ -25,7 +25,7 @@
 
 
         <TextView
-            android:id="@+id/tv_key"
+            android:id="@+id/tv_soc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/dp_5"
@@ -34,13 +34,33 @@
             tools:text="99.6" />
 
 
-        <ProgressBar
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_20"
-            android:layout_margin="@dimen/dp_10"
-            android:max="1000"
-            android:progressDrawable="@drawable/progress_style1" />
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/pb_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/dp_10"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_style1" />
+
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp_10"
+                android:padding="@dimen/dp_5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_medium"
+                tools:text="99.6" />
+
+        </RelativeLayout>
 
 
     </LinearLayout>
@@ -69,6 +89,7 @@
                 android:textSize="@dimen/size_content_sp_12" />
 
             <TextView
+                android:id="@+id/tv_max_vol"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -98,6 +119,7 @@
                 android:textSize="@dimen/size_content_sp_12" />
 
             <TextView
+                android:id="@+id/tv_min_vol"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -127,6 +149,7 @@
                 android:textSize="@dimen/size_content_sp_12" />
 
             <TextView
+                android:id="@+id/tv_max_temp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -157,6 +180,7 @@
                 android:textSize="@dimen/size_content_sp_12" />
 
             <TextView
+                android:id="@+id/tv_min_temp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

@@ -40,6 +40,12 @@ class PlantListActivity : BaseActivity() {
             AddTtchPlantActivity.start(this)
         }
 
+        _binding.ivSearch.setOnClickListener {
+            val plantName = _binding.tvSearch.text.toString()
+            filterViewModel.setSearchWord(plantName)
+        }
+
+
     }
 
 

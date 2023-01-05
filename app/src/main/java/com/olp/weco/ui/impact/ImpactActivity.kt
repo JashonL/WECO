@@ -29,6 +29,7 @@ import com.olp.weco.ui.energy.viewmodel.EnergyViewModel
 import com.olp.weco.ui.impact.viewmodel.ImpactViewModel
 import com.olp.weco.utils.ValueUtil
 import com.olp.weco.view.DateSelectView
+import com.olp.weco.view.dialog.OptionsDialog
 import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
 import java.util.*
@@ -173,8 +174,13 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
 
             if (loadEle.toDouble() != 0.0) {
                 val layoutParams = _binding.llOffset.vSolar.layoutParams
-                layoutParams.height =
-                    (loadHigh * (solarEle.toDouble() / loadEle.toDouble())).roundToInt()
+
+                var height = (loadHigh * (solarEle.toDouble() / loadEle.toDouble())).roundToInt()
+                if (height==0){
+                    height=10
+                }
+
+                layoutParams.height = height
                 _binding.llOffset.vSolar.layoutParams = layoutParams
             }
 
@@ -257,7 +263,7 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
 
 
     private fun showDateChoose() {
-        val date = listOf(
+ /*       val date = listOf(
             getString(R.string.m72_year),
             getString(R.string.m71_month),
             getString(R.string.m70_day)
@@ -277,6 +283,33 @@ class ImpactActivity : BaseActivity(), View.OnClickListener {
             _binding.date.tvDateType.text = options[it].title
 
         }
+*/
+
+        val date = listOf(
+            getString(R.string.m72_year),
+            getString(R.string.m71_month),
+            getString(R.string.m70_day)
+        )
+
+        OptionsDialog.show(supportFragmentManager, date.toTypedArray()) {
+            //根据日期请求图表数据
+            _binding.date.tvDateType.text = date[it]
+            when(it){
+                0->{
+                    energyViewModel.dateType = DataType.YEAR
+                }
+                1->{
+                    energyViewModel.dateType = DataType.MONTH
+                }
+                2->{
+                    energyViewModel.dateType = DataType.DAY
+                }
+            }
+
+            //重新请求求数据
+            getPlantData()
+        }
+
     }
 
 

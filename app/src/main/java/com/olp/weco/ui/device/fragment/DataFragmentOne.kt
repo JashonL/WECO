@@ -26,17 +26,8 @@ class DataFragmentOne : BaseFragment() {
 
     private val viewModel: HvBatBoxViewModel by activityViewModels()
 
-    private val dataTitles = listOf(
-        getString(R.string.m163_battery_model), getString(R.string.m164_battery_sn),
-        getString(R.string.m165_battery_id), getString(R.string.m166_bms_type),
-        getString(R.string.m167_fw_version_1), getString(R.string.m168_actual_protocol),
-        getString(R.string.m169_fw_version_1), getString(R.string.m170_current),
-        getString(R.string.m171_discharge_power), getString(R.string.m172_battery_soc),
-        getString(R.string.m173_max_volt), getString(R.string.m174_min_volt),
-        getString(R.string.m175_max_tem), getString(R.string.m176_min_tem),
-        getString(R.string.m177_charge_energy), getString(R.string.m178_discharge_energy)
-    )
 
+    private lateinit var dataTitles: List<String>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,9 +35,23 @@ class DataFragmentOne : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         bingding = FragmentDataOneBinding.inflate(inflater)
+        initTitles()
         initViews()
         initData()
         return bingding.root
+    }
+
+    private fun initTitles() {
+        dataTitles = listOf(
+            getString(R.string.m163_battery_model), getString(R.string.m164_battery_sn),
+            getString(R.string.m165_battery_id), getString(R.string.m166_bms_type),
+            getString(R.string.m167_fw_version_1), getString(R.string.m168_actual_protocol),
+            getString(R.string.m169_fw_version_1), getString(R.string.m170_current),
+            getString(R.string.m171_discharge_power), getString(R.string.m172_battery_soc),
+            getString(R.string.m173_max_volt), getString(R.string.m174_min_volt),
+            getString(R.string.m175_max_tem), getString(R.string.m176_min_tem),
+            getString(R.string.m177_charge_energy), getString(R.string.m178_discharge_energy)
+        )
     }
 
 
@@ -94,7 +99,7 @@ class DataFragmentOne : BaseFragment() {
 
 
     private fun initViews() {
-        bingding.rlvData.layoutManager = GridLayoutManager(context,2)
+        bingding.rlvData.layoutManager = GridLayoutManager(context, 2)
         bingding.rlvData.addItemDecoration(
             DividerItemDecoration(
                 context,
@@ -108,7 +113,8 @@ class DataFragmentOne : BaseFragment() {
     }
 
 
-    class Adapter(val datalist: MutableList<DeviceDataModel>) : RecyclerView.Adapter<BaseViewHolder>() {
+    class Adapter(val datalist: MutableList<DeviceDataModel>) :
+        RecyclerView.Adapter<BaseViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
             return DataOneViewHolder.create(parent)
         }

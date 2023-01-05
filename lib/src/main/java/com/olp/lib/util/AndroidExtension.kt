@@ -1,7 +1,6 @@
 package com.olp.lib.util
 
 import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.TextView
 
@@ -37,9 +36,13 @@ fun View.setViewWidth(dpFloat: Float) {
 /**
  * 设置TextView左边Icon
  */
-fun TextView.setDrawableStart(drawable: Drawable) {
+fun TextView.setDrawableStart(drawable: Drawable?) {
     setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
 }
+
+
+
+
 
 fun TextView.setDrawableEnd(drawable: Drawable) {
     setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null)

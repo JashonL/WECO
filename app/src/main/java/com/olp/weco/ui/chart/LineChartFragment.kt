@@ -43,7 +43,7 @@ class LineChartFragment : BaseFragment() {
             val chartListDataModel =
                 datalist?.let { GsonManager.fromJson(it, ChartListDataModel::class.java) }
 
-            colors=this?.getParcelableArrayList(COLORS)?: arrayListOf(
+            colors = this?.getParcelableArrayList(COLORS) ?: arrayListOf(
                 ChartColor(Color.parseColor("#F6F6F8"), Color.parseColor("#33F6F6F8")),
                 ChartColor(Color.parseColor("#999999"), Color.parseColor("#33999999")),
                 ChartColor(Color.parseColor("#80DA8A"), Color.parseColor("#3380DA8A")),
@@ -84,7 +84,7 @@ class LineChartFragment : BaseFragment() {
             it.isScaleYEnabled = false//设置Y轴能缩小放大,配合setTouchEnabled使用
             it.isDragEnabled = true//设置能够拖动
             it.axisRight.isEnabled = false//设置右边Y轴线不显示
-            it.legend.isEnabled = false//是否显示类型图标
+            it.legend.isEnabled = true//是否显示类型图标
 /*
             it.setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
                 override fun onValueSelected(e: Entry?, h: Highlight?) {
@@ -176,7 +176,7 @@ class LineChartFragment : BaseFragment() {
 
         //自定义图例图标
         _binding.flexboxChartLenged.removeAllViews()
-        for (i in 0 until  data.getYDataList().size) {
+        for (i in 0 until data.getYDataList().size) {
             val chartLegend = ChartLegend(requireContext())
             chartLegend.setLabel(data.getYDataList()[i].getLegend().first)
             chartLegend.setCbstyle(data.getYDataList()[i].getLegend().second)
@@ -251,28 +251,41 @@ class LineChartFragment : BaseFragment() {
         _binding.lineChart.xAxis.granularity = granularity ?: 5f//根据X轴的数据，设置坐标的间隔尺度
 
         //设置图例，数据种类颜色标识
-        if ((data.dataList?.size ?: 0) > 1) {
-            _binding.lineChart.legend.also {
-                it.isEnabled = true//是否显示类型图例
-                it.form = Legend.LegendForm.LINE//图标样式
-                it.formLineWidth = 2f//线条宽度
-                it.textSize = 11f
-                it.textColor = resources.getColor(R.color.text_black)
-                it.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM//位置位于底部
-                it.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT//位置居左对齐
-                it.orientation = Legend.LegendOrientation.HORIZONTAL//水平分布
-                it.isWordWrapEnabled = true//开启自动换行
-                it.xEntrySpace = 20f//设置左右间距
-                it.yEntrySpace = 5f//设置上下间距
-            }
-        } else {
-            _binding.lineChart.legend.isEnabled = false //是否显示类型图例
+        _binding.lineChart.legend.also {
+            it.isEnabled = true//是否显示类型图例
+            it.form = Legend.LegendForm.LINE//图标样式
+            it.formLineWidth = 4f//线条宽度
+            it.textSize = 12f
+            it.textColor = resources.getColor(R.color.text_black)
+            it.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM//位置位于底部
+            it.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER//位置居左对齐
+            it.orientation = Legend.LegendOrientation.HORIZONTAL//水平分布
+            it.isWordWrapEnabled = true//开启自动换行
+            it.xEntrySpace = 20f//设置左右间距
+            it.yEntrySpace = 5f//设置上下间距
+            /*    if ((data.dataList?.size ?: 0) > 1) {
+                    _binding.lineChart.legend.also {
+                        it.isEnabled = true//是否显示类型图例
+                        it.form = Legend.LegendForm.LINE//图标样式
+                        it.formLineWidth = 2f//线条宽度
+                        it.textSize = 11f
+                        it.textColor = resources.getColor(R.color.text_black)
+                        it.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM//位置位于底部
+                        it.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT//位置居左对齐
+                        it.orientation = Legend.LegendOrientation.HORIZONTAL//水平分布
+                        it.isWordWrapEnabled = true//开启自动换行
+                        it.xEntrySpace = 20f//设置左右间距
+                        it.yEntrySpace = 5f//设置上下间距
+                    }
+                } else {
+                    _binding.lineChart.legend.isEnabled = false //是否显示类型图例
+                }*/
+
+            _binding.lineChart.data = lineData
+            _binding.lineChart.invalidate()
+            _binding.lineChart.animateXY(1000, 1000)
+
         }
-
-        _binding.lineChart.data = lineData
-        _binding.lineChart.invalidate()
-        _binding.lineChart.animateXY(1000, 1000)
-
     }
 
 

@@ -47,9 +47,6 @@ class HvBatBoxActivity : BaseActivity() {
     }
 
 
-
-
-
     private fun initViews() {
         //绑定Viewpager
         binding.viewpager.adapter = Adapter(this, fragments)
@@ -72,8 +69,8 @@ class HvBatBoxActivity : BaseActivity() {
     }
 
 
-
     private fun initData() {
+        viewModel.deviceSn = intent.getStringExtra("deviceSN") ?: ""
         //请求数据
         showDialog()
         viewModel.getdeviceDetails()

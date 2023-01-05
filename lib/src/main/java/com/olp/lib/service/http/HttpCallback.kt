@@ -14,18 +14,22 @@ abstract class HttpCallback<R> : IHttpCallback {
         //统一处理登录失效的问题
         try {
             response?.also {
-                val status_code = JSONObject(response).optString("status_code").toString()
-                if (status_code == "90001") {
+                val result = JSONObject(response).optString("result").toString()
+                if (result == "10000") {
+                    //做自动登录处理
                     LibApplication.instance().accountService().tokenExpired()
                     val errorMsg = JSONObject(response).optString("msg").toString()
                     ToastUtil.show(errorMsg)
                     return
                 }
+
+
             }
         } catch (e: JSONException) {
         }
 
         val result: R? = GsonManager.fromJsonType(response, getType())
+
         if (result == null) {
             onFailure(
                 HttpErrorModel.ERROR_CODE_PARSE,

@@ -9,4 +9,7 @@ data class HttpResult<T>(var result: String, var msg: String?, var obj: T?) {
         return result == "0"
     }
 
+
+
+
 }

@@ -35,6 +35,7 @@ import com.olp.lib.util.ToastUtil
 import com.olp.lib.util.ViewUtil
 import com.olp.lib.util.gone
 import com.olp.lib.util.visible
+import com.olp.weco.ui.device.activity.DeviceListActivity
 
 /**
  * 电站列表
@@ -111,6 +112,14 @@ class PlantListFragment : BaseFragment() {
         filterViewModel.getPlantFilterLiveData.observe(viewLifecycleOwner) {
             binding.srfRefresh.autoRefresh()
         }
+
+        filterViewModel.getPlantSearchLiveData.observe(viewLifecycleOwner) {
+            searchWord = it
+            binding.srfRefresh.autoRefresh()
+        }
+
+
+
         viewModel.deletePlantLiveData.observe(viewLifecycleOwner) {
             dismissDialog()
             if (it == null) {
@@ -133,7 +142,7 @@ class PlantListFragment : BaseFragment() {
 
     }
 
-    private fun refreshEmptyView(plantModels: Array<PlantModel>?) {
+    private fun refreshEmptyView(plantModels: MutableList<PlantModel>?) {
         if (plantModels.isNullOrEmpty()) {
             binding.llEmpty.visible()
             if (plantStatus == PlantModel.PLANT_STATUS_ALL) {
@@ -151,7 +160,7 @@ class PlantListFragment : BaseFragment() {
 
     private fun refresh() {
         filterViewModel.getPlantFilterLiveData.value?.let {
-            viewModel.getPlantList(plantStatus ?: 0, it, searchWord.toString())
+            viewModel.getPlantList(plantStatus ?: 0, it, searchWord ?: "")
         }
     }
 
@@ -205,14 +214,15 @@ class PlantListFragment : BaseFragment() {
         }
 
         override fun onItemClick(v: View?, position: Int) {
-            (activity as MainActivity).showHomeFragment(getItem(position))
+//            (activity as MainActivity).showHomeFragment(getItem(position))
+            getItem(position).id?.let { DeviceListActivity.start(requireActivity(), it) }
         }
 
         override fun onItemLongClick(v: View?, position: Int) {
 
         }
 
-        fun refresh(plantModels: Array<PlantModel>?) {
+        fun refresh(plantModels: MutableList<PlantModel>?) {
             submitList(plantModels?.toList())
         }
     }
@@ -277,7 +287,8 @@ class PlantListFragment : BaseFragment() {
                 ViewUtil.createShape(getColor(R.color.color_1A0087FD), 2)
             binding.tvCurrentPower.text = plantModel.currencyPower
             binding.tvInstallDate.text = plantModel.installationData
-            binding.tvTotalComponentPower.text =ValueUtil.valueFromWp(plantModel.pvCapacity?.toDouble()).first
+            binding.tvTotalComponentPower.text =
+                ValueUtil.valueFromWp(plantModel.pvCapacity?.toDouble()).first
             binding.tvPower.text = getTvSpan(plantModel)
             binding.root.tag = plantModel
         }

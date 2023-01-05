@@ -7,9 +7,11 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.olp.lib.util.gone
+import com.olp.lib.util.setDrawableStart
 import com.olp.lib.util.visible
 import com.olp.weco.R
 import com.olp.weco.base.BaseFragment
@@ -71,7 +73,7 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
         }
 
         //获取数据
-        viewModel.getDataOverview()
+//        viewModel.getDataOverview()
 
         //开启定时刷新
         timerStart()
@@ -100,10 +102,51 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
         }
 
 
+        //根据值的大小设置图片
+        if (gridpower != null && gridpower != 0.0) {
+            _binding.ivSysGrid.setImageResource(R.drawable.system_grid_blue)
+        } else {
+            _binding.ivSysGrid.setImageResource(R.drawable.system_grid)
+        }
+
+
+        if (loadPower != null && loadPower != 0.0) {
+            _binding.ivSysHome.setImageResource(R.drawable.system_home_blue)
+        } else {
+            _binding.ivSysHome.setImageResource(R.drawable.system_home)
+        }
+
+        if (batteryPower != null && batteryPower != 0.0) {
+            _binding.ivSysBat.setImageResource(R.drawable.system_bat_blue)
+        } else {
+            _binding.ivSysBat.setImageResource(R.drawable.system_bat)
+        }
+
+        if (pvPower != null && pvPower != 0.0) {
+            _binding.ivSysPpv.setImageResource(R.drawable.system_ppv_blue)
+        } else {
+            _binding.ivSysPpv.setImageResource(R.drawable.system_ppv)
+        }
+
+
+
+
         val onlineStatus = it?.plantStatus
         if ("1" == onlineStatus) {
+            _binding.tvOlStatus.setDrawableStart(
+                ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.wifi_normal
+                )
+            )
             _binding.tvOlStatus.text = getString(R.string.m124_on_line)
         } else {
+            _binding.tvOlStatus.setDrawableStart(
+                ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.wifi_offline
+                )
+            )
             _binding.tvOlStatus.text = getString(R.string.m125_off_line)
         }
 
@@ -184,7 +227,9 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
         lifecycleScope.launchWhenResumed {
             repeat(Int.MAX_VALUE) {
                 //获取数据
-                viewModel.getDataOverview()
+                if (!viewModel.stationId.isNullOrEmpty()) {
+                    viewModel.getDataOverview()
+                }
                 delay(15 * 1000)
             }
         }

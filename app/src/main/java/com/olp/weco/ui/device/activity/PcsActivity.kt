@@ -51,6 +51,7 @@ class PcsActivity : BaseActivity() {
         initData()
     }
 
+    //赶时间 先这样写 (后续优化：把每个设置项抽取成bean)
     private fun initTitles() {
         dataTitles = listOf(
             getString(R.string.m187_device_sn), getString(R.string.m188_rated_power),
@@ -67,7 +68,54 @@ class PcsActivity : BaseActivity() {
             getString(R.string.m202_device_status),
 
 
+            getString(R.string.m232_pcs_data_2),
+            getString(R.string.m192_u_phase_voltage), getString(R.string.m193_u_phase_current),
+            getString(R.string.m194_v_phase_voltage), getString(R.string.m195_v_phase_current),
+            getString(R.string.m196_w_phase_voltage), getString(R.string.m197_w_phase_current),
+            getString(R.string.m198_active_power), getString(R.string.m199_reactive_power),
+            getString(R.string.m200_ac_frequency), getString(R.string.m226_work_mode),
+            getString(R.string.m202_device_status),
+
+
+            getString(R.string.m233_pcs_data_3),
+            getString(R.string.m192_u_phase_voltage), getString(R.string.m193_u_phase_current),
+            getString(R.string.m194_v_phase_voltage), getString(R.string.m195_v_phase_current),
+            getString(R.string.m196_w_phase_voltage), getString(R.string.m197_w_phase_current),
+            getString(R.string.m198_active_power), getString(R.string.m199_reactive_power),
+            getString(R.string.m200_ac_frequency), getString(R.string.m226_work_mode),
+            getString(R.string.m202_device_status),
+
+
+            getString(R.string.m234_pcs_data_4),
+            getString(R.string.m192_u_phase_voltage), getString(R.string.m193_u_phase_current),
+            getString(R.string.m194_v_phase_voltage), getString(R.string.m195_v_phase_current),
+            getString(R.string.m196_w_phase_voltage), getString(R.string.m197_w_phase_current),
+            getString(R.string.m198_active_power), getString(R.string.m199_reactive_power),
+            getString(R.string.m200_ac_frequency), getString(R.string.m226_work_mode),
+            getString(R.string.m202_device_status),
+
+
             getString(R.string.m203_mppt_data_1),
+            getString(R.string.m227_input_voltage), getString(R.string.m228_inlet_temp),
+            getString(R.string.m227_input_power), getString(R.string.m228_input_current),
+            getString(R.string.m227_dc_run_state), getString(R.string.m228_dc_access_type),
+            getString(R.string.m229_dc_fault_status), getString(R.string.m230_high_side_voltage),
+
+
+            getString(R.string.m235_mppt_data_2),
+            getString(R.string.m227_input_voltage), getString(R.string.m228_inlet_temp),
+            getString(R.string.m227_input_power), getString(R.string.m228_input_current),
+            getString(R.string.m227_dc_run_state), getString(R.string.m228_dc_access_type),
+            getString(R.string.m229_dc_fault_status), getString(R.string.m230_high_side_voltage),
+
+
+            getString(R.string.m236_mppt_data_3),
+            getString(R.string.m227_input_voltage), getString(R.string.m228_inlet_temp),
+            getString(R.string.m227_input_power), getString(R.string.m228_input_current),
+            getString(R.string.m227_dc_run_state), getString(R.string.m228_dc_access_type),
+            getString(R.string.m229_dc_fault_status), getString(R.string.m230_high_side_voltage),
+
+            getString(R.string.m237_mppt_data_4),
             getString(R.string.m227_input_voltage), getString(R.string.m228_inlet_temp),
             getString(R.string.m227_input_power), getString(R.string.m228_input_current),
             getString(R.string.m227_dc_run_state), getString(R.string.m228_dc_access_type),
@@ -90,7 +138,7 @@ class PcsActivity : BaseActivity() {
 
     private fun initViews() {
         //初始化recyclerview
-        binding.rlvData.layoutManager = GridLayoutManager(this,2)
+        binding.rlvData.layoutManager = GridLayoutManager(this, 2)
         binding.rlvData.addItemDecoration(
             DividerItemDecoration(
                 this,
@@ -109,9 +157,14 @@ class PcsActivity : BaseActivity() {
     private fun setGridManager(gridManager: GridLayoutManager) {
         gridManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                return if (position == 5||position==17||position==26) {
+                return if (position == 5 || position == 17 || position == 29
+                    || position == 41 || position == 53 || position == 62 ||
+                    position == 71 || position == 80 || position == 89
+                ) {
                     gridManager.spanCount
                 } else 1
+
+
             }
         }
     }
@@ -150,35 +203,113 @@ class PcsActivity : BaseActivity() {
                         16 -> second?.deviceStatus1
 
 
-                        17 -> getString(R.string.m203_mppt_data_1)
-                        18 -> second?.inputVoltage1
-                        19 -> second?.inputTemp1
-                        20 -> second?.inputPower1
-                        21 -> second?.inputCurrent1
-                        22 -> second?.dcRunState1
-                        23 -> second?.dcAccessType1
-                        24 -> second?.dcFaultStatus1
-                        25 -> second?.highSideVoltage1
+                        17 -> getString(R.string.m232_pcs_data_2)
+                        18 -> second?.uPhaseVoltage2
+                        19 -> second?.uPhaseCurrent2
+                        20 -> second?.vPhaseVoltage2
+                        21 -> second?.vPhaseCurrent2
+                        22 -> second?.wPhaseVoltage2
+                        23 -> second?.wPhaseCurrent2
+                        24 -> second?.activePower2
+                        25 -> second?.reactivePower2
+                        26 -> second?.acFrequency2
+                        27 -> second?.operatingMode
+                        28 -> second?.deviceStatus2
 
 
-                        26 -> getString(R.string.m213_bat_data)
-                        27 -> second?.voltage
-                        28 -> second?.runStatus
-                        29 -> second?.soc
-                        30 -> second?.current
-                        31 -> second?.maxChargeCurrent
-                        32 -> second?.soh
-                        33 -> second?.maxCellVoltege
-                        34 -> second?.maxDischargeCurrent
-                        35 -> second?.maxCellTemp
-                        36 -> second?.minCellTemp
-                        37 -> second?.minCellVoltage
+                        29 -> getString(R.string.m233_pcs_data_3)
+                        30 -> second?.uPhaseVoltage3
+                        31 -> second?.uPhaseCurrent3
+                        32 -> second?.vPhaseVoltage3
+                        33 -> second?.vPhaseCurrent3
+                        34 -> second?.wPhaseVoltage3
+                        35 -> second?.wPhaseCurrent3
+                        36 -> second?.activePower3
+                        37 -> second?.reactivePower3
+                        38 -> second?.acFrequency3
+                        39 -> second?.operatingMode
+                        40 -> second?.deviceStatus3
+
+
+                        41 -> getString(R.string.m234_pcs_data_4)
+                        42 -> second?.uPhaseVoltage4
+                        43 -> second?.uPhaseCurrent4
+                        44 -> second?.vPhaseVoltage4
+                        45 -> second?.vPhaseCurrent4
+                        46 -> second?.wPhaseVoltage4
+                        47 -> second?.wPhaseCurrent4
+                        48 -> second?.activePower4
+                        49 -> second?.reactivePower4
+                        50 -> second?.acFrequency4
+                        51 -> second?.operatingMode
+                        52 -> second?.deviceStatus4
+
+
+                        53 -> getString(R.string.m203_mppt_data_1)
+                        54 -> second?.inputVoltage1
+                        55 -> second?.inputTemp1
+                        56 -> second?.inputPower1
+                        57 -> second?.inputCurrent1
+                        58 -> second?.dcRunState1
+                        59 -> second?.dcAccessType1
+                        60 -> second?.dcFaultStatus1
+                        61 -> second?.highSideVoltage1
+
+
+                        62 -> getString(R.string.m235_mppt_data_2)
+                        63 -> second?.inputVoltage2
+                        64 -> second?.inputTemp2
+                        65 -> second?.inputPower2
+                        66 -> second?.inputCurrent2
+                        67 -> second?.dcRunState2
+                        68 -> second?.dcAccessType2
+                        69 -> second?.dcFaultStatus2
+                        70 -> second?.highSideVoltage2
+
+
+                        71 -> getString(R.string.m236_mppt_data_3)
+                        72 -> second?.inputVoltage3
+                        73 -> second?.inputTemp3
+                        74 -> second?.inputPower3
+                        75 -> second?.inputCurrent3
+                        76 -> second?.dcRunState3
+                        77 -> second?.dcAccessType3
+                        78 -> second?.dcFaultStatus3
+                        79 -> second?.highSideVoltage3
+
+
+                        80 -> getString(R.string.m237_mppt_data_4)
+                        81 -> second?.inputVoltage4
+                        82 -> second?.inputTemp4
+                        83 -> second?.inputPower4
+                        84 -> second?.inputCurrent4
+                        85 -> second?.dcRunState4
+                        86 -> second?.dcAccessType4
+                        87 -> second?.dcFaultStatus4
+                        88 -> second?.highSideVoltage4
+
+
+                        89 -> getString(R.string.m213_bat_data)
+                        90 -> second?.voltage
+                        91 -> second?.runStatus
+                        92 -> second?.soc
+                        93 -> second?.current
+                        94 -> second?.maxChargeCurrent
+                        95 -> second?.soh
+                        96 -> second?.maxCellVoltege
+                        97 -> second?.maxDischargeCurrent
+                        98 -> second?.maxCellTemp
+                        99 -> second?.minCellTemp
+                        100 -> second?.minCellVoltage
 
                         else -> {
                             ""
                         }
                     }
-                    val isTitle = (i == 5) || (i == 17) || (i == 26)
+                    val isTitle =
+                        (i == 5) || (i == 17) || (i == 29) || (i == 41) || (i == 53)
+                                || (i == 62) || (i == 71) || (i == 80) || (i == 89)
+
                     val model = PcsDataModel(isTitle, title, value.toString(), title)
                     datas.add(model)
                 }

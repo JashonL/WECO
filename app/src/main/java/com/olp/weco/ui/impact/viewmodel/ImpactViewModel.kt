@@ -28,6 +28,7 @@ class ImpactViewModel : BaseViewModel() {
 
     private val impactApi = listOf(
         ApiPath.Plant.GET_IMPACT_YEAR,
+        ApiPath.Plant.GET_IMPACT_YEAR,
         ApiPath.Plant.GET_IMPACT_MONTH,
         ApiPath.Plant.GET_IMPACT_DAY
     )

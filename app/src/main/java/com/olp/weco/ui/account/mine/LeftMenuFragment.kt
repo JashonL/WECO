@@ -16,6 +16,7 @@ import com.olp.weco.base.BaseFragment
 import com.olp.weco.databinding.LeftContentBinding
 import com.olp.weco.ui.account.viewmodel.AccountViewModel
 import com.olp.weco.ui.account.viewmodel.VerifyCodeViewModel
+import com.olp.weco.ui.home.HomeActivity
 import com.olp.weco.ui.manu.activity.SettingActivity
 import com.olp.weco.ui.station.activity.PlantListActivity
 import com.olp.weco.view.dialog.AlertDialog
@@ -83,6 +84,8 @@ class LeftMenuFragment : BaseFragment(), OnClickListener {
             }
 
         }
+        (activity as HomeActivity).closeMenu()
+
     }
 
 

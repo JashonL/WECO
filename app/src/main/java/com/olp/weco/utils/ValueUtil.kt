@@ -17,18 +17,44 @@ object ValueUtil {
             kwhValue == null -> {
                 Pair("0", WECOApplication.instance().getString(R.string.m48_kwh))
             }
-            kwhValue < 100000 -> {
+
+            kwhValue > 0 -> {
+                if (kwhValue < 10000) {
+                    Pair(
+                        Util.getDoubleText(kwhValue),
+                        WECOApplication.instance().getString(R.string.m48_kwh)
+                    )
+                } else {
+                    Pair(
+                        Util.getDoubleText(kwhValue / 1000),
+                        WECOApplication.instance().getString(R.string.m49_mwh)
+                    )
+                }
+            }
+
+
+            kwhValue < 0 -> {
+                if (kwhValue > -10000) {
+                    Pair(
+                        Util.getDoubleText(kwhValue),
+                        WECOApplication.instance().getString(R.string.m48_kwh)
+                    )
+                } else {
+                    Pair(
+                        Util.getDoubleText(kwhValue / 1000),
+                        WECOApplication.instance().getString(R.string.m49_mwh)
+                    )
+                }
+            }
+
+            else -> {
                 Pair(
-                    Util.getDoubleText(kwhValue),
+                    "0",
                     WECOApplication.instance().getString(R.string.m48_kwh)
                 )
             }
-            else -> {
-                Pair(
-                    Util.getDoubleText(kwhValue / 1000),
-                    WECOApplication.instance().getString(R.string.m49_mwh)
-                )
-            }
+
+
         }
     }
 
@@ -112,10 +138,6 @@ object ValueUtil {
             }
         }
     }
-
-
-
-
 
 
     /**

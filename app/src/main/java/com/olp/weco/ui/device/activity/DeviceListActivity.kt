@@ -111,6 +111,8 @@ class DeviceListActivity : BaseActivity() {
 
 
     private fun initData() {
+        deviceListViewModel.currentPlantId=intent.getStringExtra("plantId")
+
         //请求设备列表
         deviceListViewModel.deviceListLiveData.observe(this) {
             dismissDialog()

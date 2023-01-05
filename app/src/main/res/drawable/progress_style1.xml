@@ -6,15 +6,15 @@
             <corners android:radius="360dp" />
             <gradient
                 android:angle="0"
-                android:endColor="#ebebeb"
-                android:startColor="#ebebeb" />
+                android:endColor="#aaaaaa"
+                android:startColor="#aaaaaa" />
         </shape>
     </item>
     <item android:id="@android:id/progress">
         <clip>
             <shape>
                 <corners android:radius="360dp" />
-                <solid android:color="#64B5F6"/>
+                <solid android:color="#E46255"/>
             </shape>
         </clip>
     </item>

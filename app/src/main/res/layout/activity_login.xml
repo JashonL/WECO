@@ -67,6 +67,7 @@
         android:background="@drawable/shape_login"
         android:gravity="center"
         android:text="@string/m1_login"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/size_content_sp_14" />
 

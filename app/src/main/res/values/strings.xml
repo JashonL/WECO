@@ -286,6 +286,20 @@ of letters, numbers and symbols.</string>
     <string name="m231_electrical_cabinet">Electrical Cabinet</string>
 
 
+    <string name="m232_pcs_data_2">PCS Data 2</string>
+    <string name="m233_pcs_data_3">PCS Data 3</string>
+    <string name="m234_pcs_data_4">PCS Data 4</string>
+
+
+
+    <string name="m235_mppt_data_2">MPPT Data 2</string>
+    <string name="m236_mppt_data_3">MPPT Data 3</string>
+    <string name="m237_mppt_data_4">MPPT Data 4</string>
+
+    <string name="m238_hv_battery_box">HV Battery Box</string>
+    <string name="m239_please_input_plant_name">Please enter the power station name</string>
+
+
     <string name="m5_privacy_dialog_content">Enerview旨在保护您的数据隐私与安全的基础上，帮助您高效管理电站。请仔细阅读并充分理解一下条款后再点击同意。</string>
 
     <string name="m6_cancel">取消</string>

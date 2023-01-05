@@ -240,7 +240,22 @@ class BarChartFragment : BaseFragment() {
         }
 
         //设置图例，数据种类颜色标识
-        if ((data.dataList?.size ?: 0) > 1) {
+        _binding.barChart.legend.also {
+            it.isEnabled = true//是否显示类型图标
+            it.form = Legend.LegendForm.LINE//图例样式
+            it.formLineWidth = 4f//线条宽度
+            it.textSize = 12f
+            it.textColor = resources.getColor(R.color.text_black)
+            it.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM//位置位于底部
+            it.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER//位置居左对齐
+            it.orientation = Legend.LegendOrientation.HORIZONTAL//水平分布
+            it.isWordWrapEnabled = true//开启自动换行
+            it.xEntrySpace = 20f//设置左右间距
+            it.yEntrySpace = 5f//设置上下间距
+        }
+
+
+    /*    if ((data.dataList?.size ?: 0) > 1) {
             _binding.barChart.legend.also {
                 it.isEnabled = true//是否显示类型图标
                 it.form = Legend.LegendForm.LINE//图例样式
@@ -256,7 +271,7 @@ class BarChartFragment : BaseFragment() {
             }
         } else {
             _binding.barChart.legend.isEnabled = false //是否显示类型图例
-        }
+        }*/
 
 
         val groupWidth = 1f//设置一组柱状图宽度为1f,这里固定这样，无需修改

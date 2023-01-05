@@ -3,8 +3,12 @@ package com.olp.weco.ui.energy
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import android.text.TextUtils
+import android.text.style.StyleSpan
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.activity.viewModels
@@ -15,14 +19,18 @@ import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivityEnergyBinding
 import com.olp.weco.model.ChartColor
 import com.olp.weco.model.energy.ChartModel
+import com.olp.weco.model.energy.DayChartModel
 import com.olp.weco.ui.chart.BarChartFragment
 import com.olp.weco.ui.chart.LineChartFragment
 import com.olp.weco.ui.common.model.DataType
 import com.olp.weco.ui.energy.chart.EnergyChartFragment
 import com.olp.weco.ui.energy.viewmodel.EnergyViewModel
+import com.olp.weco.utils.ValueUtil
 import com.olp.weco.view.DateSelectView
 import com.olp.weco.view.OnTabSelectedListener
 import com.olp.weco.view.Tab
+import com.olp.weco.view.TextTab
+import com.olp.weco.view.dialog.OptionsDialog
 import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
 import java.util.*
@@ -79,6 +87,9 @@ class EnergyActivity : BaseActivity(), OnClickListener {
                 getPlantData()
             }
 
+            override fun onTabSelect(selectTab: TextTab, selectPosition: Int) {
+            }
+
         })
     }
 
@@ -117,6 +128,14 @@ class EnergyActivity : BaseActivity(), OnClickListener {
         }
 
 
+        energyViewModel.stationDayLiveData.observe(this){
+            val second = it.second
+            if (second != null) {
+                setDayData(second)
+            }
+        }
+
+
         //初始化请求
         energyViewModel.currentPlantId = intent.getStringExtra("plantId").toString()
         //1.开始请求数据
@@ -126,64 +145,109 @@ class EnergyActivity : BaseActivity(), OnClickListener {
 
 
     private fun setTotalData(chartData: ChartModel) {
-        val lowEnergy = chartData.lowEnergy
-        val avgEnergy = chartData.avgEnergy
-        val highEnergy = chartData.highEnergy
-        val totalEnergy = chartData.totalEnergy
+        val lowEnergy = chartData.lowEnergy?:"0"
+        val avgEnergy = chartData.avgEnergy?:"0"
+        val highEnergy = chartData.highEnergy?:"0"
+        val totalEnergy = chartData.totalEnergy?:"0"
 
 
+        ValueUtil.valueFromKWh(lowEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvLowEnergy.text =s
+        }
+
+        ValueUtil.valueFromKWh(avgEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvAvgEnergy.text =s
+        }
 
 
-        _binding.tvLowEnergy.text = lowEnergy
-        _binding.tvAvgEnergy.text = avgEnergy
-        _binding.tvHighEnergy.text = highEnergy
-        _binding.tvNetUse.text = totalEnergy + "kWh"
+        ValueUtil.valueFromKWh(highEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvHighEnergy.text =s
+        }
+
+        ValueUtil.valueFromKWh(totalEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvNetUse.text =s
+        }
 
 
-        val dateType = energyViewModel.dateType
         val findFragment = this.supportFragmentManager.findFragmentById(R.id.fcv_chart)
-        if (dateType == DataType.DAY) {//显示曲线图
-            if (findFragment != null && findFragment is LineChartFragment) {
-                findFragment.refresh(energyViewModel.chartLiveData.value, "kW")
-            } else {
-                supportFragmentManager.commit(true) {
-                    val json = GsonManager.toJson(energyViewModel.chartLiveData.value)
-                    val bundle = Bundle()
-                    bundle.putString(DATALIST_KEY, json)
-                    bundle.putString(UNIT, "kW")
-                    bundle.putParcelableArrayList(COLORS, arrayOf)
-                    val lineChartFragment = LineChartFragment()
-                    lineChartFragment.arguments = bundle
-                    replace(R.id.fcv_chart, lineChartFragment)
-                }
-
-
-            }
-
-
+        //刷新数据
+        if (findFragment != null && findFragment is BarChartFragment) {
+            findFragment.refresh(energyViewModel.chartLiveData.value, "kW")
         } else {
-            //刷新数据
-            if (findFragment != null && findFragment is BarChartFragment) {
-                findFragment.refresh(energyViewModel.chartLiveData.value, "kW")
-            } else {
-                supportFragmentManager.commit(true) {
-                    val json = GsonManager.toJson(energyViewModel.chartLiveData.value)
+            supportFragmentManager.commit(true) {
+                val json = GsonManager.toJson(energyViewModel.chartLiveData.value)
 
 
-                    val bundle = Bundle()
-                    bundle.putString(DATALIST_KEY, json)
-                    bundle.putString(UNIT, "kW")
-                    bundle.putParcelableArrayList(COLORS, arrayOf)
+                val bundle = Bundle()
+                bundle.putString(DATALIST_KEY, json)
+                bundle.putString(UNIT, "kW")
+                bundle.putParcelableArrayList(COLORS, arrayOf)
 
-                    val barChartFragment = BarChartFragment()
-                    barChartFragment.arguments = bundle
-                    replace(R.id.fcv_chart, barChartFragment)
-                }
-
+                val barChartFragment = BarChartFragment()
+                barChartFragment.arguments = bundle
+                replace(R.id.fcv_chart, barChartFragment)
             }
+
         }
 
     }
+
+
+
+    private fun setDayData(chartData: DayChartModel) {
+        val lowEnergy = chartData.lowPower?:"0"
+        val avgEnergy = chartData.avgPower?:"0"
+        val highEnergy = chartData.highPower?:"0"
+        val totalEnergy = chartData.energy?:"0"
+
+
+        ValueUtil.valueFromKWh(lowEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvLowEnergy.text =s
+        }
+
+        ValueUtil.valueFromKWh(avgEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvAvgEnergy.text =s
+        }
+
+
+        ValueUtil.valueFromKWh(highEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvHighEnergy.text =s
+        }
+
+        ValueUtil.valueFromKWh(totalEnergy.toDouble()).apply {
+            val s = first + second
+            _binding.tvNetUse.text =s
+        }
+
+
+        val findFragment = this.supportFragmentManager.findFragmentById(R.id.fcv_chart)
+        //显示曲线图
+        if (findFragment != null && findFragment is LineChartFragment) {
+            findFragment.refresh(energyViewModel.chartLiveData.value, "W")
+        } else {
+            supportFragmentManager.commit(true) {
+                val json = GsonManager.toJson(energyViewModel.chartLiveData.value)
+                val bundle = Bundle()
+                bundle.putString(DATALIST_KEY, json)
+                bundle.putString(UNIT, "W")
+                bundle.putParcelableArrayList(COLORS, arrayOf)
+                val lineChartFragment = LineChartFragment()
+                lineChartFragment.arguments = bundle
+                replace(R.id.fcv_chart, lineChartFragment)
+            }
+
+
+        }
+
+    }
+
 
 
     private fun setDate() {
@@ -210,23 +274,15 @@ class EnergyActivity : BaseActivity(), OnClickListener {
             getString(R.string.m70_day)
         )
 
-        val options = mutableListOf<ListPopModel>()
-        date.forEach {
-            options.add(ListPopModel(it, false))
-        }
-        ListPopuwindow.showPop(
-            this,
-            options,
-            _binding.date.tvDateType,
-            ""
-        ) {
+        OptionsDialog.show(supportFragmentManager, date.toTypedArray()) {
             //根据日期请求图表数据
-            _binding.date.tvDateType.text = options[it].title
+            _binding.date.tvDateType.text = date[it]
             energyViewModel.dateType = it
 
             //重新请求求数据
             getPlantData()
         }
+
     }
 
 
@@ -236,7 +292,11 @@ class EnergyActivity : BaseActivity(), OnClickListener {
     private fun getPlantData() {
 
         //1.请求图表数据
-        energyViewModel.getPlantChartData()
+        if (energyViewModel.dateType==DataType.DAY){
+            energyViewModel.getDayChartData()
+        }else{
+            energyViewModel.getPlantChartData()
+        }
         //3.设置日期
         _binding.date.dataSelectView.setDateType(energyViewModel.dateType)
 

@@ -91,7 +91,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                 //注册成功，关闭页面返回登录页面
 //                finish()
                 //去登录
-                login(first.email, first.password)
+                login(first.password,first.email)
             } else {
                 showResultDialog(first, null, null)
             }

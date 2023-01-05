@@ -43,7 +43,13 @@ class TabLayout @JvmOverloads constructor(
 
     private fun dispatch(selectTabPosition: Int) {
         for (listener in listeners) {
-            listener.onTabSelect(getChildAt(selectTabPosition) as Tab, selectTabPosition)
+            val tab = getChildAt(selectTabPosition)
+            if (tab is Tab){
+                listener.onTabSelect(tab, selectTabPosition)
+            }else if (tab is TextTab){
+                listener.onTabSelect(tab, selectTabPosition)
+            }
+
         }
     }
 
@@ -111,6 +117,7 @@ class TabLayout @JvmOverloads constructor(
 
 interface OnTabSelectedListener {
     fun onTabSelect(selectTab: Tab, selectPosition: Int)
+    fun onTabSelect(selectTab: TextTab, selectPosition: Int)
 }
 
 
