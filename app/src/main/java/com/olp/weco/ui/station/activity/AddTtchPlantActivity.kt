@@ -291,21 +291,30 @@ class AddTtchPlantActivity : BaseActivity(), View.OnClickListener {
 
 
     private fun selectIncomeUnit() {
-        val currencyList = viewModel.moneyUtilListLiveData.value
-        if (currencyList.isNullOrEmpty()) {
-            showDialog()
-            viewModel.fetchCurrencyList()
-        } else {
-            selectCurrency(currencyList)
-        }
+
+        val  currencyList= listOf(
+            CurrencyModel(1,"DOLLAR"),
+            CurrencyModel(2,"CNY"),
+            CurrencyModel(3,"EUR"),
+            CurrencyModel(4,"GBP"),
+        )
+        selectCurrency(currencyList.toTypedArray())
+
+//        val currencyList = viewModel.moneyUtilListLiveData.value
+//        if (currencyList.isNullOrEmpty()) {
+//            showDialog()
+//            viewModel.fetchCurrencyList()
+//        } else {
+//            selectCurrency(currencyList)
+//        }
 
     }
 
 
     private fun selectCurrency(currencyList: Array<CurrencyModel>) {
         PickerDialog.show(supportFragmentManager, currencyList) {
-            viewModel.addPlantModel.formulaMoneyUnitId = currencyList[it].id.toString()
-            binding.tvCurrency.text = currencyList[it].incomeUnit
+            viewModel.addPlantModel.formulaMoneyUnitId = currencyList[it].incomeUnit
+            binding.tvCurrency.setText(currencyList[it].incomeUnit)
         }
     }
 

@@ -7,7 +7,9 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.olp.lib.util.gone
@@ -20,6 +22,7 @@ import com.olp.weco.ui.device.activity.DeviceListActivity
 import com.olp.weco.ui.energy.EnergyActivity
 import com.olp.weco.ui.home.model.StorageModel
 import com.olp.weco.ui.impact.ImpactActivity
+import com.olp.weco.ui.station.viewmodel.StationViewModel
 import com.olp.weco.utils.ValueUtil
 import kotlinx.coroutines.delay
 
@@ -30,6 +33,8 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
 
 
     private val viewModel: StorageViewmodel by viewModels()
+
+    private val stationViewModel: StationViewModel by activityViewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -56,6 +61,10 @@ class HomeStatusFragment : BaseFragment(), OnClickListener {
         _binding.llOther.llEnergy.setOnClickListener(this)
         _binding.llOther.llImpact.setOnClickListener(this)
         _binding.llOther.llDeviceList.setOnClickListener(this)
+
+        _binding.srlRefresh.setOnRefreshListener {
+            stationViewModel.getPlantList()
+        }
     }
 
 

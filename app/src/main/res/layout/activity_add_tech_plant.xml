@@ -340,18 +340,16 @@
 
                     <TextView
                         android:id="@+id/tv_currency"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:padding="@dimen/dp_10"
-                        android:text="@string/m112_found_revenge"
+                        android:hint="@string/m112_found_revenge"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/size_content_sp_14" />
 
-                    <Space
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
+
 
 
                     <ImageView
