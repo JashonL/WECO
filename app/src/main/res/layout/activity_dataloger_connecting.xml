@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
 
-    <com.olp.lib.view.StatusBarWhiteHeightView
+    <com.olp.lib.view.StatusBarHeightView
         android:id="@+id/status_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_app_main"
+        android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.olp.weco.view.TitleBarLayout
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/status_bar"
         app:titleText="@string/m92_add_data_logger" />
 
 
-    <ImageView
-        android:id="@+id/iv_cloud"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/cloud"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/m98_connect"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_cloud" />
+    <include
+        android:id="@+id/configing"
+        layout="@layout/layout_dataloger_configing" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/configed"
+        layout="@layout/layout_dataloger_configed" />
+
+    <include
+        android:id="@+id/config_fail"
+        layout="@layout/layout_dataloger_configfail" />
+
+</LinearLayout>

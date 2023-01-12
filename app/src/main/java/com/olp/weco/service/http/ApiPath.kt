@@ -174,4 +174,15 @@ object ApiPath {
 
     }
 
+
+    object FaultMessage{
+        /**
+         * 错误列表
+         */
+        fun getFaultMessage(page:Int):String{
+            return "v1/plant/getHmiDataFaultList/$page"
+        }
+
+    }
+
 }

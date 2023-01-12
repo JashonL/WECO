@@ -67,6 +67,15 @@
             app:layout_constraintRight_toLeftOf="@+id/iv_add"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+        <TextView
+            android:id="@+id/tv_red_point"
+            android:layout_width="@dimen/dp_4"
+            android:layout_height="@dimen/dp_4"
+            android:background="@drawable/circle_red"
+            app:layout_constraintRight_toRightOf="@+id/iv_msg"
+            app:layout_constraintTop_toTopOf="@+id/iv_msg" />
+
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/iv_add"
             android:layout_width="wrap_content"

@@ -208,6 +208,12 @@
             android:screenOrientation="nosensor" />
 
 
+        <activity
+            android:name=".ui.message.MessageActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor" />
+
+
     </application>
 
 </manifest>

@@ -32,6 +32,10 @@ abstract class BasePageListAdapter<T>(
          * 全部加载完成
          */
         const val ITEM_PAGING_END_ID = Int.MAX_VALUE - 2
+
+
+        const val ADAPTER_DATA_EMPTY = -2
+
     }
 
     /**
@@ -48,7 +52,7 @@ abstract class BasePageListAdapter<T>(
     /**
      * 是否正在下拉刷新中
      */
-    private var isRefreshing = false
+    public var isRefreshing = false
 
     var currentPage = 1
 

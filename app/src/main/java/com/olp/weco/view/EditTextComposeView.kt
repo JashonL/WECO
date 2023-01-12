@@ -144,7 +144,7 @@ class EditTextComposeView @JvmOverloads constructor(
     }
 
 
-    fun setValue(value: String) {
+    fun setValue(value: String?) {
         this.value = value
         bingding.etContent.setText(value)
         bingding.tvContent.setText(value)

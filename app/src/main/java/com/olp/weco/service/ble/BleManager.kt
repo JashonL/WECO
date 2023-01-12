@@ -15,7 +15,7 @@ class BleManager(context: Context, bindServiceListeners: bindServiceListeners) :
 
     companion object{
         //oss账户使用密钥
-        const val BLUETOOTH_OSS_KEY="growatt_iot_device_common_key_01"
+        const val BLUETOOTH_OSS_KEY="shuoxd_aiot_local_wireless_key01"
     }
 
 

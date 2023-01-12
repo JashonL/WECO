@@ -18,7 +18,10 @@ import android.text.TextUtils
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.activity.viewModels
-import com.olp.weco.ui.common.fragment.RequestPermissionHub
+import com.olp.bluetooth.util.receiver.BlueToothReceiver
+import com.olp.bluetooth.util.util.LocalUtils
+import com.olp.lib.util.LogUtil
+import com.olp.weco.R
 import com.olp.weco.app.WECOApplication
 import com.olp.weco.base.BaseActivity
 import com.olp.weco.databinding.ActivitySetUpNetBinding
@@ -26,15 +29,14 @@ import com.olp.weco.monitor.WifiMonitor
 import com.olp.weco.service.ble.BleCommand.BLUETOOTH_KEY
 import com.olp.weco.service.ble.BleCommand.WIFI_PASSWORD
 import com.olp.weco.service.ble.BleManager
+import com.olp.weco.ui.MainActivity
+import com.olp.weco.ui.common.fragment.RequestPermissionHub
 import com.olp.weco.ui.dataloger.viewmodel.SetUpNetViewModel
 import com.olp.weco.utils.ByteDataUtil
 import com.olp.weco.utils.ByteDataUtil.BlueToothData.DATALOG_GETDATA_0X18
 import com.olp.weco.view.dialog.AlertDialog
 import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
-import com.olp.bluetooth.util.receiver.BlueToothReceiver
-import com.olp.bluetooth.util.util.LocalUtils
-import com.olp.lib.util.LogUtil
 import java.util.*
 
 
@@ -122,6 +124,7 @@ class SetUpNetActivity : BaseActivity(), OnClickListener {
         //接收蓝牙返回数据
         BlueToothReceiver.watch(lifecycle, WECOApplication.instance()) {
             val removePro = ByteDataUtil.BlueToothData.removePro(it)
+            dismissDialog()
             viewModel.parserData(it!![7], removePro)
         }
 
@@ -166,10 +169,10 @@ class SetUpNetActivity : BaseActivity(), OnClickListener {
     private fun showGpsDialog() {
         AlertDialog.showDialog(
             supportFragmentManager,
-            getString(com.olp.weco.R.string.m104_gps_to_getwifi),
-            getString(com.olp.weco.R.string.m101_cancel),
-            getString(com.olp.weco.R.string.m102_comfir),
-            getString(com.olp.weco.R.string.m103_turn_on_gps)
+            getString(R.string.m104_gps_to_getwifi),
+            getString(R.string.m101_cancel),
+            getString(R.string.m102_comfir),
+            getString(R.string.m103_turn_on_gps)
         ) {
             val intent = Intent()
             intent.action = Settings.ACTION_LOCATION_SOURCE_SETTINGS
@@ -229,6 +232,7 @@ class SetUpNetActivity : BaseActivity(), OnClickListener {
     private fun initListeners() {
         binding.ivWifiList.setOnClickListener(this)
         binding.btFinish.setOnClickListener(this)
+        binding.btCancel.setOnClickListener(this)
     }
 
 
@@ -242,9 +246,16 @@ class SetUpNetActivity : BaseActivity(), OnClickListener {
 
                 val ssid = binding.etSsid.text.toString()
                 val pwd = binding.etPassword.text.toString()
+                showDialog()
                 viewModel.requestSetting(ssid, pwd)
 
             }
+
+            p0===binding.btCancel->{
+                MainActivity.start(this)
+                finish()
+            }
+
         }
 
     }
@@ -262,7 +273,7 @@ class SetUpNetActivity : BaseActivity(), OnClickListener {
         ListPopuwindow.showPop(
             this,
             options,
-            binding.llSsid,
+            binding.etSsid,
             current
         ) {
             binding.etSsid.setText(options[it].title)

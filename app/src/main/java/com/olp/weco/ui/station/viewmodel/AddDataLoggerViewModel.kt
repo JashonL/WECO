@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 class AddDataLoggerViewModel : BaseViewModel() {
 
     var plantId: String? = null
+    var datalogSn: String? = null
 
     val addDataLoggerLiveData = MutableLiveData<String?>()
 

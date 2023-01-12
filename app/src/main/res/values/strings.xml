@@ -540,6 +540,14 @@ confirmation after plug in your car。</string>
     <string name="m184_pin">Pin</string>
     <string name="m185_pin_not_empty">Pin Not Empty</string>
     <string name="m186_installer_code">Installer Code</string>
+    <string name="m240_bluetooth_connection_failed">Bluetooth connection failed,please scan the code again to add</string>
+
+    <string name="m241_please_wait">Please wait a moment</string>
+    <string name="m242_ok">OK</string>
+    <string name="m243_fail">fail</string>
+    <string name="m244_rewiring_the_network">Rewiring the network</string>
+
+    <string name="m237_operation_record">Operation record</string>
 
 
 </resources>

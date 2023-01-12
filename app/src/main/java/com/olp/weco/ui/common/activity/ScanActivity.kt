@@ -20,16 +20,21 @@ class ScanActivity : BaseActivity(), OnCaptureCallback {
 
         const val KEY_CODE_TEXT = "key_code_text"
         const val KEY_PLANT_ID = "key_plantid"
+        const val KEY_DEVICE_ID = "key_device_id"
 
-        fun start(context: Context?, plantId: String) {
-            context?.startActivity(getIntent(context, plantId))
+        fun start(context: Context?, plantId: String, deviceId: String? = null) {
+            context?.startActivity(getIntent(context, plantId, deviceId))
         }
 
-        fun getIntent(context: Context?, plantId: String): Intent {
+        fun getIntent(context: Context?, plantId: String, deviceId: String?=null): Intent {
             return Intent(context, ScanActivity::class.java).apply {
                 putExtra(KEY_PLANT_ID, plantId)
+                deviceId?.let {
+                    putExtra(KEY_DEVICE_ID, deviceId)
+                }
             }
         }
+
 
     }
 

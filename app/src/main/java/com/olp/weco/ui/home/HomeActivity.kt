@@ -20,6 +20,7 @@ import com.olp.weco.ui.common.activity.ScanActivity
 import com.olp.weco.ui.common.fragment.RequestPermissionHub
 import com.olp.weco.ui.dataloger.AddDataLoggerActivity
 import com.olp.weco.ui.home.storage.HomeStatusFragment
+import com.olp.weco.ui.message.MessageActivity
 import com.olp.weco.ui.station.viewmodel.StationViewModel
 import com.olp.weco.view.pop.ListPopuwindow
 import com.olp.weco.view.popuwindow.ListPopModel
@@ -125,8 +126,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
         _binding.header.tvTitle.setOnClickListener(this)
         _binding.header.ivAdd.setOnClickListener(this)
         _binding.header.ifvMenu.setOnClickListener(this)
-
-
+        _binding.header.ivMsg.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -149,6 +149,11 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
             v === _binding.header.ifvMenu -> {
                 _binding.drawerLayout.openDrawer(GravityCompat.START)
 
+            }
+
+
+            v===_binding.header.ivMsg->{
+                MessageActivity.start(this,viewModel.currentStation?.id.toString())
             }
 
         }
